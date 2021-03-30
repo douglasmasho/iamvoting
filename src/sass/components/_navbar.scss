@@ -1,0 +1,60 @@
+.nav{
+    background-color: white;
+    display: flex;
+    padding: 1rem;
+    position: fixed;
+    justify-content: space-between;
+    top: 0;
+    left:0;
+    width: 100vw;
+    z-index: 200;
+
+    &__logo{
+        width: 8rem;
+        margin-left: 2rem;
+    }
+
+    &__link{
+        font-size: 2rem;
+        display: inline-block;
+        font-weight: bold;
+        text-decoration: none;
+        transition: all .6s;
+
+
+    
+        &:not(:last-child){
+            margin-right: 3rem;
+            color: $deep-blue;
+            border-bottom: white 1px solid;
+            &:hover{
+                color: $red-ish !important;
+            border-bottom: $red-ish 3px solid;
+
+            }
+        }
+        &:last-child{
+            color: white;
+            background-color: $deep-blue;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            &:hover{
+                color: $deep-blue;
+            background-color: $red-ish;
+
+            }
+        }
+    }
+}
+
+.logo-container{
+    width: 30%;
+}
+
+.link-container{
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 3rem;
+}

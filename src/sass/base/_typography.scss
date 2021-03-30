@@ -1,0 +1,55 @@
+body{
+    font-family: "Poppins", sans-serif;
+}
+
+.text-center{
+    @include center;
+    height: 100%;
+    width: 100%;
+}
+
+.testDiv{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    clip: rect(0, auto, auto, 0);
+}
+
+.testDiv .text-center{
+    overflow: hidden;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+
+.testDiv:nth-child(1) .text-center{
+    transform: translate(-50%, -50%);
+}
+
+.testDiv:nth-child(2){
+    box-shadow: inset 0 1px 80px rgba(0,0,0,0.14);
+    color: #fff;
+    top: 100vh;
+    z-index: 2;
+}
+
+.testDiv:nth-child(2) .text-center{
+    transform: translate(-50%, -50%);
+}
+
+.testDiv:nth-child(3){
+    box-shadow: inset 0 1px 80px rgba(0,0,0,0.14);
+    color: #fff;
+    top: 200vh;
+    z-index: 3;
+    color: black;
+}
+
+.testDiv:nth-child(4){
+    box-shadow: inset 0 1px 80px rgba(0,0,0,0.14);
+    color: #fff;
+    top: 300vh;
+    z-index: 3;
+}

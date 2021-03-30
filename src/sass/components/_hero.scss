@@ -1,0 +1,43 @@
+.hero{
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($deep-blue, 0.86),
+        rgba($deep-blue, 0.86)),
+    url(../../assets/backdrop.png);
+    width: 100vw;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    &__title{
+        margin-left: 3rem;
+        
+        & h1{
+            display: inline-block;
+            font-size: 7rem;
+            background-image: rgba($deep-blue, 0.86);
+            overflow: hidden;
+            
+
+            & span{
+                display: inline-block; 
+                // transform: translateY(100%);
+            }
+
+            &:first-child{
+                color: white;
+                display: block;
+            }
+            &:nth-child(2){
+                color: $deep-blue;
+                background-color: white;
+                padding: 0.5rem 1rem;
+                background-image: white;
+            }
+        }
+    }
+}
