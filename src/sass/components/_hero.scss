@@ -1,9 +1,5 @@
 .hero{
-    background-image: linear-gradient(
-        to right bottom,
-        rgba($deep-blue, 0.86),
-        rgba($deep-blue, 0.86)),
-    url(../../assets/backdrop.png);
+
     width: 100vw;
     height: 100vh;
     background-repeat: no-repeat;
@@ -12,6 +8,17 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    position: relative;
+
+    &__overlay{
+        background-color: rgba($deep-blue, 0.8);
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        z-index: 100;
+        top: 0;
+        left: 0;
+    }
 
     &__title{
         margin-left: 3rem;

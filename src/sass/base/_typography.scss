@@ -53,3 +53,13 @@ body{
     top: 300vh;
     z-index: 3;
 }
+
+.header-text{
+    font-size: 3rem;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.red-ish-text{
+    color: $red-ish;
+}

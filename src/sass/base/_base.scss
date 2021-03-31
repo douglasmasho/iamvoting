@@ -29,9 +29,13 @@ html{
 }
 
 .App{
-  background-color: $deep-blue;
-  height: 100vh;
+  background-color: $deep-blue !important;
   width: 100vw;
+}
+
+.showAbove{
+  position: relative;
+  z-index: 200;
 }
 
 
