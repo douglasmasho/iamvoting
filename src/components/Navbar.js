@@ -1,18 +1,21 @@
 import React from 'react';
 import Logo from "../assets/iamvotingnam.svg";
+import {Link} from "react-router-dom"
 
 const Navbar = () => {
     return (
         <div className="nav ">
             <div className="logo-container">
-               <img src={Logo} alt="" className="nav__logo"/>
+               <Link to="/"><img src={Logo} alt="" className="nav__logo"/></Link>
             </div>
             <div className="link-container">
-                <a href="#" className="nav__link">Write</a>
-                <a href="#" className="nav__link">About Us</a>
-                <a href="#" className="nav__link">Blog</a>
-                <a href="#" className="nav__link">Join Us</a>
-                <a href="#" className="nav__link">Donate</a>
+                <Link to="/" className="nav__link">Home</Link>
+                <Link to="#" className="nav__link">Blog</Link>
+                {/*create a read and write dropdown*/}
+                <Link to="joinus" className="nav__link">Join Us</Link>
+                <Link to="#" className="nav__link">About Us</Link>
+                <Link to="#" className="nav__link">Contact Us</Link>
+                <Link to="#" className="nav__link">Donate</Link>
             </div>
         </div>
     )

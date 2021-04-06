@@ -11,13 +11,6 @@ import Image6 from "../assets/fts/6.jpg";
 import Image7 from "../assets/fts/7.jpg";
 import Image8 from "../assets/fts/8.jpg";
 
-
-
-
-
-
-
-
 const Hero = () => {
     return (
         <div className="hero">

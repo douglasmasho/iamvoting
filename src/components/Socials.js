@@ -6,7 +6,7 @@ const Socials = () => {
     return (
         <div className="u-margin-top-huge">
             <Fade right>
-                <div className="center-hrz">z
+                <div className="center-hrz">
                     <h2 className="header-text red-ish-text u-margin-bottom">Our Socials</h2>
                 </div> 
             </Fade>

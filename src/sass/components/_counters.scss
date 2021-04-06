@@ -1,0 +1,25 @@
+.counters{
+    &__div{
+        background-color: white;
+        color: #0E0D4C;
+        width: 60%;
+        display: flex;
+        padding: 2rem 5rem;
+        border-radius: 20px;
+        justify-content: space-evenly;
+    }
+
+    &__counter{
+        text-align: center;
+        &:first-child{
+            margin-right: 10rem;
+        }
+        & .counters__number{
+            font-size: 6rem;
+        }
+        & p{
+            font-weight: bold;
+            font-size: 2rem;
+        }
+    }
+}
