@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import * as actionCreators from "../redux/actions";
 import {bindActionCreators} from "redux";
 
+
 class JoinUs extends React.Component {
     constructor(props) {
         super(props);
@@ -26,20 +27,28 @@ class JoinUs extends React.Component {
     }
 
     handleSubmit = (e)=>{
+        document.querySelectorAll("input").forEach(e=> e.value = "")
         e.preventDefault();
         this.props.newMember(this.state);
+    }
+
+    componentDidUpdate(prevProps, prevState){
+        console.log(this.props.error)
+        
     }
 
     render() {
         return (
         <div className="joinus__div">
             <form  onSubmit={this.handleSubmit}>
-                <input type="text" id="name" placeholder="name" onChange={this.handleChange}/>
-                <input type="email" id="email" placeholder="email" onChange={this.handleChange}/>
-                <input type="number" id="age" placeholder="age" onChange={this.handleChange}/>
+                <input type="text" id="name" placeholder="name" onChange={this.handleChange} required/>
+                <input type="email" id="email" placeholder="email" onChange={this.handleChange} required/>
+                <input type="number" id="age" placeholder="age" onChange={this.handleChange} required/>
                 <button type="submit">Submit</button>
             </form>
             <button onClick={()=>console.log(this.props.members)}>See new State</button>
+            {/* <p style={{color: "red"}}>Error</p> */}
+            {this.props.error !== null ? <p style={{color: "red"}}>{this.props.error}</p> : <p style={{color: "red"}}></p>}
         </div>
         );
     }
@@ -48,7 +57,8 @@ class JoinUs extends React.Component {
 
 const mapStateToProps = state=>{
     return({
-        members: state.members
+        members: state.members,
+        error: state.joinError
     })
 }
 

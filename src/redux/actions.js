@@ -1,3 +1,5 @@
+
+
 export const increment = ()=>{
     ///the dispatch is halted, so we can fetch data and use that when we dispatch  
     return {
@@ -14,12 +16,47 @@ export const decrement = ()=>{
 }
 
 export const newMember = (mObject)=>{
-    console.log(mObject)
-    return (dispatch, getState)=>{
+    return (dispatch, getState, {getFirebase, getFirestore})=>{ ///return a function
         //make async call to the database //add project to the database or request to the database.
-        dispatch({
-            type: "ADD_MEMBER",
-            mObject
+        const firestore = getFirestore();
+
+        //check if the email already exists, if it does, return an error, if it does not
+        firestore.collection("newMembers").doc("memberObjects").get().then(resp=>{
+            if(!resp.data().emailArray.some(el=> el === mObject.email)){
+            //add the object to the mArray
+                firestore.collection("newMembers").doc("memberObjects").update({
+                    mArray: firestore.FieldValue.arrayUnion(mObject)
+                }).then((resp)=>{
+                //add 1 to the mNumber
+                 return firestore.collection("newMembers").doc("memberObjects").update({
+                      mNumber: firestore.FieldValue.increment(1)
+                  })
+                }).then(()=>{
+                    return firestore.collection("newMembers").doc("memberObjects").update({
+                        emailArray: firestore.FieldValue.arrayUnion(mObject.email)
+                    })
+                }
+                ).then(()=>{
+                    dispatch({
+                        type: "JOIN_ERROR",
+                        error: null
+                    })
+                }).catch((e)=>{
+                    console.log(e)
+                    dispatch({
+                        type: "JOIN_ERROR",
+                        error: e
+                    })
+                })
+            }else{
+                dispatch({
+                    type: "JOIN_ERROR",
+                    error: "your email addrress has been discovered in our records, you are already a member."
+                })
+            }
+            
         })
+
+
     }
 }

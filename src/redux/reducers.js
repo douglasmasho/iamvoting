@@ -1,4 +1,5 @@
-import {combineReducers} from "redux"; //this is the function to combine reducers
+import {combineReducers} from "redux"; //this is the function to combine 
+import {firestoreReducer} from "redux-firestore";
 
 //reducer 1, for the counter state
 const counterReducer = (state = 0, action)=>{
@@ -24,16 +25,28 @@ const isLoggedReducer = (state=false, action)=>{
 const membersReducer = (state=[], action)=>{
   switch(action.type){
       case "ADD_MEMBER":
-          return [...state, action.mObject]
+          return [...state, action.mObject];
       default: return state
   }
 }
+
+const joinErrorReducer = (state= null, action)=>{
+  switch(action.type){
+    case "JOIN_ERROR":
+      return action.error
+    default: return state;
+  }
+}
+
+
 
  const rootReducer = combineReducers({
     //nameOfState: nameOfReducer,
     counter: counterReducer,
     isLogged: isLoggedReducer,
-    members: membersReducer
+    members: membersReducer,
+    joinError: joinErrorReducer,
+    firestore: firestoreReducer
 })
 
 export default rootReducer;
