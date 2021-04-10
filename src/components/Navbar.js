@@ -9,13 +9,24 @@ const Navbar = () => {
                <Link to="/"><img src={Logo} alt="" className="nav__logo"/></Link>
             </div>
             <div className="link-container">
-                <Link to="/" className="nav__link">Home</Link>
-                <Link to="#" className="nav__link">Blog</Link>
-                {/*create a read and write dropdown*/}
-                <Link to="joinus" className="nav__link">Join Us</Link>
-                <Link to="#" className="nav__link">About Us</Link>
-                <Link to="#" className="nav__link">Contact Us</Link>
-                <Link to="#" className="nav__link">Donate</Link>
+                <ul>
+                    <li className="nav__link"><Link to="/" >Home</Link></li>
+                    <li className="nav__link"><Link to="/" >Blog</Link></li>
+                    <li className="nav__link"><Link to="joinus">Join Us</Link></li>
+                    <li className="nav__link sub-menu-link">
+                        <Link to="/">About Us</Link>
+                        <div className="sub-menu-1">
+                            <ul>
+                                <Link to="/" ><li className="sub-link">The Team</li></Link>
+                                <Link to="joinus"><li className="sub-link">Gallery</li></Link>
+                                <Link to="/" ><li className="sub-link">Achievements</li></Link>
+                                <Link to="/" ><li className="sub-link">Events</li></Link>
+                            </ul>
+                        </div>
+                    </li>
+                    <li className="nav__link"><Link to="/" >Contact us</Link></li>
+                    <li className="nav__link"><Link to="/" >Donate</Link></li>
+                </ul>
             </div>
         </div>
     )

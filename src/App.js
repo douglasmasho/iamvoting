@@ -10,6 +10,7 @@ import {bindActionCreators} from "redux";
 import Counters from './components/Counters';
 import {Route} from "react-router-dom";
 import JoinUs from "./components/JoinUs"
+import Footer from './components/Footer';
 function App(props) {
 
   return (
@@ -27,8 +28,8 @@ function App(props) {
             </>        
           )
         }}/>
-
         <Route path="/joinus" component={JoinUs}/>
+        <Footer/>
     </div>
   );
 }

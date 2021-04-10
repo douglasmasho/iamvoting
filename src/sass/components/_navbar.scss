@@ -20,8 +20,10 @@
         font-weight: bold;
         text-decoration: none;
         transition: all .6s;
-
-
+         & a{
+             text-decoration: none !important;
+             color: unset;
+         }
     
         &:not(:last-child){
             margin-right: 3rem;
@@ -29,8 +31,7 @@
             border-bottom: white 1px solid;
             &:hover{
                 color: $red-ish !important;
-            border-bottom: $red-ish 3px solid;
-
+                border-bottom: $red-ish 3px solid;
             }
         }
         &:last-child{
@@ -57,4 +58,36 @@
     justify-content: flex-end;
     align-items: center;
     margin-right: 3rem;
+}
+
+.sub-menu-1{
+    // display: none;
+    position: absolute;
+    z-index: 10000;
+    background-color: white;
+    padding: 2rem;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    display: none;
+     & ul{
+         list-style: none;
+     }
+}
+
+.sub-menu-link:hover{
+    & .sub-menu-1{
+        display: block;
+    }
+}
+
+.sub-link{
+    transition: all .3s;
+    color: $deep-blue !important;
+    padding: 1rem;
+    border-radius: 6px;
+    
+    &:hover{
+     background-color: $red-ish !important;
+     color: white !important;
+    }
 }

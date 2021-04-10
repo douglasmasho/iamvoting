@@ -12,7 +12,7 @@ const Socials = () => {
             </Fade>
             <div className="socials-div">
                     <Fade>
-                        <img src={Twitter} alt="" className="socials-icon"/>
+                        {/* <img src={Twitter} alt="" className="socials-icon"/> */}
                         <div className="center-hrz">
                                 <Timeline
                                     dataSource={{
@@ -21,7 +21,7 @@ const Socials = () => {
                                     }}
                                     options={{
                                         height: '400',
-                                        width: "600"
+                                        width: "700"
                                     }}
                                 />
                         </div>
