@@ -10,7 +10,7 @@ const Socials = () => {
                     <h2 className="header-text red-ish-text u-margin-bottom">Our Socials</h2>
                 </div> 
             </Fade>
-            <div className="socials-div">
+            <div className="socials-div u-margin-bottom-huge">
                     <Fade>
                         {/* <img src={Twitter} alt="" className="socials-icon"/> */}
                         <div className="center-hrz">
@@ -20,12 +20,11 @@ const Socials = () => {
                                         screenName: 'iamvoting_nam'
                                     }}
                                     options={{
-                                        height: '400',
+                                        height: '500',
                                         width: "700"
                                     }}
                                 />
                         </div>
-
                     </Fade>
             </div>
         </div>

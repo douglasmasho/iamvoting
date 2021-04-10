@@ -1,6 +1,10 @@
 .u-margin-bottom{
     margin-bottom: 2.5rem;
 
+    &-huge{
+      margin-bottom: 12rem !important; 
+    }
+
     &-big{
       margin-bottom: 8rem !important; 
     }

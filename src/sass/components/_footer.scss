@@ -34,6 +34,8 @@
         }
         &__2{
             width: 50%;
+            text-align: center;
+            // background-color: whiteb;
         }
     }
 
@@ -56,8 +58,26 @@
         margin-right: 10px;
         &__heart{
         color: orange;
-        font-size: 2rem;
-        
+        font-size: 2rem;  
+        }
+    }
+
+
+    &__social-icon{
+        color: white;
+        width: 4rem;
+        transition: all .3s;
+        &:hover{
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+    }
+    &__social-list{
+        & li{
+            display: inline-block;
+            &:not(:last-child){
+                margin-right: 3rem;
+            }
         }
     }
 }

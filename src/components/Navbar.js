@@ -17,6 +17,8 @@ const Navbar = () => {
                         <Link to="/">About Us</Link>
                         <div className="sub-menu-1">
                             <ul>
+                            <Link to="/" ><li className="sub-link">Our Vision</li></Link>
+                            <Link to="/" ><li className="sub-link">Our Mission</li></Link>
                                 <Link to="/" ><li className="sub-link">The Team</li></Link>
                                 <Link to="joinus"><li className="sub-link">Gallery</li></Link>
                                 <Link to="/" ><li className="sub-link">Achievements</li></Link>
@@ -24,7 +26,7 @@ const Navbar = () => {
                             </ul>
                         </div>
                     </li>
-                    <li className="nav__link"><Link to="/" >Contact us</Link></li>
+                    <li className="nav__link"><a href="#contactus">Contact us</a></li>
                     <li className="nav__link"><Link to="/" >Donate</Link></li>
                 </ul>
             </div>
