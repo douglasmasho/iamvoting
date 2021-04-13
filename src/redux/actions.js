@@ -60,3 +60,26 @@ export const newMember = (mObject)=>{
 
     }
 }
+
+export const subscribe = (email)=>{
+    return (dispatch, getState, {getFirebase, getFirestore})=>{
+        const firestore = getFirestore();
+        console.log(email);
+        //get the email array for check
+        firestore.collection("subList").doc("subList").get().then(resp=>{
+            if(!resp.data().subList.some(e=> e === email)){
+                firestore.collection("subList").doc("subList").update({
+                    subList: firestore.FieldValue.arrayUnion(email)
+                }).then(resp=>{
+                    console.log("upload successsful")
+                }).catch(e=>{
+                    console.log(e);
+                })
+            }else{
+                ///dishpatch an error message
+                console.log("this email is already subscribed");
+            }
+        })
+
+    }
+}

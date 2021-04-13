@@ -1,10 +1,14 @@
-import React, { Component } from 'react'
+import React, { Component, createRef } from 'react'
 import Logo from "../assets/iamvotingnam.svg"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import {connect} from "react-redux";
+import * as actionCreators from "../redux/actions";
+import {bindActionCreators} from "redux";
+
 
 import Facebook from "../assets/facebook.svg";
 import Instagram from "../assets/instagram.svg";
@@ -14,9 +18,33 @@ import Twitter from "../assets/twitter.svg";
 export class Footer extends Component {
     constructor(){
         super();
-        // this.state = {
+        this.state = {
+            subEmail: "",
+        }
+        this.inputRef = createRef();
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+    }
 
-        // }
+    handleChange = (e)=>{
+        console.log("uiuhiuh");
+        this.setState((state,prevState)=>{
+           return {
+            [e.target.id]: e.target.value
+           } 
+        })  
+    }
+
+    handleSubmit = (e)=>{
+        e.preventDefault();
+        this.props.subscribe(this.state.subEmail);
+        this.inputRef.current.value = "";
+        this.inputRef.current.placeholder = "you have subscribed to our newsletter";
+        setTimeout(()=>{
+            this.inputRef.current.placeholder = "enter an email address";
+        }, 2000);
+
+        ///submit to firebase
     }
     render() {
         return (
@@ -28,8 +56,8 @@ export class Footer extends Component {
                         <p className="white-text normal-text">subscribe to our newsletter</p>
                     </div>
                     <div className="footer__firstdiv__2">
-                    <form action="">
-                           <input id="sub-email" type="email" placeholder="enter your email address" className="footer__text u-margin-right input-text" required/>
+                    <form action="" onSubmit={this.handleSubmit}>
+                           <input id="subEmail" type="email" placeholder="enter your email address" className="footer__text u-margin-right input-text" required onChange={this.handleChange} ref={this.inputRef}/>
                            <button type="submit" className="button">Subscribe</button>
                      </form>
                     </div>
@@ -66,7 +94,11 @@ export class Footer extends Component {
     }
 }
 
-export default Footer
+const mapDispatchToProps = (dispatch)=>{
+    return bindActionCreators(actionCreators, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(Footer);
 
 
 

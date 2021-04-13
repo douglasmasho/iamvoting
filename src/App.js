@@ -11,6 +11,7 @@ import Counters from './components/Counters';
 import {Route} from "react-router-dom";
 import JoinUs from "./components/JoinUs"
 import Footer from './components/Footer';
+import Fade from 'react-reveal/Fade';
 function App(props) {
 
   return (
@@ -22,7 +23,9 @@ function App(props) {
             <>
               <Hero/>
               <Intro/>
-              <Counters/>
+              <Fade>
+               <Counters/>
+              </Fade>
                {/* put the counters here */}
               <Socials/>
             </>        
