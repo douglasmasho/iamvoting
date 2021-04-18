@@ -3,3 +3,87 @@
     font-family: "Poppins", sans-serif;
     font-weight: 300;
 }
+
+.valid{
+    border: green 3px solid !important;
+    background-color: green;
+    color: white;
+}
+.invalid{
+    border: red 3px solid !important;
+    background-color: rgb(128, 0, 0);
+    color: white;
+}
+
+.input{
+    &-textbox{
+       width: 100%;
+        border-radius: 30px;
+        border: none;
+        box-shadow: 2px 0px 10px 0px rgba(5, 5, 5, 0.075);
+        padding: 1.5rem 2rem;
+        transition: all .2s;
+        font-size: 1.5rem;
+        font-family: "Montserrat", sans-serif;
+        width: 80%;
+        @include respond(tab-land){  
+            font-size: 3rem;
+          }
+        @include respond(phone){  
+            font-size: 3rem;
+          }
+        &:placeholder-shown + label{
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all .2s;
+            font-family: Montserrat;
+        }
+    }
+    &-number{
+        width: 80%;
+        border: none;
+        border-radius: 30px;
+        padding: 1.5rem 2rem;
+        font-family: Montserrat;
+        box-shadow: 2px 0px 10px 0px rgba(5, 5, 5, 0.075);
+        @include respond(tab-port){
+            font-size: 3rem;
+            width:80%;
+        }
+
+        &:placeholder-shown + label{
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all .2s;
+            font-family: Montserrat;
+        }
+    }
+    &-select{
+        padding: 1.5rem 2rem;
+        border-radius: 30px;
+        border: none;
+        width: 80%;
+        font-family: Montserrat;
+    }
+    &-textarea{
+        // width: 50%;
+        height: 10rem;
+        font-family: Montserrat;
+        border-radius: 20px;
+        padding: 1rem;
+        border: none;
+    }
+    &--label{
+        font-size: 1.5rem;
+        color: white;
+        @include respond(tab-port){
+            font-size: 3rem; 
+                                            //1rem = 8px , 8/16  50%
+            } 
+        
+    }
+}
+
+

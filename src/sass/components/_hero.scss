@@ -22,14 +22,15 @@
 
     &__title{
         margin-left: 3rem;
+
+        
         
         & h1{
             display: inline-block;
             font-size: 7rem;
             background-image: rgba($deep-blue, 0.86);
             overflow: hidden;
-            
-
+            font-weight: 900;
             & span{
                 display: inline-block; 
                 // transform: translateY(100%);

@@ -20,7 +20,6 @@ let store = createStore(rootReducer,
     )
   );
 
-
   const rrfProps = {
     firebase,
     config: fbConfig,

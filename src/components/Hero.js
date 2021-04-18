@@ -19,8 +19,7 @@ const Hero = () => {
               <h1>
               <Timeline target={<span className="showAbove">IAmVoting</span>}>
                     <Tween to={{ y: "0", x: 0, opacity: 1, scale: 1}} duration={0.6} from={{ opacity: 0, y: "100%"}}/>
-                </Timeline>
-                  
+                </Timeline>       
               </h1>
               
               <Timeline target={

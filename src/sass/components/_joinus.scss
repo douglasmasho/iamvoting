@@ -4,5 +4,13 @@
         padding-top: 15rem;
         height: 100vw;
         width: 100vw;
+        // margin-bottom
+        @include respond(tab-land){
+            margin-bottom: 70rem;
+            } 
+
+            @include respond(tab-port){
+                margin-bottom: 90rem;
+                } 
     }
 }

@@ -1,0 +1,78 @@
+.aboutus{
+    &__herodiv{
+        padding-top: 15rem;
+        background-image: linear-gradient(
+            to right bottom,
+            rgba($deep-blue, 0.3),
+            rgba($deep-blue, 0.3)),
+        url(../../assets/90304987_558423835032242_5353362425220221772_n.png);
+        height: 100vh;
+        background-size: cover;
+    }
+
+    &__title{
+        margin-left: 3rem;  
+        & h1{
+            display: inline-block;
+            font-size: 7rem;
+            background-image: rgba($deep-blue, 0.86);
+            overflow: hidden;
+            font-weight: 900;
+            & span{
+                // display: inline-block; 
+                // transform: translateY(100%);
+            }
+
+            &:first-child{
+                color: white;
+                display: block;
+            }
+            &:nth-child(2){
+                color: $deep-blue;
+                background-color: white;
+                padding: 0.5rem 1rem;
+                background-image: white;
+            }
+        }
+    }
+
+    &__aboutdiv{
+        background-color: white;
+        padding: 2rem 5rem;
+        text-align: center;
+        padding: 5rem;
+    }
+
+    &__introdiv{
+        // overflow: hidden;
+        position: relative;
+        width: 50%;
+        margin-bottom: 15rem;
+        margin-top: 5rem;
+    }
+
+    &__icon{
+        position: absolute;
+        width: 30rem;
+        top: -10%;
+        z-index: 1;
+
+        &--right{
+            right: 0rem;
+        }
+
+        &--left{
+            left: 0rem;
+        }
+    }
+
+    &__intro-title{
+        font-size: 5rem;
+        color: $deep-blue;
+        font-weight: bold;
+        display: inline-block;
+        z-index: 5;
+        position: relative;
+
+    }
+}
