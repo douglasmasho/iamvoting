@@ -83,3 +83,12 @@ export const subscribe = (email)=>{
 
     }
 }
+
+
+export const setPassword = (password)=>{
+    return {
+        type: "ENTER_PASSWORD",
+        password
+    }
+}
+

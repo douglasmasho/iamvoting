@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 import Fade from 'react-reveal/Fade';
 import ScrollToTop from "./components/ScrollToTop";
 import AboutUs from "./components/AboutUs";
+import Dashboard from "./components/Dashboard";
 
 function App(props) {
   const scrollDivRef = useRef();
@@ -45,6 +46,7 @@ function App(props) {
             }}/>
             <Route path="/joinus" component={JoinUs}/>
             <Route path="/aboutus" component={AboutUs}/>
+            <Route path="/write" component={Dashboard}/>
           </div>
            {/* <button onClick={scrollToTop}>scroll</button> */}
         <Footer/>

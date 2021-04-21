@@ -1,8 +1,6 @@
 @import "./abstracts/mixins";
 @import "./abstracts/variables";
 
-
-
 @import "./base/animations";
 @import "./base/base";
 @import "./base/typography";
@@ -17,6 +15,8 @@
 @import "./components/footer";
 @import "./components/button";
 @import "./components/input";
+@import "./components/modal";
+
 
 @import "./layout/center_hrz";
 @import "./layout/center_vert";

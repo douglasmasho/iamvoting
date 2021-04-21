@@ -40,6 +40,35 @@
             font-family: Montserrat;
         }
     }
+    &-password{
+      
+            width: 100%;
+             border-radius: 30px;
+             border: none;
+             box-shadow: 2px 0px 10px 0px rgba(5, 5, 5, 0.075);
+             padding: 1.5rem 2rem;
+             transition: all .2s;
+             font-size: 1.5rem;
+             font-family: "Montserrat", sans-serif;
+             width: 80%;
+             
+             @include respond(tab-land){  
+                 font-size: 3rem;
+               }
+             @include respond(phone){  
+                 font-size: 3rem;
+               }
+             &:placeholder-shown + label{
+                 opacity: 0;
+                 visibility: hidden;
+                 transform: translateY(-10px);
+                 transition: all .2s;
+                 font-family: Montserrat;
+             }
+
+
+        
+    }
     &-number{
         width: 80%;
         border: none;

@@ -3,6 +3,9 @@ import { Controls, PlayState, Timeline, Tween } from 'react-gsap';
 import Eye from "../assets/eye.svg";
 import Arrow from "../assets/arrow-circle-up-right.svg";
 import Anchor from "../assets/basic_anchor.svg";
+import Fade from 'react-reveal/Fade';
+import Structure from "../assets/Group 12.svg";
+
 
 
 
@@ -36,7 +39,7 @@ const AboutUS = () => {
                         </div>
                 </div>
 
-                <div className="aboutus__aboutdiv">
+                <div className="aboutus__aboutdiv u-margin-bottom-big">
                     <div className="u-padding-large u-margin-bottom-big">
                         <h2 className="normal-text align-center">Established in 2019, I Am Voting Namibia is the
                                     first youth organization to be accredited by the 
@@ -48,53 +51,79 @@ const AboutUS = () => {
                     </div>
 
                     <div className="center-hrz--col">
-                        <section className="aboutus__introdiv" id="mission">
-                                <img src={Eye} alt="" className="aboutus__icon aboutus__icon--right"/>
-                                <h1 className="aboutus__intro-title">Our Vision</h1>
-                                <div className="center-hrz u-margin-bottom-small">
-                                <div className="redline redline--aboutus showAbove" style={{marginTop: 0}}></div>
-                                </div>
-                                <p className="normal-text align-center">I AM VOTING Namibia strives to be the 
-                                leading organization in activating the participation of young people in democratic processes. 
-                                </p>
-                            </section>
 
-
+                        <Fade right>
                             <section className="aboutus__introdiv" id="vision">
-                                <img src={Arrow} alt="" className="aboutus__icon aboutus__icon--left"/>
-                                <h1 className="aboutus__intro-title">Our Mission</h1>
-                                <div className="center-hrz u-margin-bottom-small">
-                                <div className="redline redline--aboutus showAbove" style={{marginTop: 0}}></div>
-                                </div>
-                                <p className="normal-text align-center">Our core work is based on the understanding 
-                                            of democratic processes. We empower young
-                                            people as equal participants in democratic 
-                                            processes with information on why, when, where 
-                                            and how to vote through outreach and 
-                                            education programs.
-                                </p>
-                            </section>
+                                   <Fade left>
+                                   <img src={Eye} alt="" className="aboutus__icon aboutus__icon--right"/>
+                                   </Fade>
+                                    <h1 className="aboutus__intro-title">Our Vision</h1>
+                                    <div className="center-hrz u-margin-bottom-small">
+                                    <div className="redline redline--aboutus showAbove" style={{marginTop: 0}}></div>
+                                    </div>
+                                    <p className="normal-text align-center">I AM VOTING Namibia strives to be the 
+                                    leading organization in activating the participation of young people in democratic processes. 
+                                    </p>
+                                </section>
+                        </Fade>
 
-                            <section className="aboutus__introdiv" id="values">
-                                <img src={Anchor} alt="" className="aboutus__icon aboutus__icon--right"/>
-                                <h1 className="aboutus__intro-title">Our Values</h1>
-                                <div className="center-hrz u-margin-bottom-small">
-                                <div className="redline redline--aboutus showAbove" style={{marginTop: 0}}></div>
-                                </div>
-                                <p className="normal-text align-center" style={{zIndex: "5", position:"relative"}}>
-                                    <ul style={{listStyle: "none"}}>
-                                        <li>Independence</li>
-                                        <li>Inclusiveness</li>
-                                        <li>Commitment</li>
-                                        <li>Professionalism and objectivity: Teamwork culture</li>
 
-                                    </ul>
-                                </p>
-                            </section>
+
+                            <Fade left>
+                                <section className="aboutus__introdiv" id="mission">
+                                    <Fade right>
+                                    <img src={Arrow} alt="" className="aboutus__icon aboutus__icon--left"/>
+                                    </Fade>
+                                    <h1 className="aboutus__intro-title">Our Mission</h1>
+                                    <div className="center-hrz u-margin-bottom-small">
+                                    <div className="redline redline--aboutus showAbove" style={{marginTop: 0}}></div>
+                                    </div>
+                                    <p className="normal-text align-center">Our core work is based on the understanding 
+                                                of democratic processes. We empower young
+                                                people as equal participants in democratic 
+                                                processes with information on why, when, where 
+                                                and how to vote through outreach and 
+                                                education programs.
+                                    </p>
+                                </section>
+                            </Fade>
+
+                            <Fade right>
+                                <section className="aboutus__introdiv" id="values">
+                                    <Fade left>
+                                    <img src={Anchor} alt="" className="aboutus__icon aboutus__icon--right"/>
+                                    </Fade>
+                                    <h1 className="aboutus__intro-title">Our Values</h1>
+                                    <div className="center-hrz u-margin-bottom-small">
+                                    <div className="redline redline--aboutus showAbove" style={{marginTop: 0}}></div>
+                                    </div>
+                                    <p className="normal-text align-center" style={{zIndex: "5", position:"relative"}}>
+                                        <ul style={{listStyle: "none"}}>
+                                            <li>Independence</li>
+                                            <li>Inclusiveness</li>
+                                            <li>Commitment</li>
+                                            <li>Professionalism and objectivity: Teamwork culture</li>
+
+                                        </ul>
+                                    </p>
+                                </section>
+                            </Fade>
+
                     </div>
 
                 </div>
                     
+                    <section className="aboutus__teamdiv" id="team">
+                        <Fade>
+                        <h2 className="header-text red-ish-text u-margin-bottom-small">The team</h2>
+                        </Fade>
+                        <h2 className="white-text bigger-text align-center u-margin-bottom-big">Our organizational structure</h2>
+                        
+                            <div className="center-hrz">
+                            <img src={Structure} alt="" style={{width: "100%"}}/>
+                            </div>
+
+                    </section>
         </div>
      
     )

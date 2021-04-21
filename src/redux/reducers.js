@@ -1,5 +1,14 @@
 import {combineReducers} from "redux"; //this is the function to combine 
 import {firestoreReducer} from "redux-firestore";
+import {persistReducer} from "redux-persist";
+import storage from "redux-persist/lib/storage";
+
+//
+const persistConfig = {
+  key: "root",
+  storage,
+  whiteList: ["password"] 
+}
 
 //reducer 1, for the counter state
 const counterReducer = (state = 0, action)=>{
@@ -38,15 +47,28 @@ const joinErrorReducer = (state= null, action)=>{
   }
 }
 
+const writersPassReducer = (state = false, action)=>{
+  switch(action.type){
+    case "ENTER_PASSWORD":
+     return action.password === "123";
+     default: return state
+  }
+}
+
+
 
 
  const rootReducer = combineReducers({
-    //nameOfState: nameOfReducer,
     counter: counterReducer,
     isLogged: isLoggedReducer,
     members: membersReducer,
     joinError: joinErrorReducer,
+    password: writersPassReducer,
     firestore: firestoreReducer
 })
 
-export default rootReducer;
+
+
+// export default rootReducer;
+
+export default  persistReducer(persistConfig, rootReducer);

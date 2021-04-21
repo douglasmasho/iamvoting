@@ -9,7 +9,7 @@
         height: 100vh;
         background-size: cover;
     }
-
+    
     &__title{
         margin-left: 3rem;  
         & h1{
@@ -18,10 +18,10 @@
             background-image: rgba($deep-blue, 0.86);
             overflow: hidden;
             font-weight: 900;
-            & span{
-                // display: inline-block; 
-                // transform: translateY(100%);
-            }
+            // & span{
+            //     // display: inline-block; 
+            //     // transform: translateY(100%);
+            // }
 
             &:first-child{
                 color: white;
@@ -38,7 +38,12 @@
 
     &__aboutdiv{
         background-color: white;
-        padding: 2rem 5rem;
+        text-align: center;
+        padding: 5rem;
+    }
+
+    &__teamdiv{
+        background-color: $deep-blue;
         text-align: center;
         padding: 5rem;
     }
