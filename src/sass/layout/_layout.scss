@@ -1,0 +1,36 @@
+.home{
+    padding-top: 8rem;
+    width: 99.9vw;
+    height: 100vh;
+    display: flex;
+    // @include respond(phone){
+    // display: unset;
+    // }
+}
+
+#dbnavigation{
+    width: 15%;
+    background-color: #03071E;
+    position: relative;
+    // @include respond(phone){
+    //     width: 0%;
+    //     position: fixed;
+    //     left: 0;
+    //     top: 0;
+    //     bottom: 0;
+    //     z-index: 7000;
+    // }
+}
+#dashboard{
+    width: 85%;
+    background-color: rgb(22, 22, 22);
+    overflow-y: scroll;
+    position: relative;
+    scroll-behavior: smooth;
+    // @include respond(phone){
+    //     width: 90%;
+    //     padding: 5rem;
+    //     min-height: 100vh;
+
+    // }
+}

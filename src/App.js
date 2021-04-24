@@ -46,7 +46,7 @@ function App(props) {
             }}/>
             <Route path="/joinus" component={JoinUs}/>
             <Route path="/aboutus" component={AboutUs}/>
-            <Route path="/write" component={Dashboard}/>
+            <Route path="/write/:action" component={Dashboard}/>
           </div>
            {/* <button onClick={scrollToTop}>scroll</button> */}
         <Footer/>

@@ -89,7 +89,7 @@ const Navbar = (props) => {
                   <button type="submit" className="button">Go</button>
                   </div>
                   <div className="center-hrz">
-                  {props.password ? <Link className="button" to="/write" onClick={closeModal}>Start Writing</Link> : null}
+                  {props.password ? <Link className="button" to="/write/articles" onClick={closeModal}>Start Writing</Link> : null}
                   </div>
                   {!props.password ? <p className="red-ish-text align-center u-margin-top normal-text" ref={errorTextRef} style={{display: "none"}}>Password is incorrect</p> : null}            
               </form>
