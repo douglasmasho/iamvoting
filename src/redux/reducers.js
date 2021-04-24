@@ -56,6 +56,14 @@ const writersPassReducer = (state = false, action)=>{
 }
 
 
+const authReducer = (state=false, action)=>{
+  switch(action.type){
+    case "SET_AUTH": return action.status
+    default: return state
+  }
+}
+
+
 
 
  const rootReducer = combineReducers({
@@ -64,7 +72,8 @@ const writersPassReducer = (state = false, action)=>{
     members: membersReducer,
     joinError: joinErrorReducer,
     password: writersPassReducer,
-    firestore: firestoreReducer
+    firestore: firestoreReducer,
+    authStatus: authReducer
 })
 
 

@@ -1,15 +1,32 @@
-import React from 'react'
-import {Route} from "react-router-dom";
+import React, {useEffect} from 'react'
+import {Route, Redirect} from "react-router-dom";
+import firebase from 'firebase/app';
+import {connect} from "react-redux";
 
-const Articles = () => {
+
+const Articles = (props) => {
+  
+  useEffect(()=>{
+    
+    if(firebase.auth().currentUser){
+      console.log(firebase.auth().currentUser)
+      console.log(firebase.auth().currentUser.displayName);
+    }
+  })
+  
+
     return (
         <div className="screen">
           <p class="white-text">articles</p>
           <Route path="/write/articles/new" render={()=>{
-            return <p className="white-text">joijijoijoijiojoijoijoi</p>
-          }}/>
+            return props.auth && firebase.auth() ? <p className="white-text">your uid is {firebase.auth().currentUser.uid}</p> : <Redirect to="/write/account"/>}
+          }/>
         </div>
     )
 }
 
-export default Articles
+const mapStateToProps = state=>({ //is the state in the store ///will take the state from the store and put it as props in the component that is being connected
+  auth: state.authStatus
+});
+
+export default connect(mapStateToProps)(Articles)

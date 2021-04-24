@@ -1,4 +1,4 @@
-import React, {Component, useRef, useEffect} from 'react';
+import React, {Component, useRef, useEffect, useState} from 'react';
 import * as actionCreators from "../redux/actions";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
@@ -10,12 +10,31 @@ import Menu from "./Menu";
 import Account from "./Account";
 import Articles from "./Articles";
 import Events from "./Events";
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import firebase from 'firebase/app';
+
+    
+// firebase.initializeApp({
+//   apiKey: "AIzaSyCKu33RFo02Wiu_6nZdUqcXVgT_wO8pn6o",
+//   authDomain: "iamvoting-628bb.firebaseapp.com"
+// })
 
 const Dasboard = (props) => {
   const dashboardRef = useRef();
   const navRef = useRef();
   const navCloseRef = useRef();
-
+  const [isSignedIn, setIsSignedIn] = useState(false);
+  const   uiConfig = {
+    signInFlow: "popup",
+    signInOptions: [
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+      firebase.auth.EmailAuthProvider.PROVIDER_ID
+    ],
+    callbacks: {
+      signInSuccess: () => false
+    }
+  }
 
   const linkClick=()=>{
     let currentLink = document.querySelector(".activeLink");
@@ -27,6 +46,17 @@ const Dasboard = (props) => {
    useEffect(()=>{
      console.log(props.match.params.action)
    })
+
+   useEffect(()=>{
+     firebase.auth().onAuthStateChanged(user=>{
+       setIsSignedIn(!!user)
+      //  if(user){
+      //    setIsSignedIn(true)
+      //  }else{
+      //    setIsSignedIn(false)
+      //  }
+     })
+   }, [])
 
   //  useEffect(()=>{
   //   let menuLinks = document.querySelectorAll(".menu--link");
@@ -101,10 +131,11 @@ const Dasboard = (props) => {
                   <Menu/>
               </div>
               <div id="dashboard">
+                iuhiuhiu <br/>
+                ugiugiugiug
                 <Route path="/write/account"  component={Account}/>
                 <Route path="/write/articles"  component={Articles}/>
                 <Route path="/write/events"  component={Events}/>
-
               </div>
       </div>
     )

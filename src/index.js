@@ -14,6 +14,7 @@ import firebase from 'firebase/app';
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 import {persistStore} from "redux-persist";
 import {PersistGate} from "redux-persist/integration/react";
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 //create the store==>state will be stored here
 let store = createStore(rootReducer, 
   compose(
