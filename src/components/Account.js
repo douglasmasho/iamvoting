@@ -13,7 +13,7 @@ const Account = (props) => {
     signInOptions: [
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-      firebase.auth.EmailAuthProvider.PROVIDER_ID
+      // firebase.auth.EmailAuthProvider.PROVIDER_ID
     ],
     callbacks: {
       signInSuccess: () => false
@@ -36,12 +36,21 @@ const Account = (props) => {
         <div className="screen">
           {props.auth && firebase.auth().currentUser ? 
           <>
-          <p class="white-text">signed in!</p>
-          <button className="button" onClick={()=>firebase.auth().signOut()}>Sign Out</button>
-          <h1>Welcome {firebase.auth().currentUser.displayName}, your uID is {firebase.auth().currentUser.uid}</h1>
-          <img src={firebase.auth().currentUser.photoURL} alt=""/>
+          <div class="u-margin-bottom-huge">
+            <h1 className="screen__header">My Account</h1>
+            <div className="redline redline--aboutus showAbove" style={{marginTop: 0}}></div>
+          </div>
+          <div className="center-hrz u-margin-bottom">
+             <div className="account__pic" style={{backgroundImage: `url(${firebase.auth().currentUser.photoURL})`}}> </div>
+          </div>
+
+            <h1 style={{textAlign: "center"}} className="header-text red-ish-text">{firebase.auth().currentUser.displayName}</h1>
+            <p className="normal-text white-text" style={{textAlign: "center"}}>uid: {firebase.auth().currentUser.uid}</p>
+          <div className="center-hrz u-margin-top u-margin-bottom-huge">
+             <button className="button" onClick={()=>firebase.auth().signOut()}>Sign Out</button>
+          </div>
           </>
-: <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>}
+         : <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>}
         </div>
     )
 }
