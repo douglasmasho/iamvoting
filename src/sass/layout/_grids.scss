@@ -1,0 +1,33 @@
+.grid{
+    display: grid;
+    padding: 4rem;
+
+    
+    &-2{
+        grid-template-columns: repeat(2, 1fr);
+        @include respond(phone){  
+            grid-template-columns: repeat(1, 1fr);
+          }
+        
+        &--child{
+            margin: 3rem;
+            border-radius: 15px;      
+        }
+    }
+
+    &-3{
+        grid-template-columns: repeat(3, 1fr);
+        @include respond(tab-port){  
+            grid-template-columns: repeat(2, 1fr);
+          }
+          @include respond(phone){  
+            grid-template-columns: repeat(1, 1fr);
+          }
+        // grid-gap: 10rem
+        &--child{
+            margin: 4rem;
+            border-radius: 15px;
+            background-color: white;
+        }
+    }
+}

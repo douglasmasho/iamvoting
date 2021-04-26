@@ -12,6 +12,8 @@ import Articles from "./Articles";
 import Events from "./Events";
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase/app';
+import ScrollToTop from "./ScrollToTop";
+
 
     
 // firebase.initializeApp({
@@ -24,7 +26,16 @@ const Dasboard = (props) => {
   const navRef = useRef();
   const navCloseRef = useRef();
   const [isSignedIn, setIsSignedIn] = useState(false);
-  const   uiConfig = {
+  // const scrollDivRef = useRef();
+  const scrollToTop = ()=>{
+    if(document.querySelector(".screens")){
+      document.querySelector(".screens").scrollTo(0,0);
+
+    }
+    console.log(document.querySelector(".scrollDiv"));
+    // window.scrollTo(0,0);
+  }
+  const  uiConfig = {
     signInFlow: "popup",
     signInOptions: [
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -127,12 +138,11 @@ const Dasboard = (props) => {
 
     return (
       <div className="home">
+        <ScrollToTop scrollToTop={scrollToTop}/>   
               <div id="dbnavigation" ref={navRef}>
                   <Menu/>
               </div>
               <div id="dashboard">
-                iuhiuhiu <br/>
-                ugiugiugiug
                 <Route path="/write/account"  component={Account}/>
                 <Route path="/write/articles"  component={Articles}/>
                 <Route path="/write/events"  component={Events}/>
