@@ -13,6 +13,7 @@ import Events from "./Events";
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase/app';
 import ScrollToTop from "./ScrollToTop";
+import Editor from "./Editor";
 
 
     
@@ -144,8 +145,9 @@ const Dasboard = (props) => {
               </div>
               <div id="dashboard">
                 <Route path="/write/account"  component={Account}/>
-                <Route path="/write/articles"  component={Articles}/>
+                <Route exact path="/write/articles"  component={Articles}/>
                 <Route path="/write/events"  component={Events}/>
+                <Route exact path="/write/articles/new" component={Editor}/>
               </div>
       </div>
     )

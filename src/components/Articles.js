@@ -1,7 +1,8 @@
 import React, {useEffect} from 'react'
-import {Route, Redirect} from "react-router-dom";
+import {Route, Redirect, Link} from "react-router-dom";
 import firebase from 'firebase/app';
 import {connect} from "react-redux";
+import Editor from "./Editor";
 
 
 const Articles = (props) => {
@@ -19,21 +20,21 @@ const Articles = (props) => {
   
 
     return (
-        <div className="screen">
+        <div className="screen ">
           {
             props.auth && firebase.auth().currentUser ? 
             <>
               <div className="grid-3 grid">
                   <div className="grid-3--child article__item">
-                    iuhihuiu
+                    <Link to="/write/articles/new">New</Link>
+                    
                   </div>       
               </div>
             </>
              : <Redirect to="/write/account"/>
           }
-          <Route path="/write/articles/new" render={()=>{
-            return props.auth && firebase.auth().currentUser ? <p className="white-text">your uid is {firebase.auth().currentUser.uid}</p> : <Redirect to="/write/account"/>}
-          }/>
+          
+          
         </div>
     )
 }
