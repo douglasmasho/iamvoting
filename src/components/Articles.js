@@ -3,20 +3,20 @@ import {Route, Redirect, Link} from "react-router-dom";
 import firebase from 'firebase/app';
 import {connect} from "react-redux";
 import Editor from "./Editor";
-
+import {nanoid} from "nanoid";
 
 const Articles = (props) => {
-
-
-
   
-  useEffect(()=>{
-    
+  useEffect(()=>{    
     if(firebase.auth().currentUser){
       console.log(firebase.auth().currentUser)
       console.log(firebase.auth().currentUser.displayName);
     }
   })
+
+  const link = `/write/articles/new/${nanoid(12)}`
+
+  
   
 
     return (
@@ -26,8 +26,7 @@ const Articles = (props) => {
             <>
               <div className="grid-3 grid">
                   <div className="grid-3--child article__item">
-                    <Link to="/write/articles/new">New</Link>
-                    
+                    <Link to={link}>New</Link>    
                   </div>       
               </div>
             </>

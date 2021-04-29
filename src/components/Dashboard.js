@@ -147,7 +147,7 @@ const Dasboard = (props) => {
                 <Route path="/write/account"  component={Account}/>
                 <Route exact path="/write/articles"  component={Articles}/>
                 <Route path="/write/events"  component={Events}/>
-                <Route exact path="/write/articles/new" component={Editor}/>
+                <Route exact path="/write/articles/new/:articleID" component={Editor}/>
               </div>
       </div>
     )
