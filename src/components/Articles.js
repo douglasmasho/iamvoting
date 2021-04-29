@@ -4,6 +4,7 @@ import firebase from 'firebase/app';
 import {connect} from "react-redux";
 import Editor from "./Editor";
 import {nanoid} from "nanoid";
+import Plus from "../assets/plus.svg";
 
 const Articles = (props) => {
   
@@ -16,24 +17,24 @@ const Articles = (props) => {
 
   const link = `/write/articles/new/${nanoid(12)}`
 
-  
+  if(!props.auth && !firebase.auth().currentUser){
+    return <Redirect to="/write/account"/>
+  }
   
 
     return (
         <div className="screen ">
-          {
-            props.auth && firebase.auth().currentUser ? 
-            <>
+          <div class="u-margin-bottom">
+            <h1 className="screen__header">My Articles</h1>
+            <div className="redline redline--aboutus showAbove" style={{marginTop: 0}}></div>
+          </div>
+
               <div className="grid-3 grid">
-                  <div className="grid-3--child article__item">
-                    <Link to={link}>New</Link>    
+                  <div className="grid-3--child article__item u-padding-large center-hrz--col">
+                    <Link to={link}><img src={Plus} alt="" className="article__plus"/></Link> 
+                    <h3>Add article</h3>   
                   </div>       
-              </div>
-            </>
-             : <Redirect to="/write/account"/>
-          }
-          
-          
+              </div>        
         </div>
     )
 }

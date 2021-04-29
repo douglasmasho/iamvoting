@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import EditorJS from "@editorjs/editorjs";
 import Header from "@editorjs/header";
 import List from "@editorjs/list";
@@ -6,16 +6,99 @@ import Embed from "@editorjs/embed";
 import ImageTool from '@editorjs/image';
 import Quote from '@editorjs/quote';
 import firebase from 'firebase/app';
+import {connect} from "react-redux";
+import {Route, Redirect, Link} from "react-router-dom";
+import { useHistory } from "react-router-dom"
+// import {connect} from "react-redux";
+// import * as actionCreators from "./redux/actions";
+// import {bindActionCreators} from "redux";
+//add caching with redux-persist
 
 
 const Editor = (props) => {
     const editorRef = useRef(null);
+    const [banner,setBanner] = useState("");
+    const [title, setTitle] = useState("");
+    const errorTextRef = useRef();
+    let history = useHistory();
 
     const saveArticle = ()=>{
-        editorRef.current.save().then(output=>{
-            console.log(output);
-        })
+        if(banner !== "" && title !== ""){
+            editorRef.current.save().then(output=>{
+                var metadata = {
+                    contentType: 'image/jpeg'
+                };
+
+                async function upload(){
+                    try{
+                        //create folder and upload the article banner to storage
+                        const uploadTask = await firebase.storage().ref("articles/" + props.match.params.articleID + "/" + "banner").put(banner, metadata);
+                        console.log("Uploaded successfully!", uploadTask);
+                        const bannerURL = await uploadTask.ref.getDownloadURL();
+                        console.log(bannerURL);
+
+                        //create an object that will have the other data
+                        const articleObj = {
+                            title,
+                            banner: bannerURL,
+                            blocks: output,
+                            authorDetails: {
+                                name: firebase.auth().currentUser.displayName,
+                                photo: firebase.auth().currentUser.photoURL,
+                                email: firebase.auth().currentUser.email,
+                                authorID: firebase.auth().currentUser.uid
+                            },
+                        }
+                        //upload the article object to firestore
+                        console.log(articleObj);   
+                        const firestore = firebase.firestore();
+                        const articleObjUpload = await firestore.collection("articles").doc(props.match.params.articleID).set(articleObj);
+                        console.log("article object upload successful");
+                        //upload the article to firestore in the users articlesArr
+
+                        //create the document if it does not exist yet
+                        const docSnapshots = await firestore.collection("userArticles").doc(firebase.auth().currentUser.uid).get();
+                        if(docSnapshots.exists){
+                            const articleObjUpload2 = await firestore.collection("userArticles").doc(firebase.auth().currentUser.uid).update({
+                                articles: firebase.firestore.FieldValue.arrayUnion(articleObj)
+                            });
+                        }else{
+                            const documentCreation = await firestore.collection("userArticles").doc(firebase.auth().currentUser.uid).set({
+                                articles: [articleObj]
+                            })
+                        }
+                        console.log("article object upload successful again");
+                        history.push("/write/articles");
+                    }
+                    catch(e){
+                        console.log(e)
+                    }
+
+                }
+                upload();
+                // console.log(output);
+                // console.log(banner.name);
+                // console.log(title);
+            })
+        }else{
+            errorTextRef.current.style.display = "block";
+
+            setTimeout(()=>{
+                errorTextRef.current.style.display = "none";
+            }, 2000)
+        }
     }
+
+    const handleTitleChange = (e)=>{
+        setTitle(e.target.value);
+        console.log(e.target.value);
+
+    }
+    const handleBannerChange = (e)=>{
+        setBanner(e.target.files[0]);
+        console.log(e.target.files[0]);
+    }
+    
 
     useEffect(()=>{
         editorRef.current = new EditorJS({
@@ -58,27 +141,6 @@ const Editor = (props) => {
 
                       config: {
                         uploader: {
-                            //  uploadByFile : function(file){
-                            //      //upload image to firebase
-                            //     firebase.storage().ref("test/" + file.name).put(file, {
-                            //         contentType: 'image/jpeg'  
-                            //     }).then(uploadTask=>{
-                            //         //get the downloadURL from firebase
-                            //         uploadTask.ref.getDownloadURL().then(url=>{
-                            //             console.log(url);
-                            //             return {
-                            //                 success: 1,
-                            //                 file: {
-                            //                   url : url
-                            //                 }
-                            //             }
-                            //         })
-                            //     }).catch(e=>{
-                            //         console.log(e)
-                            //     })
-                            // }
-
-
                                 async uploadByFile(file) {
                                 var metadata = {
                                     contentType: 'image/jpeg'
@@ -104,15 +166,34 @@ const Editor = (props) => {
 
         })
     }, [])
+
+
+    if(!props.auth && !firebase.auth().currentUser){
+        return  <Redirect to="/write/account"/>
+    }
     return (
         <div className="screen screen--white">
-            <h1>Your article</h1>
-            <div id="editorjs">
-            </div>
-            <button onClick={saveArticle}>Save article</button>
 
+           <div class="u-margin-bottom">
+            <h1 className="screen__header" style={{color: "black"}}>New Article</h1>
+            <div className="redline redline--aboutus showAbove" style={{marginTop: 0}}></div>
+          </div>
+                    <div className="center-hrz--col u-margin-bottom">
+                    <input type="text" className="input-textbox" placeholder="please enter the article title" onChange={handleTitleChange}/>
+                    <input type="file" id="banner" onChange={handleBannerChange}/>
+                    <label htmlFor="banner">Please upload a banner for the article</label>
+                    </div>
+                    <div id="editorjs">
+                    </div>
+                    <button onClick={saveArticle}>Save article</button>
+                    <p className="red-text" ref={errorTextRef} style={{display: "none"}}>Please enter the article title and image</p>
         </div>
     )
 }
 
-export default Editor
+const mapStateToProps = state=>({ //is the state in the store ///will take the state from the store and put it as props in the component that is being connected
+    auth: state.authStatus
+  });
+  
+  export default connect(mapStateToProps)(Editor)
+  

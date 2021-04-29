@@ -1,5 +1,13 @@
 .article{
     &__item{
         background-color: white;
+        transition: all .3s ease-in;
+        &:hover{
+            transform: scale(1.05);
+            background-color: $red-ish;
+        }
+    }
+    &__plus{
+        width: 5rem;
     }
 }
