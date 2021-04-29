@@ -48,7 +48,9 @@ const Editor = (props) => {
                                 email: firebase.auth().currentUser.email,
                                 authorID: firebase.auth().currentUser.uid
                             },
+                            articleID: props.match.params.articleID
                         }
+
                         //upload the article object to firestore
                         console.log(articleObj);   
                         const firestore = firebase.firestore();

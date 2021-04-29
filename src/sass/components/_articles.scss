@@ -2,9 +2,38 @@
     &__item{
         background-color: white;
         transition: all .3s ease-in;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        overflow: hidden;
+        height: 90%;
         &:hover{
             transform: scale(1.05);
             background-color: $red-ish;
+
+            & .article__item__bottom{
+            //   height: 100%;
+            //   top: 0  
+            background-color: white;
+
+            & div h1{
+                color: $red-ish
+            }
+            }
+        }
+        &__bottom{
+            transition: all .3s;
+            background-color: $deep-blue;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            padding: 1rem;
+            & div h1{
+            transition: all .3s;
+                color: white;
+                font-size: 2.5rem;
+                text-transform: capitalize;
+            }
         }
     }
     &__plus{

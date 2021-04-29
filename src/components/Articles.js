@@ -5,10 +5,13 @@ import {connect} from "react-redux";
 import Editor from "./Editor";
 import {nanoid} from "nanoid";
 import Plus from "../assets/plus.svg";
+import {firestoreConnect} from "react-redux-firebase";
+import {compose} from "redux";
 
 const Articles = (props) => {
   
-  useEffect(()=>{    
+  useEffect(()=>{
+    // console.log(props.articles[0])
     if(firebase.auth().currentUser){
       console.log(firebase.auth().currentUser)
       console.log(firebase.auth().currentUser.displayName);
@@ -21,7 +24,6 @@ const Articles = (props) => {
     return <Redirect to="/write/account"/>
   }
   
-
     return (
         <div className="screen ">
           <div class="u-margin-bottom">
@@ -29,18 +31,35 @@ const Articles = (props) => {
             <div className="redline redline--aboutus showAbove" style={{marginTop: 0}}></div>
           </div>
 
-              <div className="grid-3 grid">
-                  <div className="grid-3--child article__item u-padding-large center-hrz--col">
+              <div className="grid-2 grid">
+                  <div className="grid-2--child article__item center-hrz--col center-vert">
                     <Link to={link}><img src={Plus} alt="" className="article__plus"/></Link> 
                     <h3>Add article</h3>   
-                  </div>       
+                  </div>    
+                  {
+                    props.articles ? props.articles[0].articles.map(article=>(
+                      <div className="grid-2--child article__item center-hrz--col" key={article.articleID} style={{backgroundImage: `url(${article.banner})`}}> 
+                      <div className="article__item__bottom">
+                        <div className="u-margin-left">
+                            <h1>{article.title}</h1>
+                           <button>Edit</button>
+                           <button>Delete</button>
+                        </div>
+                      </div>
+                      </div>  
+                    )) : <p>Loading....</p>  /* loading animation*/
+                  }              
               </div>        
         </div>
     )
 }
 
 const mapStateToProps = state=>({ //is the state in the store ///will take the state from the store and put it as props in the component that is being connected
-  auth: state.authStatus
+  auth: state.authStatus,
+  articles: state.firestore.ordered.userArticles
 });
 
-export default connect(mapStateToProps)(Articles)
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect(props=>[{collection: "userArticles", doc: props.uid}])
+)(Articles)

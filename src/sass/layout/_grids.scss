@@ -2,7 +2,6 @@
     display: grid;
     padding: 4rem;
 
-    
     &-2{
         grid-template-columns: repeat(2, 1fr);
         @include respond(phone){  
@@ -11,7 +10,9 @@
         
         &--child{
             margin: 3rem;
-            border-radius: 15px;      
+            padding: 2rem;
+            border-radius: 15px; 
+            height: 30rem;     
         }
     }
 

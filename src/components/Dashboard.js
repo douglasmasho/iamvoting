@@ -145,7 +145,11 @@ const Dasboard = (props) => {
               </div>
               <div id="dashboard">
                 <Route path="/write/account"  component={Account}/>
-                <Route exact path="/write/articles"  component={Articles}/>
+                <Route exact path="/write/articles"  render={routeArgs=>{
+                  if(firebase.auth().currentUser){
+                    return <Articles uid={firebase.auth().currentUser.uid}/>
+                  }       
+                }}/>
                 <Route path="/write/events"  component={Events}/>
                 <Route exact path="/write/articles/new/:articleID" component={Editor}/>
               </div>
