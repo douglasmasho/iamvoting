@@ -178,11 +178,13 @@ const Editor = (props) => {
             <h1 className="screen__header" style={{color: "black"}}>New Article</h1>
             <div className="redline redline--aboutus showAbove" style={{marginTop: 0}}></div>
           </div>
-                    <div className="center-hrz--col u-margin-bottom">
-                    <input type="text" className="input-textbox" placeholder="please enter the article title" onChange={handleTitleChange}/>
+                    <div className="column u-margin-bottom-big">
+                    <input type="text" className="input-textbox u-margin-bottom" placeholder="please enter the article title" onChange={handleTitleChange}/>
+                    <p className="bigger-text u-margin-bottom-small">Article Banner</p>
                     <input type="file" id="banner" onChange={handleBannerChange}/>
-                    <label htmlFor="banner">Please upload a banner for the article</label>
                     </div>
+
+                    <p className="bigger-text u-margin-bottom-small">Article Content</p>
                     <div id="editorjs">
                     </div>
                     <button onClick={saveArticle}>Save article</button>
