@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {Link} from "react-router-dom";
 import PencilIcon from "../assets/pencil.svg";
 import Users from "../assets/users.svg";
-
+import Logo from "../assets/dashboard.svg";
 
 export default class Menu extends Component{
     constructor(){
@@ -28,6 +28,11 @@ export default class Menu extends Component{
 
     render(){
         return (<div className="menu--container">
+            <Link to="/">
+                <div className="center-hrz u-padding menu__logo">
+                <img src={Logo} alt="" style={{width: "80%"}}/>
+                </div>
+            </Link>
                    <label htmlFor="smenu-1" className="menu--sub"><img src={PencilIcon} alt="bug icon"/>Write</label>
                    <input type="checkbox" id="smenu-1" className="checkBox"/>
                     <div className="menu--content menu--content__1">

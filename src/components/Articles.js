@@ -31,13 +31,16 @@ const Articles = (props) => {
             <div className="redline redline--aboutus showAbove" style={{marginTop: 0}}></div>
           </div>
 
-              <div className="grid-2 grid">
-                  <div className="grid-2--child article__item center-hrz--col center-vert">
+            <h2 className="header-text red-ish-text center-text u-margin-top">Drafts</h2>
+
+            <div className="grid-2 grid u-margin-bottom-big">
+                <div className="grid-2--child article__item center-hrz--col center-vert">
                     <Link to={link}><img src={Plus} alt="" className="article__plus"/></Link> 
                     <h3>Add article</h3>   
-                  </div>    
+                  </div>
+
                   {
-                    props.articles ? props.articles[0].articles.map(article=>(
+                    props.articles ? props.articles[0].articles.map(obj=>obj).sort((a,b)=>b.createdAt.valueOf() - a.createdAt.valueOf()).map(article=> article.draft ? (
                       <div className="grid-2--child article__item center-hrz--col" key={article.articleID} style={{backgroundImage: `url(${article.banner})`}}> 
                       <div className="article__item__bottom">
                         <div className="u-margin-left">
@@ -47,9 +50,28 @@ const Articles = (props) => {
                         </div>
                       </div>
                       </div>  
-                    )) : <p>Loading....</p>  /* loading animation*/
+                    ) : null ) : <p>Loading....</p>  /* loading animation*/
+                  } 
+            </div> 
+
+              <h2 className="header-text red-ish-text center-text u-margin-top-big">Published</h2>
+              <div className="grid-2 grid ">
+                  {
+                    props.articles ? props.articles[0].articles.map(obj=>obj).sort((a,b)=>b.createdAt.valueOf() - a.createdAt.valueOf()).map(article=> !article.draft ? (
+                      <div className="grid-2--child article__item center-hrz--col" key={article.articleID} style={{backgroundImage: `url(${article.banner})`}}> 
+                      <div className="article__item__bottom">
+                        <div className="u-margin-left">
+                            <h1>{article.title}</h1>
+                           <button>Edit</button>
+                           <button>Delete</button>
+                        </div>
+                      </div>
+                      </div>  
+                    ) : null ) : <p>Loading....</p>  /* loading animation*/
                   }              
-              </div>        
+              </div>  
+
+     
         </div>
     )
 }

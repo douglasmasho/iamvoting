@@ -5,13 +5,15 @@ import Arrow from "../assets/arrow-circle-up-right.svg";
 import Anchor from "../assets/basic_anchor.svg";
 import Fade from 'react-reveal/Fade';
 import Structure from "../assets/Group 12.svg";
-
-
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 
 
 const AboutUS = () => {
     return (
+        <>
+        <Navbar/>
         <div>
                     <div className="aboutus__herodiv">
                     <div className="aboutus__title">
@@ -125,7 +127,8 @@ const AboutUS = () => {
 
                     </section>
         </div>
-     
+        <Footer/>
+     </>
     )
 }
 

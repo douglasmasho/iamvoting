@@ -53,10 +53,15 @@
 
 }
 
-.u-padding-top{
-  padding-top: 2rem;
-}
+
 
 .u-padding-large{
   padding: 5rem;
+}
+
+.u-padding{
+  padding: 2rem;
+  &-top{
+    padding-top: 2rem;
+  }
 }

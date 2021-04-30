@@ -15,6 +15,7 @@ import Fade from 'react-reveal/Fade';
 import ScrollToTop from "./components/ScrollToTop";
 import AboutUs from "./components/AboutUs";
 import Dashboard from "./components/Dashboard";
+import Home from "./components/Home";
 
 function App(props) {
   const scrollDivRef = useRef();
@@ -28,28 +29,9 @@ function App(props) {
   }
   return (
     <div className="App">  
-    <ScrollToTop scrollToTop={scrollToTop}/>   
-        <Navbar/>
-          <div className="scrollDiv" ref={scrollDivRef}>
-            <Route exact path="/" render={(routeArgs)=>{
-              return (
-                <>
-                  <Hero/>
-                  <Intro/>
-                  <Fade>
-                  <Counters/>
-                  </Fade>
-                  {/* put the counters here */}
-                  <Socials/>
-                </>        
-              )
-            }}/>
-            <Route path="/joinus" component={JoinUs}/>
-            <Route path="/aboutus" component={AboutUs}/>
-            <Route path="/write/:action" component={Dashboard}/>
-          </div>
-           {/* <button onClick={scrollToTop}>scroll</button> */}
-        <Footer/>
+        <Home/>
+        <Route path="/write/:action" component={Dashboard}/>
+
     </div>
   );
 }

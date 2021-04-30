@@ -2,6 +2,9 @@ import React from 'react';
 import {connect} from "react-redux";
 import * as actionCreators from "../redux/actions";
 import {bindActionCreators} from "redux";
+import Navbar from './Navbar';
+import Footer from './Footer';
+
 
 
 class JoinUs extends React.Component {
@@ -50,6 +53,8 @@ class JoinUs extends React.Component {
 
     render() {
         return (
+            <>
+            <Navbar/>
         <div className="joinus__div">
 
              <div className="center-hrz ">
@@ -116,6 +121,8 @@ class JoinUs extends React.Component {
             {this.props.error !== null ? <p className="normal-text" style={{color: "red"}}>{this.props.error}</p> : <p style={{color: "red"}}></p>}
             </div>
         </div>
+        <Footer/>
+        </>
         );
     }
 }

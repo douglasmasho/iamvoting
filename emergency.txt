@@ -1,0 +1,21 @@
+<ScrollToTop scrollToTop={scrollToTop}/>   
+<Navbar/>
+  <div className="scrollDiv" ref={scrollDivRef}>
+    <Route exact path="/" render={()=>{
+      return (
+        <>
+          <Hero/>
+          <Intro/>
+          <Fade>
+          <Counters/>
+          </Fade>
+          {/* put the counters here */}
+          <Socials/>
+        </>        
+      )
+    }}/>
+    <Route path="/joinus" component={JoinUs}/>
+    <Route path="/aboutus" component={AboutUs}/>
+  </div>
+   {/* <button onClick={scrollToTop}>scroll</button> */}
+<Footer/>

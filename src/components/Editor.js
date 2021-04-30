@@ -22,7 +22,7 @@ const Editor = (props) => {
     const errorTextRef = useRef();
     let history = useHistory();
 
-    const saveArticle = ()=>{
+    const saveArticle = (draft)=>{
         if(banner !== "" && title !== ""){
             editorRef.current.save().then(output=>{
                 var metadata = {
@@ -31,6 +31,7 @@ const Editor = (props) => {
 
                 async function upload(){
                     try{
+                        const firestore = firebase.firestore();
                         //create folder and upload the article banner to storage
                         const uploadTask = await firebase.storage().ref("articles/" + props.match.params.articleID + "/" + "banner").put(banner, metadata);
                         console.log("Uploaded successfully!", uploadTask);
@@ -42,6 +43,8 @@ const Editor = (props) => {
                             title,
                             banner: bannerURL,
                             blocks: output,
+                            createdAt: new Date(),
+                            draft,
                             authorDetails: {
                                 name: firebase.auth().currentUser.displayName,
                                 photo: firebase.auth().currentUser.photoURL,
@@ -51,11 +54,13 @@ const Editor = (props) => {
                             articleID: props.match.params.articleID
                         }
 
-                        //upload the article object to firestore
-                        console.log(articleObj);   
-                        const firestore = firebase.firestore();
-                        const articleObjUpload = await firestore.collection("articles").doc(props.match.params.articleID).set(articleObj);
-                        console.log("article object upload successful");
+                        if(!draft){
+                            //upload the article object to firestore
+                            console.log(articleObj);   
+
+                            const articleObjUpload = await firestore.collection("articles").doc(props.match.params.articleID).set(articleObj);
+                            console.log("article object upload successful");
+                        }
                         //upload the article to firestore in the users articlesArr
 
                         //create the document if it does not exist yet
@@ -111,7 +116,7 @@ const Editor = (props) => {
                     inlineToolbar: ["link"], ///what does it do?,
                     config: {
                         placeholder: 'Enter a header',
-                        levels: [2, 3, 4],
+                        levels: [1,2, 3, 4],
                         defaultLevel: 3
                       }
                 },
@@ -189,7 +194,14 @@ const Editor = (props) => {
                     <p className="bigger-text u-margin-bottom-small">Article Content</p>
                     <div id="editorjs">
                     </div>
-                    <button onClick={saveArticle}>Save article</button>
+                    <div className="center-hrz u-margin-top u-margin-bottom">
+                    <button onClick={()=>{
+                        saveArticle(false)
+                    }} className="button">Publish Article</button>
+                    <button onClick={()=>{
+                        saveArticle(true)
+                    }} className="button u-margin-left">Save as Draft</button>
+                    </div>
                     <p className="red-text" ref={errorTextRef} style={{display: "none"}}>Please enter the article title and image</p>
         </div>
     )
