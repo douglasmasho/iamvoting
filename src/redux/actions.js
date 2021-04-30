@@ -93,9 +93,37 @@ export const setPassword = (password)=>{
 }
 
 export const setAuthStatus = (status)=>{
-    return {
-        type: "SET_AUTH",
-        status
+
+    return (dispatch, getState, {getFirebase, getFirestore})=>{
+        const firestore = getFirestore();
+        const firebase = getFirebase();
+    //check if true
+    if(status){
+        //check if the userArticles doc has been created and set it that way
+
+        async function create(){
+            try{
+                const docSnapshots = await firestore.collection("userArticles").doc(firebase.auth().currentUser.uid).get();
+                if(!docSnapshots.exists){
+                    const documentCreation = await firestore.collection("userArticles").doc(firebase.auth().currentUser.uid).set({
+                        articles: []
+                    })              
+                }
+            }catch(e){
+                console.log(e)
+            }
+        }
+
+        create();
     }
+
+        dispatch({
+            type: "SET_AUTH",
+            status
+        }) 
+    }
+
+
+
 }
 

@@ -7,10 +7,12 @@ import {nanoid} from "nanoid";
 import Plus from "../assets/plus.svg";
 import {firestoreConnect} from "react-redux-firebase";
 import {compose} from "redux";
+import JustAnimation from './JustAnimation';
 
 const Articles = (props) => {
   
   useEffect(()=>{
+    console.log(props.articles)
     // console.log(props.articles[0])
     if(firebase.auth().currentUser){
       console.log(firebase.auth().currentUser)
@@ -40,7 +42,7 @@ const Articles = (props) => {
                   </div>
 
                   {
-                    props.articles ? props.articles[0].articles.map(obj=>obj).sort((a,b)=>b.createdAt.valueOf() - a.createdAt.valueOf()).map(article=> article.draft ? (
+                     props.articles ? props.articles[0].articles.map(obj=>obj).sort((a,b)=>b.createdAt.valueOf() - a.createdAt.valueOf()).map(article=> article.draft ? (
                       <div className="grid-2--child article__item center-hrz--col" key={article.articleID} style={{backgroundImage: `url(${article.banner})`}}> 
                       <div className="article__item__bottom">
                         <div className="u-margin-left">
@@ -50,12 +52,12 @@ const Articles = (props) => {
                         </div>
                       </div>
                       </div>  
-                    ) : null ) : <p>Loading....</p>  /* loading animation*/
+                    ) : null ) : <JustAnimation/>  /* loading animation*/
                   } 
             </div> 
 
               <h2 className="header-text red-ish-text center-text u-margin-top-big">Published</h2>
-              <div className="grid-2 grid ">
+              <div className="grid-2 grid "> 
                   {
                     props.articles ? props.articles[0].articles.map(obj=>obj).sort((a,b)=>b.createdAt.valueOf() - a.createdAt.valueOf()).map(article=> !article.draft ? (
                       <div className="grid-2--child article__item center-hrz--col" key={article.articleID} style={{backgroundImage: `url(${article.banner})`}}> 
@@ -67,7 +69,7 @@ const Articles = (props) => {
                         </div>
                       </div>
                       </div>  
-                    ) : null ) : <p>Loading....</p>  /* loading animation*/
+                    ) : null ) : <JustAnimation/>  /* loading animation*/
                   }              
               </div>  
 
@@ -76,10 +78,13 @@ const Articles = (props) => {
     )
 }
 
-const mapStateToProps = state=>({ //is the state in the store ///will take the state from the store and put it as props in the component that is being connected
-  auth: state.authStatus,
-  articles: state.firestore.ordered.userArticles
-});
+const mapStateToProps = state=>{
+  console.log(state.firestore.ordered.userArticles)
+  return {
+    auth: state.authStatus,
+    articles: state.firestore.ordered.userArticles
+  }
+}
 
 export default compose(
   connect(mapStateToProps),

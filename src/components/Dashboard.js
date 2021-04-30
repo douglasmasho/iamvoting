@@ -14,6 +14,7 @@ import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase/app';
 import ScrollToTop from "./ScrollToTop";
 import Editor from "./Editor";
+import Loading from './Loading';
 
 
     
@@ -146,19 +147,24 @@ const Dasboard = (props) => {
               <div id="dashboard">
                 <Route path="/write/account"  component={Account}/>
                 <Route exact path="/write/articles"  render={routeArgs=>{
-                  if(firebase.auth().currentUser){
+                    if(!props.auth && !firebase.auth().currentUser){
+                      return <Redirect to="/write/account"/>
+                    }
+                  if(props.auth && firebase.auth().currentUser){
                     return <Articles uid={firebase.auth().currentUser.uid}/>
                   }       
                 }}/>
                 <Route path="/write/events"  component={Events}/>
                 <Route exact path="/write/articles/new/:articleID" component={Editor}/>
+                
               </div>
       </div>
     )
 }
 
 const mapStateToProps = state=>({ //is the state in the store ///will take the state from the store and put it as props in the component that is being connected
-    password: state.password
+    password: state.password,
+    auth: state.authStatus,
   });
   
   const mapDispatchToProps = dispatch=>{ //will allow you to dispatch actions from anywhere in the compoonent

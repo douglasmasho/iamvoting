@@ -23,6 +23,7 @@ const Account = (props) => {
   //this function handles the isSigned in state whenever ther is a change in the authentication status
   useEffect(()=>{
     firebase.auth().onAuthStateChanged(user=>{
+      console.log(user);
       props.setAuthStatus(!!user)//this should be universal state
      //  if(user){
      //    setIsSignedIn(true)

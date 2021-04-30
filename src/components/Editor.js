@@ -9,6 +9,7 @@ import firebase from 'firebase/app';
 import {connect} from "react-redux";
 import {Route, Redirect, Link} from "react-router-dom";
 import { useHistory } from "react-router-dom"
+import Loading from './Loading';
 // import {connect} from "react-redux";
 // import * as actionCreators from "./redux/actions";
 // import {bindActionCreators} from "redux";
@@ -20,6 +21,7 @@ const Editor = (props) => {
     const [banner,setBanner] = useState("");
     const [title, setTitle] = useState("");
     const errorTextRef = useRef();
+    const loadingContainerRef = useRef();
     let history = useHistory();
 
     const saveArticle = (draft)=>{
@@ -31,6 +33,7 @@ const Editor = (props) => {
 
                 async function upload(){
                     try{
+                        loadingContainerRef.current.style.display = "block";
                         const firestore = firebase.firestore();
                         //create folder and upload the article banner to storage
                         const uploadTask = await firebase.storage().ref("articles/" + props.match.params.articleID + "/" + "banner").put(banner, metadata);
@@ -152,7 +155,6 @@ const Editor = (props) => {
                                 var metadata = {
                                     contentType: 'image/jpeg'
                                 };
-
                                 var uploadTask = await firebase.storage().ref("articles/" + props.match.params.articleID + "/" + file.name).put(file, metadata);
                                 console.log("Uploaded successfully!", uploadTask);
                                 const downloadURL = await uploadTask.ref.getDownloadURL();
@@ -203,6 +205,9 @@ const Editor = (props) => {
                     }} className="button u-margin-left">Save as Draft</button>
                     </div>
                     <p className="red-text" ref={errorTextRef} style={{display: "none"}}>Please enter the article title and image</p>
+                    <div style={{display: "none"}} ref={loadingContainerRef}>
+                       <Loading/>
+                    </div>
         </div>
     )
 }

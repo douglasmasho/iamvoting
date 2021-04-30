@@ -16,6 +16,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import AboutUs from "./components/AboutUs";
 import Dashboard from "./components/Dashboard";
 import Home from "./components/Home";
+import Loading from './components/Loading';
 
 function App(props) {
   const scrollDivRef = useRef();
@@ -31,7 +32,7 @@ function App(props) {
     <div className="App">  
         <Home/>
         <Route path="/write/:action" component={Dashboard}/>
-
+        <Route path="/loading" component={Loading}/>
     </div>
   );
 }
