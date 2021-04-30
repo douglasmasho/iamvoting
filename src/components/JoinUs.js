@@ -116,7 +116,7 @@ class JoinUs extends React.Component {
                 <input type="number" id="age" placeholder="age" onChange={this.handleChange} required/> */}
                 <button type="submit" className="button">Submit</button>
             </form>
-            <button onClick={this.seeState}>See state</button>
+            {/* <button onClick={this.seeState}>See state</button> */}
             <div className="center-hrz">
             {this.props.error !== null ? <p className="normal-text" style={{color: "red"}}>{this.props.error}</p> : <p style={{color: "red"}}></p>}
             </div>
