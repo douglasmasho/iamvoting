@@ -15,6 +15,7 @@ import firebase from 'firebase/app';
 import ScrollToTop from "./ScrollToTop";
 import Editor from "./Editor";
 import Loading from './Loading';
+import EditorEdit from './EditorEdit';
 
 
     
@@ -71,56 +72,6 @@ const Dasboard = (props) => {
      })
    }, [])
 
-  //  useEffect(()=>{
-  //   let menuLinks = document.querySelectorAll(".menu--link");
-  //   const x = window.matchMedia("(max-width: 600px)");
-
-  //     //query function 
-  //     // let closeNavinQ = (x)=>{
-  //     //     if(x.matches){
-  //     //         menuLinks.forEach((e)=>{
-  //     //             e.addEventListener("click", closeNav);
-  //     //         })
-  //     //     }
-  //     // }
-
-  //     // //create the initial listener, runs when the app is started
-  //     // closeNavinQ(x);
-  //     // //create the listener for state change, that runs the query function on every state change
-  //     // x.addListener(closeNavinQ);
-  //     // x.addListener(()=>{
-  //     //     window.location.reload();
-  //     // })
-  //  },[])
-   
-  //  const expandNav=()=>{
-  //   const nav = navRef.current; ///expand 
-  //   const menus = document.querySelectorAll(".menu--sub");///give these a display of block;
-  //   const closeNav = navCloseRef.current;
-
-  //   menus.forEach(e=>{
-  //       e.style.display= "block";
-  //   })
-
-
-  //   nav.style.animation = "expand 0.4s forwards";
-  //   closeNav.style.display = "block";
-// }
-
-// const closeNav=()=>{
-//     const nav = navRef.current; ///expand 
-//     const menus = document.querySelectorAll(".menu--sub");///give these a display of block;
-//     // const bottomDiv = bottomDivRef.current//give a display of block;
-//     const closeNav = navCloseRef.current;
-    
-//     menus.forEach(e=>{
-//         e.style.display= "none";
-//     })
-
-//     nav.style.animation = "collapse 0.3s forwards";
-//     closeNav.style.display = "none";
-// }
-
 
    if(!props.password)
    {
@@ -156,6 +107,7 @@ const Dasboard = (props) => {
                 }}/>
                 <Route path="/write/events"  component={Events}/>
                 <Route exact path="/write/articles/new/:articleID" component={Editor}/>
+                <Route exact path="/write/articles/edit/:articleID" component={EditorEdit}/>
                 
               </div>
       </div>

@@ -56,7 +56,7 @@ const Editor = (props) => {
                             },
                             articleID: props.match.params.articleID
                         }
-
+                         console.log(output);
                         if(!draft){
                             //upload the article object to firestore
                             console.log(articleObj);   
@@ -67,16 +67,18 @@ const Editor = (props) => {
                         //upload the article to firestore in the users articlesArr
 
                         //create the document if it does not exist yet
-                        const docSnapshots = await firestore.collection("userArticles").doc(firebase.auth().currentUser.uid).get();
-                        if(docSnapshots.exists){
-                            const articleObjUpload2 = await firestore.collection("userArticles").doc(firebase.auth().currentUser.uid).update({
+                        // const docSnapshots = await firestore.collection("userArticles").doc(firebase.auth().currentUser.uid).get();
+                        // if(docSnapshots.exists){
+                        const articleObjUpload2 = await firestore.collection("userArticles").doc(firebase.auth().currentUser.uid).update({
                                 articles: firebase.firestore.FieldValue.arrayUnion(articleObj)
-                            });
-                        }else{
-                            const documentCreation = await firestore.collection("userArticles").doc(firebase.auth().currentUser.uid).set({
-                                articles: [articleObj]
-                            })
-                        }
+                        });
+
+                        const articleUpload3 = await firestore.collection("allArticles").doc(props.match.params.articleID).set(articleObj);
+                        // }else{
+                        //     const documentCreation = await firestore.collection("userArticles").doc(firebase.auth().currentUser.uid).set({
+                        //         articles: [articleObj]
+                        //     })
+                        // }
                         console.log("article object upload successful again");
                         history.push("/write/articles");
                     }

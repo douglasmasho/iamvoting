@@ -47,7 +47,7 @@ const Articles = (props) => {
                       <div className="article__item__bottom">
                         <div className="u-margin-left">
                             <h1>{article.title}</h1>
-                           <button>Edit</button>
+                            <Link to={`/write/articles/edit/${article.articleID}`} className="button">Edit</Link>
                            <button>Delete</button>
                         </div>
                       </div>
@@ -64,7 +64,7 @@ const Articles = (props) => {
                       <div className="article__item__bottom">
                         <div className="u-margin-left">
                             <h1>{article.title}</h1>
-                           <button>Edit</button>
+                           <Link to={`/write/articles/edit/${article.articleID}`} className="button">Edit</Link>
                            <button>Delete</button>
                         </div>
                       </div>

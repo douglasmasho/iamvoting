@@ -106,7 +106,8 @@ export const setAuthStatus = (status)=>{
                 const docSnapshots = await firestore.collection("userArticles").doc(firebase.auth().currentUser.uid).get();
                 if(!docSnapshots.exists){
                     const documentCreation = await firestore.collection("userArticles").doc(firebase.auth().currentUser.uid).set({
-                        articles: []
+                        articles: [],
+                        polls: []
                     })              
                 }
             }catch(e){
