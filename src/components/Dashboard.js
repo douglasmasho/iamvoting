@@ -16,6 +16,7 @@ import ScrollToTop from "./ScrollToTop";
 import Editor from "./Editor";
 import Loading from './Loading';
 import EditorEdit from './EditorEdit';
+import EEParent from './EEParent';
 
 
     
@@ -107,8 +108,7 @@ const Dasboard = (props) => {
                 }}/>
                 <Route path="/write/events"  component={Events}/>
                 <Route exact path="/write/articles/new/:articleID" component={Editor}/>
-                <Route exact path="/write/articles/edit/:articleID" component={EditorEdit}/>
-                
+                <Route exact path="/write/articles/edit/:articleID" component={EEParent}/>           
               </div>
       </div>
     )

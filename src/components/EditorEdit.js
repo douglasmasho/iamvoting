@@ -25,8 +25,10 @@ const EditorEdit = (props) => {
     const [title, setTitle] = useState("");
     const errorTextRef = useRef();
     const loadingContainerRef = useRef();
-    const [bannerChange, setBannerChange] = useState();
+    const [bannerChange, setBannerChange] = useState(false);
+    const [titleChange, setTitleChange] = useState(false);
     const bannerRef = useRef();
+    const titleRef = useRef();
     let history = useHistory();
     const inputFileRef = useRef();
 
@@ -51,7 +53,7 @@ const EditorEdit = (props) => {
                     //create folder and upload the article banner to storage
                     let bannerURL
                     if(typeof banner !== "string"){
-                        const uploadTask = await firebase.storage().ref("articles/" + props.match.params.articleID + "/" + "banner").put(banner, metadata);
+                        const uploadTask = await firebase.storage().ref("articles/" + props.articleID + "/" + "banner").put(banner, metadata);
                         console.log("Uploaded successfully!", uploadTask);
                         bannerURL = await uploadTask.ref.getDownloadURL();
                         console.log(bannerURL);
@@ -73,14 +75,14 @@ const EditorEdit = (props) => {
                             email: firebase.auth().currentUser.email,
                             authorID: firebase.auth().currentUser.uid
                         },
-                        articleID: props.match.params.articleID
+                        articleID: props.articleID
                     }
                      console.log(output);
                     if(!draft){
                         //upload the article object to firestore
                         console.log(articleObj);   
 
-                        const articleObjUpload = await firestore.collection("articles").doc(props.match.params.articleID).set(articleObj);
+                        const articleObjUpload = await firestore.collection("articles").doc(props.articleID).set(articleObj);
                         console.log("article object upload successful");
                     }
                     //upload the article to firestore in the users articlesArr
@@ -88,7 +90,7 @@ const EditorEdit = (props) => {
                     //create the document if it does not exist yet
                     const userDoc = await firestore.collection("userArticles").doc(firebase.auth().currentUser.uid).get();
                     //find the article with the article id of the edit
-                    const articleToBeDeleted = userDoc.data().articles.find(obj=>obj.articleID === props.match.params.articleID);
+                    const articleToBeDeleted = userDoc.data().articles.find(obj=>obj.articleID === props.articleID);
                     console.log(articleToBeDeleted);
                     console.log(articleObj);
                     const articleDelete = await firestore.collection("userArticles").doc(firebase.auth().currentUser.uid).update({
@@ -98,7 +100,7 @@ const EditorEdit = (props) => {
                         articles: firebase.firestore.FieldValue.arrayUnion(articleObj)
                     });
 
-                    const articleUpload3 = await firestore.collection("allArticles").doc(props.match.params.articleID).set(articleObj);
+                    const articleUpload3 = await firestore.collection("allArticles").doc(props.articleID).set(articleObj);
                     console.log("article object upload successful again");
                     history.push("/write/articles");
                 }
@@ -141,8 +143,6 @@ const EditorEdit = (props) => {
     
 
     useEffect(()=>{
-       if(props.article ){
-           console.log(props.article[0].blocks)
           editorRef.current = new EditorJS({
             holderID: "editorjs", ////this is the default value
             data:  props.article[0].blocks,
@@ -188,7 +188,7 @@ const EditorEdit = (props) => {
                                 var metadata = {
                                     contentType: 'image/jpeg'
                                 };
-                                var uploadTask = await firebase.storage().ref("articles/" + props.match.params.articleID + "/" + file.name).put(file, metadata);
+                                var uploadTask = await firebase.storage().ref("articles/" + props.articleID + "/" + file.name).put(file, metadata);
                                 console.log("Uploaded successfully!", uploadTask);
                                 const downloadURL = await uploadTask.ref.getDownloadURL();
                                 console.log(downloadURL);
@@ -206,9 +206,7 @@ const EditorEdit = (props) => {
                   }
             }//specify the different tools you want in the editor
         })
-       }
-       console.log(editorRef.current)
-    }, [props.article])
+    }, [])
 
     if(!props.auth && !firebase.auth().currentUser){
         return  <Redirect to="/write/account"/>
@@ -216,14 +214,24 @@ const EditorEdit = (props) => {
     return (
         <div className="screen screen--white">
            <div class="u-margin-bottom">
-            <h1 className="screen__header" style={{color: "black"}}>New Article</h1>
+            <h1 className="screen__header" style={{color: "black"}}>Edit Article</h1>
             <div className="redline redline--aboutus showAbove" style={{marginTop: 0}}></div>
           </div>
+
                     <div className="column u-margin-bottom-big">
-                       {props.article ? <input type="text" className="input-textbox u-margin-bottom" placeholder="please enter the article title" onChange={handleTitleChange} value={props.article[0].title}/>: <input type="text" className="input-textbox u-margin-bottom" placeholder="please enter the article title" onChange={handleTitleChange} />}      
+                    <h1 ref={titleRef} className="header-text red-ish-text">{props.article[0].title}</h1>
+                    {titleChange ? <input type="text" className="input-textbox u-margin-bottom" placeholder="please enter the article title" onChange={handleTitleChange} /> : 
+
+                    <div className="u-margin-bottom">
+                    <button className="button" onClick={()=>{
+                        setTitleChange(true);
+                        titleRef.current.style.display = "none";
+                    }}>Change Title</button>
+                    </div>
+                    }  
                     <p className="bigger-text u-margin-bottom-small">Article Banner</p>
-                    {props.article ? <img src={props.article[0].banner} alt="" ref={bannerRef}/>: null}
-                    {props.article && bannerChange ? <input type="file" id="banner" onChange={handleBannerChange}  ref={inputFileRef}/> : <button className="button" onClick={()=>{
+                    <img src={props.article[0].banner} alt="" ref={bannerRef}/>
+                    {bannerChange ? <input type="file" id="banner" onChange={handleBannerChange}  ref={inputFileRef}/> : <button className="button" onClick={()=>{
                         setBannerChange(true);
                         bannerRef.current.style.display = "none";
                     }}>Change banner</button>}
@@ -251,11 +259,9 @@ const EditorEdit = (props) => {
 
 const mapStateToProps = state=>({ //is the state in the store ///will take the state from the store and put it as props in the component that is being connected
     auth: state.authStatus,
-    article: state.firestore.ordered.allArticles
   });
 
-  
   export default compose(
-      connect(mapStateToProps),
-      firestoreConnect(props=>[{collection: "allArticles", doc: props.match.params.articleID}]))(EditorEdit)
+      connect(mapStateToProps))
+      (EditorEdit)
   

@@ -8,7 +8,8 @@ import Plus from "../assets/plus.svg";
 import {firestoreConnect} from "react-redux-firebase";
 import {compose} from "redux";
 import JustAnimation from './JustAnimation';
-
+import PencilBlack from "../assets/pencilblack.svg";
+import Trash from "../assets/trash.svg";
 const Articles = (props) => {
   
   useEffect(()=>{
@@ -45,10 +46,14 @@ const Articles = (props) => {
                      props.articles ? props.articles[0].articles.map(obj=>obj).sort((a,b)=>b.createdAt.valueOf() - a.createdAt.valueOf()).map(article=> article.draft ? (
                       <div className="grid-2--child article__item center-hrz--col" key={article.articleID} style={{backgroundImage: `url(${article.banner})`}}> 
                       <div className="article__item__bottom">
-                        <div className="u-margin-left">
+                        <div>
                             <h1>{article.title}</h1>
-                            <Link to={`/write/articles/edit/${article.articleID}`} className="button">Edit</Link>
-                           <button>Delete</button>
+                            <div>
+                              <Link to={`/write/articles/edit/${article.articleID}`} className="button small-text article__button" title="edit article">
+                              <img src={PencilBlack} alt=""/>
+                                </Link>
+                             <button className="button small-text article__button" title="delete article"><img src={Trash} alt=""/></button>
+                            </div>
                         </div>
                       </div>
                       </div>  
@@ -62,10 +67,15 @@ const Articles = (props) => {
                     props.articles ? props.articles[0].articles.map(obj=>obj).sort((a,b)=>b.createdAt.valueOf() - a.createdAt.valueOf()).map(article=> !article.draft ? (
                       <div className="grid-2--child article__item center-hrz--col" key={article.articleID} style={{backgroundImage: `url(${article.banner})`}}> 
                       <div className="article__item__bottom">
-                        <div className="u-margin-left">
+                        <div >
                             <h1>{article.title}</h1>
-                           <Link to={`/write/articles/edit/${article.articleID}`} className="button">Edit</Link>
-                           <button>Delete</button>
+                            <div>
+                             <Link to={`/write/articles/edit/${article.articleID}`} className="button small-text article__button" title="edit article">
+                               <img src={PencilBlack} alt=""/>
+                              </Link>
+                             <button className="button small-text article__button" title="delete article"><img src={Trash} alt=""/></button>
+                            </div>
+
                         </div>
                       </div>
                       </div>  

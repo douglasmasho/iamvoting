@@ -7,7 +7,18 @@
     font-size: 1.7rem;
     font-family: "Poppins", sans-serif;
     font-weight: bold;
+    cursor:pointer;
+    transition: all .3s;
 
-    
-        cursor:pointer;
+    &:hover{
+        background-color: white;
+        color: $red-ish;
+        box-shadow: 1px 1px 10px 1px rgba(0,0,0,0.1);
+    }
+
+    &:active{
+        background-color: $red-ish;
+        color: black;
+        box-shadow: none;
+    }
 }
