@@ -11,7 +11,8 @@ import JustAnimation from './JustAnimation';
 import PencilBlack from "../assets/pencilblack.svg";
 import Trash from "../assets/trash.svg";
 const Articles = (props) => {
-  
+
+
   useEffect(()=>{
     console.log(props.articles)
     // console.log(props.articles[0])
@@ -20,6 +21,47 @@ const Articles = (props) => {
       console.log(firebase.auth().currentUser.displayName);
     }
   })
+
+  const deleteArticle =(articleID)=>{
+    //delete all traces of this article, including images
+    const firestore = firebase.firestore();
+      //get the article object
+    const articleObj = props.articles[0].articles.find(obj=> obj.articleID === articleID)
+    console.log(articleID);
+    console.log();
+    async function deleteFunc(){
+      try{
+                //delete doc from the articles collection
+        const deletion = await firestore.collection("allArticles").doc(articleID).delete();
+        console.log(deletion);
+        //delete the object from the userArticles Collection in the uid document
+        const deletion2 = await firestore.collection("userArticles").doc(firebase.auth().currentUser.uid).update({
+        articles: firebase.firestore.FieldValue.arrayRemove(articleObj)
+      })
+      console.log(deletion2);
+      //delete all the pictures associated with the article to be deleted
+      //first get the filesList
+      const filesList = await firestore.collection("fileLists").doc(articleID).get();
+      filesList.data().fileList.forEach(fileName=>{
+        firebase.storage().ref(`articles/${articleID}/${fileName}`).delete().then(resp=>{
+          console.log(resp);
+        });
+      })
+      //now delete the filesList
+
+      const filesListDelete = await firestore.collection("fileLists").doc(articleID).delete();
+      console.log(filesListDelete);
+      }catch(e){
+        console.log(e)
+      }
+    }
+
+    deleteFunc();
+
+
+
+    
+  }
 
   const link = `/write/articles/new/${nanoid(12)}`
 
@@ -52,7 +94,9 @@ const Articles = (props) => {
                               <Link to={`/write/articles/edit/${article.articleID}`} className="button small-text article__button" title="edit article">
                               <img src={PencilBlack} alt=""/>
                                 </Link>
-                             <button className="button small-text article__button" title="delete article"><img src={Trash} alt=""/></button>
+                             <button className="button small-text article__button" title="delete article"><img src={Trash} alt="" onClick={()=>{
+                               deleteArticle(article.articleID);
+                             }}/></button>
                             </div>
                         </div>
                       </div>
@@ -73,7 +117,9 @@ const Articles = (props) => {
                              <Link to={`/write/articles/edit/${article.articleID}`} className="button small-text article__button" title="edit article">
                                <img src={PencilBlack} alt=""/>
                               </Link>
-                             <button className="button small-text article__button" title="delete article"><img src={Trash} alt=""/></button>
+                             <button className="button small-text article__button" title="delete article"><img src={Trash} alt="" onClick={()=>{
+                               deleteArticle(article.articleID);
+                             }}/></button>
                             </div>
 
                         </div>
@@ -95,6 +141,8 @@ const mapStateToProps = state=>{
     articles: state.firestore.ordered.userArticles
   }
 }
+
+
 
 export default compose(
   connect(mapStateToProps),

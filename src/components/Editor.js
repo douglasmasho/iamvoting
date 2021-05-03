@@ -41,6 +41,19 @@ const Editor = (props) => {
                         const bannerURL = await uploadTask.ref.getDownloadURL();
                         console.log(bannerURL);
 
+                        const docSnapshot = await firebase.firestore().collection("fileLists").doc(props.match.params.articleID).get();
+                        if(!docSnapshot.exists){
+                            console.log("this thing does not exist")
+                            const createFileList = await firebase.firestore().collection("fileLists").doc(props.match.params.articleID).set({
+                                fileList: []
+                            })
+                        }
+                        console.log("this thing exist")
+
+                        const addToFileList = await firebase.firestore().collection("fileLists").doc(props.match.params.articleID).update({
+                          fileList: firebase.firestore.FieldValue.arrayUnion("banner")
+                        })
+
                         //create an object that will have the other data
                         const articleObj = {
                             title,
@@ -54,7 +67,7 @@ const Editor = (props) => {
                                 email: firebase.auth().currentUser.email,
                                 authorID: firebase.auth().currentUser.uid
                             },
-                            articleID: props.match.params.articleID
+                            articleID: props.match.params.articleID,
                         }
                          console.log(output);
                         if(!draft){
@@ -161,6 +174,17 @@ const Editor = (props) => {
                                 console.log("Uploaded successfully!", uploadTask);
                                 const downloadURL = await uploadTask.ref.getDownloadURL();
                                 console.log(downloadURL);
+                                //add to the list
+                                const docSnapshot = await firebase.firestore().collection("fileLists").doc(props.match.params.articleID).get();
+                                if(!docSnapshot.exists){
+                                    const createFileList = await firebase.firestore().collection("fileLists").doc(props.match.params.articleID).set({
+                                        fileList: []
+                                    })
+                                }
+                                const addToFileList = await firebase.firestore().collection("fileLists").doc(props.match.params.articleID).update({
+                                  fileList: firebase.firestore.FieldValue.arrayUnion(file.name)
+                                })
+
                                 return {
                                     success: 1,
                                     file: {
