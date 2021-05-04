@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useRef} from 'react'
 import {Route, Redirect, Link} from "react-router-dom";
 import firebase from 'firebase/app';
 import {connect} from "react-redux";
@@ -11,6 +11,18 @@ import JustAnimation from './JustAnimation';
 import PencilBlack from "../assets/pencilblack.svg";
 import Trash from "../assets/trash.svg";
 const Articles = (props) => {
+  const modalRef = useRef();
+  const articleIDRef = useRef(null);
+
+  const openModal = ()=>{
+    modalRef.current.classList.add("active");
+    console.log("to the base");
+}
+const closeModal = ()=>{
+    modalRef.current.classList.remove("active");
+    // console.log(modalRef.current.classList.add("active"))
+}
+
 
 
   useEffect(()=>{
@@ -55,12 +67,7 @@ const Articles = (props) => {
         console.log(e)
       }
     }
-
-    deleteFunc();
-
-
-
-    
+    deleteFunc();  
   }
 
   const link = `/write/articles/new/${nanoid(12)}`
@@ -95,7 +102,9 @@ const Articles = (props) => {
                               <img src={PencilBlack} alt=""/>
                                 </Link>
                              <button className="button small-text article__button" title="delete article"><img src={Trash} alt="" onClick={()=>{
-                               deleteArticle(article.articleID);
+                              //  deleteArticle(article.articleID);
+                              articleIDRef.current = article.articleID;
+                              openModal();
                              }}/></button>
                             </div>
                         </div>
@@ -118,7 +127,8 @@ const Articles = (props) => {
                                <img src={PencilBlack} alt=""/>
                               </Link>
                              <button className="button small-text article__button" title="delete article"><img src={Trash} alt="" onClick={()=>{
-                               deleteArticle(article.articleID);
+                              articleIDRef.current = article.articleID;
+                              openModal();
                              }}/></button>
                             </div>
 
@@ -129,6 +139,20 @@ const Articles = (props) => {
                   }              
               </div>  
 
+              <div className="modal"  ref={modalRef}>
+              <button className="close-button" onClick={closeModal}>&times;</button>
+                <div style={{textAlign: "center"}} className="u-margin-bottom">
+                  <p className="white-text bigger-text">Are you sure you want to delete this article?</p>
+                    <small className="normal-text white-text">It cannot be recovered</small>
+                </div>
+                <div className="center-hrz" style={{justifyContent: "space-evenly"}}>
+                      <button className="button" onClick={closeModal}>No</button>
+                      <button className="button" onClick={()=>{
+                        deleteArticle(articleIDRef.current);
+                        closeModal();
+                      }}>Yes</button>
+                </div>
+              </div>
      
         </div>
     )

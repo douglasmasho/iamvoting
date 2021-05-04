@@ -86,7 +86,7 @@ const Navbar = (props) => {
                   <div className="input-group center-hrz--col">
                    <input type="password" id="writerPass" className="input-password" placeholder="enter writer's password" required onChange={handleChange}/>
                    <label htmlFor="writerPass" className="input--label">Writer's password</label>
-                  <button type="submit" className="button">Go</button>
+                  <button type="submit" className="button u-margin-bottom">Go</button>
                   </div>
                   <div className="center-hrz">
                   {props.password ? <Link className="button" to="/write/account" onClick={closeModal}>Start Writing</Link> : null}

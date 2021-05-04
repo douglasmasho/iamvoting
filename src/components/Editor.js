@@ -222,6 +222,7 @@ const Editor = (props) => {
                     <p className="bigger-text u-margin-bottom-small">Article Content</p>
                     <div id="editorjs">
                     </div>
+                    <p className="red-text normal-text" ref={errorTextRef} style={{display: "none"}}>Please enter the article title and image</p>
                     <div className="center-hrz u-margin-top u-margin-bottom">
                     <button onClick={()=>{
                         saveArticle(false)
@@ -230,7 +231,6 @@ const Editor = (props) => {
                         saveArticle(true)
                     }} className="button u-margin-left">Save as Draft</button>
                     </div>
-                    <p className="red-text" ref={errorTextRef} style={{display: "none"}}>Please enter the article title and image</p>
                     <div style={{display: "none"}} ref={loadingContainerRef}>
                        <Loading/>
                     </div>

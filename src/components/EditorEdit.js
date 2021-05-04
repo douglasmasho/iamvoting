@@ -213,7 +213,7 @@ const EditorEdit = (props) => {
     }
     return (
         <div className="screen screen--white">
-           <div class="u-margin-bottom">
+           <div className="u-margin-bottom">
             <h1 className="screen__header" style={{color: "black"}}>Edit Article</h1>
             <div className="redline redline--aboutus showAbove" style={{marginTop: 0}}></div>
           </div>

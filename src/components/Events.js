@@ -3,7 +3,7 @@ import React from 'react'
 const Events = () => {
     return (
         <div className="screen">
-           <p  class="white-text">events</p>
+           <p  className="white-text">events</p>
         </div>
     )
 }
