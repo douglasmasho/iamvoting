@@ -4,6 +4,8 @@
 
     @include respond(phone){
         flex-direction: column;
+        justify-content: space-evenly;
+        align-items: space-evenly;
     }
 
 

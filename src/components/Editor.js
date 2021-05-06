@@ -47,13 +47,16 @@ const Editor = (props) => {
                             const createFileList = await firebase.firestore().collection("fileLists").doc(props.match.params.articleID).set({
                                 fileList: []
                             })
-                        }
-                        console.log("this thing exist")
+                        }        
 
                         const addToFileList = await firebase.firestore().collection("fileLists").doc(props.match.params.articleID).update({
                           fileList: firebase.firestore.FieldValue.arrayUnion("banner")
                         })
 
+                        //get the author's information
+                        const authorInfo = await firebase.firestore().collection("userArticles").doc(firebase.auth().currentUser.uid).get();
+                        const socials = authorInfo.data().socials;
+                        const authorTitle = authorInfo.data().title;
                         //create an object that will have the other data
                         const articleObj = {
                             title,
@@ -65,10 +68,14 @@ const Editor = (props) => {
                                 name: firebase.auth().currentUser.displayName,
                                 photo: firebase.auth().currentUser.photoURL,
                                 email: firebase.auth().currentUser.email,
-                                authorID: firebase.auth().currentUser.uid
+                                authorID: firebase.auth().currentUser.uid,
+                                socials,
+                                title: authorTitle
                             },
                             articleID: props.match.params.articleID,
                         }
+
+
                          console.log(output);
                         if(!draft){
                             //upload the article object to firestore

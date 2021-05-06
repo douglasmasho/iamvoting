@@ -10,6 +10,7 @@ import Counters from './Counters';
 import Socials from "./Socials";
 import JoinUs from "./JoinUs";
 import AboutUs from "./AboutUs";
+import Terms from './Terms';
 
 // import Footer from './components/Footer';
 
@@ -44,6 +45,7 @@ const Home = () => {
             }}/>
             <Route path="/joinus" component={JoinUs}/>
             <Route path="/aboutus" component={AboutUs}/>
+            <Route path="/terms" component={Terms}/>
         </div>
         </>
     )

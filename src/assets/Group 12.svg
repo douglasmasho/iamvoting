@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="181" height="65" viewBox="0 0 181 65">
-  <g id="Group_12" data-name="Group 12" transform="translate(-870 -975)">
-    <g id="Rectangle_39" data-name="Rectangle 39" transform="translate(870 975)" fill="#fff" stroke="#707070" stroke-width="1">
-      <rect width="181" height="65" rx="15" stroke="none"/>
-      <rect x="0.5" y="0.5" width="180" height="64" rx="14.5" fill="none"/>
-    </g>
-    <text id="Add_" data-name="Add " transform="translate(954 1019)" fill="#0b1152" font-size="35" font-family="Poppins-Bold, Poppins" font-weight="700"><tspan x="0" y="0">Add </tspan></text>
-  </g>
-</svg>

@@ -74,6 +74,11 @@
             font-weight: bold;
             cursor:pointer;
             transition: all .3s;
+
+            @include respond(phone){
+                margin-bottom: 3rem;
+            }
+            
         
             &:hover{
                 background-color: white;

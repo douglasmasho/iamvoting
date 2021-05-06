@@ -4,7 +4,6 @@ import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
 import {Link, Route} from "react-router-dom";
-import BackIcon from "../assets/back.svg"
 import Logo from "../assets/iamvotingnam.svg";
 import Menu from "./Menu";
 import Account from "./Account";

@@ -10,8 +10,8 @@ import * as actionCreators from "../redux/actions";
 import {bindActionCreators} from "redux";
 
 
-import Facebook from "../assets/facebook.svg";
-import Instagram from "../assets/instagram.svg";
+import Facebook from "../assets/facebookwhite.svg";
+import Instagram from "../assets/instagramwhite.svg";
 import Twitter from "../assets/twitter.svg";
 
 
@@ -76,9 +76,9 @@ export class Footer extends Component {
                     <div className="footer__seconddiv__2">
                         <p className="bigger-text white-text u-margin-bottom-small">Social Media</p>
                         <ul style={{listStyle: "none"}} className="footer__social-list  u-margin-bottom-small">
-                            <li><a href="https://twitter.com/iamvoting_nam/"><img src={Twitter} alt="twitter-link" className="footer__social-icon"/></a></li>
-                            <li><a href="https://www.instagram.com/iamvoting_nam/"><img src={Instagram} alt="instagram-link" className="footer__social-icon"/></a></li>
-                            <li><a href="https://www.facebook.com/Iamvoting_nam-102697754419237/"><img src={Facebook} alt="facebook-link" className="footer__social-icon"/></a></li>
+                            <li><a target="_blank" href="https://twitter.com/iamvoting_nam/"><img src={Twitter} alt="twitter-link" className="footer__social-icon"/></a></li>
+                            <li><a target="_blank" href="https://www.instagram.com/iamvoting_nam/"><img src={Instagram} alt="instagram-link" className="footer__social-icon"/></a></li>
+                            <li><a target="_blank" href="https://www.facebook.com/Iamvoting_nam-102697754419237/"><img src={Facebook} alt="facebook-link" className="footer__social-icon"/></a></li>
                        </ul>
                        <p className="bigger-text white-text u-margin-bottom-small">@iamvoting_nam</p>
                     </div>
@@ -100,16 +100,3 @@ const mapDispatchToProps = (dispatch)=>{
 
 export default connect(null, mapDispatchToProps)(Footer);
 
-
-
-
-
-// import React from 'react'
-
-// const Footer = () => {
-//     return (
-
-//     )
-// }
-
-// export default Footer

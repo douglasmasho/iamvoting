@@ -23,10 +23,10 @@ const closeModal = ()=>{
     // console.log(modalRef.current.classList.add("active"))
 }
 
-
-
   useEffect(()=>{
-    console.log(props.articles)
+    if(props.articles){
+      console.log(props.articles[0]["title"]);
+    }
     // console.log(props.articles[0])
     if(firebase.auth().currentUser){
       console.log(firebase.auth().currentUser)
@@ -77,84 +77,93 @@ const closeModal = ()=>{
   }
   
     return (
+      <>
+      {
+        props.articles ?    props.articles[0]["title"] !== "" ?
         <div className="screen ">
-          <div class="u-margin-bottom">
-            <h1 className="screen__header">My Articles</h1>
-            <div className="redline redline--aboutus showAbove" style={{marginTop: 0}}></div>
-          </div>
-
-            <h2 className="header-text red-ish-text center-text u-margin-top">Drafts</h2>
-
-            <div className="grid-2 grid u-margin-bottom-big">
-                <div className="grid-2--child article__item center-hrz--col center-vert">
-                    <Link to={link}><img src={Plus} alt="" className="article__plus"/></Link> 
-                    <h3>Add article</h3>   
-                  </div>
-
-                  {
-                     props.articles ? props.articles[0].articles.map(obj=>obj).sort((a,b)=>b.createdAt.valueOf() - a.createdAt.valueOf()).map(article=> article.draft ? (
-                      <div className="grid-2--child article__item center-hrz--col" key={article.articleID} style={{backgroundImage: `url(${article.banner})`}}> 
-                      <div className="article__item__bottom">
-                        <div>
-                            <h1>{article.title}</h1>
-                            <div>
-                              <Link to={`/write/articles/edit/${article.articleID}`} className="button small-text article__button" title="edit article">
-                              <img src={PencilBlack} alt=""/>
-                                </Link>
-                             <button className="button small-text article__button" title="delete article"><img src={Trash} alt="" onClick={()=>{
-                              //  deleteArticle(article.articleID);
-                              articleIDRef.current = article.articleID;
-                              openModal();
-                             }}/></button>
-                            </div>
-                        </div>
-                      </div>
-                      </div>  
-                    ) : null ) : <JustAnimation/>  /* loading animation*/
-                  } 
-            </div> 
-
-              <h2 className="header-text red-ish-text center-text u-margin-top-big">Published</h2>
-              <div className="grid-2 grid "> 
-                  {
-                    props.articles ? props.articles[0].articles.map(obj=>obj).sort((a,b)=>b.createdAt.valueOf() - a.createdAt.valueOf()).map(article=> !article.draft ? (
-                      <div className="grid-2--child article__item center-hrz--col" key={article.articleID} style={{backgroundImage: `url(${article.banner})`}}> 
-                      <div className="article__item__bottom">
-                        <div >
-                            <h1>{article.title}</h1>
-                            <div>
-                             <Link to={`/write/articles/edit/${article.articleID}`} className="button small-text article__button" title="edit article">
-                               <img src={PencilBlack} alt=""/>
-                              </Link>
-                             <button className="button small-text article__button" title="delete article"><img src={Trash} alt="" onClick={()=>{
-                              articleIDRef.current = article.articleID;
-                              openModal();
-                             }}/></button>
-                            </div>
-
-                        </div>
-                      </div>
-                      </div>  
-                    ) : null ) : <JustAnimation/>  /* loading animation*/
-                  }              
-              </div>  
-
-              <div className="modal"  ref={modalRef}>
-              <button className="close-button" onClick={closeModal}>&times;</button>
-                <div style={{textAlign: "center"}} className="u-margin-bottom">
-                  <p className="white-text bigger-text">Are you sure you want to delete this article?</p>
-                    <small className="normal-text white-text">It cannot be recovered</small>
-                </div>
-                <div className="center-hrz" style={{justifyContent: "space-evenly"}}>
-                      <button className="button" onClick={closeModal}>No</button>
-                      <button className="button" onClick={()=>{
-                        deleteArticle(articleIDRef.current);
-                        closeModal();
-                      }}>Yes</button>
-                </div>
-              </div>
-     
+        <div class="u-margin-bottom">
+          <h1 className="screen__header">My Articles</h1>
+          <div className="redline redline--aboutus showAbove" style={{marginTop: 0}}></div>
         </div>
+
+          <h2 className="header-text red-ish-text center-text u-margin-top">Drafts</h2>
+
+          <div className="grid-2 grid u-margin-bottom-big">
+              <div className="grid-2--child article__item center-hrz--col center-vert">
+                  <Link to={link}><img src={Plus} alt="" className="article__plus"/></Link> 
+                  <h3>Add article</h3>   
+                </div>
+
+                {
+                   props.articles ? props.articles[0].articles.map(obj=>obj).sort((a,b)=>b.createdAt.valueOf() - a.createdAt.valueOf()).map(article=> article.draft ? (
+                    <div className="grid-2--child article__item center-hrz--col" key={article.articleID} style={{backgroundImage: `url(${article.banner})`}}> 
+                    <div className="article__item__bottom">
+                      <div>
+                          <h1>{article.title}</h1>
+                          <div>
+                            <Link to={`/write/articles/edit/${article.articleID}`} className="button small-text article__button" title="edit article">
+                            <img src={PencilBlack} alt=""/>
+                              </Link>
+                           <button className="button small-text article__button" title="delete article"><img src={Trash} alt="" onClick={()=>{
+                            //  deleteArticle(article.articleID);
+                            articleIDRef.current = article.articleID;
+                            openModal();
+                           }}/></button>
+                          </div>
+                      </div>
+                    </div>
+                    </div>  
+                  ) : null ) : <JustAnimation/>  /* loading animation*/
+                } 
+          </div> 
+
+            <h2 className="header-text red-ish-text center-text u-margin-top-big">Published</h2>
+            <div className="grid-2 grid "> 
+                {
+                  props.articles ? props.articles[0].articles.map(obj=>obj).sort((a,b)=>b.createdAt.valueOf() - a.createdAt.valueOf()).map(article=> !article.draft ? (
+                    <div className="grid-2--child article__item center-hrz--col" key={article.articleID} style={{backgroundImage: `url(${article.banner})`}}> 
+                    <div className="article__item__bottom">
+                      <div >
+                          <h1>{article.title}</h1>
+                          <div>
+                           <Link to={`/write/articles/edit/${article.articleID}`} className="button small-text article__button" title="edit article">
+                             <img src={PencilBlack} alt=""/>
+                            </Link>
+                           <button className="button small-text article__button" title="delete article"><img src={Trash} alt="" onClick={()=>{
+                            articleIDRef.current = article.articleID;
+                            openModal();
+                           }}/></button>
+                          </div>
+
+                      </div>
+                    </div>
+                    </div>  
+                  ) : null ) : <JustAnimation/>  /* loading animation*/
+                }              
+            </div>  
+
+            <div className="modal"  ref={modalRef}>
+            <button className="close-button" onClick={closeModal}>&times;</button>
+              <div style={{textAlign: "center"}} className="u-margin-bottom">
+                <p className="white-text bigger-text">Are you sure you want to delete this article?</p>
+                  <small className="normal-text white-text">It cannot be recovered</small>
+              </div>
+              <div className="center-hrz" style={{justifyContent: "space-evenly"}}>
+                    <button className="button" onClick={closeModal}>No</button>
+                    <button className="button" onClick={()=>{
+                      deleteArticle(articleIDRef.current);
+                      closeModal();
+                    }}>Yes</button>
+              </div>
+            </div>
+   
+      </div>  : 
+      <div className="center-hrz--col u-margin-top-big">
+        <p className="white-text bigger-text">Please provide your title in order to write an article</p>
+        <Link to="/write/account"><button className="button">Go to account Page</button></Link>
+      </div> : <JustAnimation/>
+      }
+      </>
     )
 }
 

@@ -4,6 +4,7 @@ import * as actionCreators from "../redux/actions";
 import {bindActionCreators} from "redux";
 import Navbar from './Navbar';
 import Footer from './Footer';
+import {Link} from "react-router-dom";
 
 
 
@@ -57,9 +58,15 @@ class JoinUs extends React.Component {
             <Navbar/>
         <div className="joinus__div">
 
+            
+
              <div className="center-hrz ">
                     <h2 className="header-text red-ish-text u-margin-bottom">Become a member</h2>
                 </div> 
+
+                <div className="center-hrz" style={{alignItems: 'center'}}>
+                        <Link to="/terms"><button className="button" style={{borderRadius: "10px"}}><p className="normal-text center-text">Subscription Terms</p></button></Link>
+                    </div>
             <form  onSubmit={this.handleSubmit} className="center-hrz--col">
             <div className="input-group center-hrz--col row-2--child">
                 <input type="text" name="text" id="firstName" className="input-textbox" placeholder="First name" required onChange={this.handleChange}/>
@@ -117,6 +124,7 @@ class JoinUs extends React.Component {
                 <button type="submit" className="button">Submit</button>
             </form>
             {/* <button onClick={this.seeState}>See state</button> */}
+
             <div className="center-hrz">
             {this.props.error !== null ? <p className="normal-text" style={{color: "red"}}>{this.props.error}</p> : <p style={{color: "red"}}></p>}
             </div>

@@ -109,6 +109,7 @@ export const setAuthStatus = (status)=>{
                         articles: [],
                         polls: [],
                         socials: [],
+                        title: "",
                     })              
                 }
             }catch(e){
