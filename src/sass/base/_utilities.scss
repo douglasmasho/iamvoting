@@ -59,9 +59,15 @@
   padding: 5rem;
 }
 
+
+
 .u-padding{
   padding: 2rem;
   &-top{
     padding-top: 2rem;
+    &-larger{
+      padding-top: 15rem;
+
+    }
   }
 }

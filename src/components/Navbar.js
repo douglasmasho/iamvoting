@@ -55,7 +55,7 @@ const Navbar = (props) => {
                        <Link to="/" >Blog</Link>
                        <div className="sub-menu-2">
                             <ul>
-                                <Link to="/" ><li className="sub-link">Read</li></Link>
+                                <Link to="/articleList" ><li className="sub-link">Read</li></Link>
                                 <li onClick={openModal} style={{cursor: "pointer"}} className="sub-link">Write</li>
                             </ul>
                         </div>

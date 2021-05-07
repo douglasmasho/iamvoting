@@ -100,7 +100,7 @@ const closeModal = ()=>{
                     <div className="article__item__bottom">
                       <div>
                           <h1>{article.title}</h1>
-                          <div>
+                          <div className="article__item__buttons">
                             <Link to={`/write/articles/edit/${article.articleID}`} className="button small-text article__button" title="edit article">
                             <img src={PencilBlack} alt=""/>
                               </Link>
@@ -123,9 +123,9 @@ const closeModal = ()=>{
                   props.articles ? props.articles[0].articles.map(obj=>obj).sort((a,b)=>b.createdAt.valueOf() - a.createdAt.valueOf()).map(article=> !article.draft ? (
                     <div className="grid-2--child article__item center-hrz--col" key={article.articleID} style={{backgroundImage: `url(${article.banner})`}}> 
                     <div className="article__item__bottom">
-                      <div >
+                      <div>
                           <h1>{article.title}</h1>
-                          <div>
+                          <div className="article__item__buttons">
                            <Link to={`/write/articles/edit/${article.articleID}`} className="button small-text article__button" title="edit article">
                              <img src={PencilBlack} alt=""/>
                             </Link>

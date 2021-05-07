@@ -172,6 +172,9 @@ const addTitle = ()=>{
 
             <h1 style={{textAlign: "center"}} className="header-text red-ish-text">{firebase.auth().currentUser.displayName}</h1>
             <p className="normal-text white-text u-margin-bottom" style={{textAlign: "center"}}>uid: {firebase.auth().currentUser.uid}</p>
+            {
+              
+            }
           <ShowSocials uid={firebase.auth().currentUser.uid}/>
 
           <div className="row center-hrz u-margin-bottom-big" style={{justifyContent: "space-evenly", alignItems: "space-evenly"}}>
