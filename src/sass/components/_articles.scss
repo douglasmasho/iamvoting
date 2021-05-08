@@ -7,9 +7,7 @@
         position: relative;
         overflow: hidden;
         height: 100%;
-        box-shadow: 1px 4px 11px -1px rgba(0,0,0,0.29);
-        -webkit-box-shadow: 1px 4px 11px -1px rgba(0,0,0,0.29);
-        -moz-box-shadow: 1px 4px 11px -1px rgba(0,0,0,0.29);
+
 
         &--authorPic{
             height: 8rem !important;
@@ -30,8 +28,11 @@
 
 
         &:hover{
-            transform: scale(1.05);
+            // transform: scale(1.05);
             background-color: $red-ish;
+                    box-shadow: 1px 4px 11px -1px rgba(0,0,0,0.29);
+        -webkit-box-shadow: 1px 4px 11px -1px rgba(0,0,0,0.29);
+        -moz-box-shadow: 1px 4px 11px -1px rgba(0,0,0,0.29);
 
             & .article__item__bottom{
             //   height: 100%;
@@ -42,6 +43,13 @@
                 color: $red-ish
             }
             }
+
+            .article__item__bottom--author{
+                opacity: 1;
+                height: auto;
+                padding: 5px;
+            }
+
         }
         &__bottom{
             transition: all .3s;
@@ -57,15 +65,45 @@
                 & h1{
                     color: $deep-blue;
                     text-align: left !important;
+
+                    @include respond(phone){
+                        font-size: 4rem !important;
+                    }
                 }
+                
             }
 
             &--author{
                 background-color: $deep-blue;
-                padding: 20px;
-                & h1{
-                    color: $deep-blue;
-                    text-align: left !important;
+                // padding: 20px;
+                display: flex;
+                opacity: 0;
+                height: 0;
+                padding: 0;
+                transition: all .5s;
+                & h3:nth-child(1){
+                    font-size: 2.5rem;
+                    text-transform: capitalize;
+                }
+                & h3:nth-child(2){
+                    font-weight: lighter !important;
+                }
+
+
+                @include respond(phone){
+                justify-content: space-evenly;
+                    flex-direction: row !important;
+                    padding-bottom: 0;
+                    & h3:first-child{
+                        font-size: 5rem;
+                    }
+                    & h3:nth-child(2){
+                        font-size: 3rem;
+                    }
+                    & div img{
+                        width: 12rem !important;
+                        height: 12rem !important
+                    }
                 }
             }
 

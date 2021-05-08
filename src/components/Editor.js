@@ -80,7 +80,7 @@ const Editor = (props) => {
                         if(!draft){
                             //upload the article object to firestore
                             console.log(articleObj);   
-
+                            
                             const articleObjUpload = await firestore.collection("articles").doc(props.match.params.articleID).set(articleObj);
                             console.log("article object upload successful");
                         }

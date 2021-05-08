@@ -13,6 +13,10 @@
             padding: 2rem;
             border-radius: 15px; 
             height: 40rem;     
+
+            @include respond(phone){
+            height: 50rem;     
+            }
         }
     }
 

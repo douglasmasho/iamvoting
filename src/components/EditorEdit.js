@@ -61,6 +61,10 @@ const EditorEdit = (props) => {
                         bannerURL = banner
                     }
 
+                                            //get the author's information
+                                            const authorInfo = await firebase.firestore().collection("userArticles").doc(firebase.auth().currentUser.uid).get();
+                                            const socials = authorInfo.data().socials;
+                                            const authorTitle = authorInfo.data().title;
 
                     //create an object that will have the other data
                     const articleObj = {
@@ -73,7 +77,9 @@ const EditorEdit = (props) => {
                             name: firebase.auth().currentUser.displayName,
                             photo: firebase.auth().currentUser.photoURL,
                             email: firebase.auth().currentUser.email,
-                            authorID: firebase.auth().currentUser.uid
+                            authorID: firebase.auth().currentUser.uid,
+                            socials,
+                            title: authorTitle
                         },
                         articleID: props.articleID
                     }

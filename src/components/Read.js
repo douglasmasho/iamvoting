@@ -13,38 +13,45 @@ import moment from "moment";
 const Read = (props) => {
     useEffect(()=>{
         if(props.articles){
-            // console.log(props.articles[0].createdAt.toDate());
+            console.log(props.articles);
         }
     })
     return (
         <>
         <Navbar/>
             <div className="u-padding-top-larger articlesList__div">
+
+            <div className="center-hrz">
+            <h1 className="aboutus__intro-title">Articles</h1>
+            </div>    
+                <div className="center-hrz u-margin-bottom-small">
+                <div className="redline redline--aboutus showAbove" style={{marginTop: 0}}></div>
+            </div>
+            
             <div className="grid-2 grid u-margin-bottom-big">
                 {
-                    props.articles ? props.articles.length > 0 ? props.articles.map(obj=>obj).sort((a,b)=>b.createdAt.valueOf() - a.createdAt.valueOf()).map(article=> (
-                    <div className="grid-2--child article__item center-hrz--col" key={article.articleID} style={{backgroundImage: `url(${article.banner})`}}>
+                    props.articles ? props.articles.length > 0 ? props.articles.map(obj=>obj).sort((a,b)=>b.createdAt.valueOf() - a.createdAt.valueOf()).map(article=> !article.draft ? (   
+                    <Link to={`read/${article.articleID}`}>
+                    <div className="grid-2--child article__item center-hrz--col" key={article.articleID} style={{backgroundImage: `url(${article.banner})`, cursor: "pointer"}}>
                     <div className="article__item__bottom" style={{paddingTop: "0px"}}>
                       <div className="article__item__bottom--title" > 
                           <h1 className="deep-blue-text">{article.title}</h1>
                       </div>
 
-                      <div className="article__item__bottom--author row">     
-                              {/* <div  style={{backgroundImage: `url(${article.authorDetails.photo})`}}>
-                              </div> */}
-                              <img src={article.authorDetails.photo} alt="" className="article__item--authorPic"/>
-                              <div>
-                                  <div className="u-margin-bottom-small">
+                      <div className="article__item__bottom--author">     
+                            <div>
+                            <img src={article.authorDetails.photo} alt="" className="article__item--authorPic"/>     
+                            </div>
+                                  <div className="u-margin-bottom-small column" style={{justifyContent: "center"}}>
                                     <h3 className="white-text bigger-text" style={{textAlign: "left", justifyContent: "flex-start"}}>{article.authorDetails.name}</h3>
                                     <h3 className="white-text normal-text" style={{textAlign: "left", justifyContent: "flex-start"}}>{article.authorDetails.title}</h3>
-                                  </div>
-                              </div>
-                          
+                                </div>
                       </div>
                       <h4 className="white-text normal-text red-ish-text" style={{textAlign: "right", marginRight: "2rem"}}>{moment(article.createdAt.toDate()).calendar()}</h4>
                     </div>
-
-                    </div>)) : <p>No data</p> : <Loading/>
+                    </div>
+                    </Link>
+                    ): null) : <p>No data</p> : <Loading/>
                 }
             </div>
 

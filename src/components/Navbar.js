@@ -10,14 +10,19 @@ const Navbar = (props) => {
     const modalRef = useRef();
     const [passwordState, setPasswordState] = useState();
     const errorTextRef = useRef();
+    const overlayRef = useRef();
 
     const openModal = ()=>{
         modalRef.current.classList.add("active");
         console.log("to the base");
+        const overlay = overlayRef.current;
+        overlay.classList.add("active"); 
     }
     const closeModal = ()=>{
         modalRef.current.classList.remove("active");
-        // console.log(modalRef.current.classList.add("active"))
+        // console.log(modalRef.current.classList.add("active"));
+        const overlay = overlayRef.current;
+        overlay.classList.remove("active"); 
     }
 
     const handleChange = (e)=>{
@@ -94,6 +99,9 @@ const Navbar = (props) => {
                   {!props.password ? <p className="red-ish-text align-center u-margin-top normal-text" ref={errorTextRef} style={{display: "none"}}>Password is incorrect</p> : null}            
               </form>
             </div>
+
+          <div className="overlay" ref={overlayRef}></div>
+
         </div>
     )
 }
