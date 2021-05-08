@@ -12,6 +12,7 @@ import JoinUs from "./JoinUs";
 import AboutUs from "./AboutUs";
 import Terms from './Terms';
 import Read from './Read';
+import SingleArticle from './SingleArticle';
 
 // import Footer from './components/Footer';
 
@@ -48,6 +49,7 @@ const Home = () => {
             <Route path="/aboutus" component={AboutUs}/>
             <Route path="/terms" component={Terms}/>
             <Route path="/articleList" component={Read}/>
+            <Route exact path="/read/:articleID" component={SingleArticle}/>
         </div>
         </>
     )

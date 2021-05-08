@@ -7,7 +7,7 @@ import storage from "redux-persist/lib/storage";
 const persistConfig = {
   key: "root",
   storage,
-  whiteList: ["password"] 
+  whiteList: ["password", "currentArticle"] 
 }
 
 //reducer 1, for the counter state
@@ -63,6 +63,13 @@ const authReducer = (state=false, action)=>{
   }
 }
 
+const currentArticleReducer = (state={}, action)=>{
+  switch(action.type){
+    case "SET_ARTICLE" : return action.article
+    default: return state
+  }
+}
+
 
 
 
@@ -73,7 +80,8 @@ const authReducer = (state=false, action)=>{
     joinError: joinErrorReducer,
     password: writersPassReducer,
     firestore: firestoreReducer,
-    authStatus: authReducer
+    authStatus: authReducer,
+    currentArticle: currentArticleReducer
 })
 
 

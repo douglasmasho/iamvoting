@@ -1,5 +1,4 @@
 
-
 export const increment = ()=>{
     ///the dispatch is halted, so we can fetch data and use that when we dispatch  
     return {
@@ -125,8 +124,12 @@ export const setAuthStatus = (status)=>{
             status
         }) 
     }
+}
 
-
-
+export const setArticle = (articleObj)=>{
+    return {
+        type: "SET_ARTICLE",
+        article: articleObj
+    }
 }
 

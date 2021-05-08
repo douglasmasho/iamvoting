@@ -8,13 +8,20 @@ import {firestoreConnect} from "react-redux-firebase";
 import Loading from './Loading';
 import {Link} from "react-router-dom";
 import moment from "moment";
+import * as actionCreators from "../redux/actions";
+import {bindActionCreators} from "redux";
+
 
 
 const Read = (props) => {
     useEffect(()=>{
         if(props.articles){
-            console.log(props.articles);
+            // console.log(props.currentArticle);
         }
+    })
+
+    useEffect(()=>{
+
     })
     return (
         <>
@@ -31,7 +38,9 @@ const Read = (props) => {
             <div className="grid-2 grid u-margin-bottom-big">
                 {
                     props.articles ? props.articles.length > 0 ? props.articles.map(obj=>obj).sort((a,b)=>b.createdAt.valueOf() - a.createdAt.valueOf()).map(article=> !article.draft ? (   
-                    <Link to={`read/${article.articleID}`}>
+                    <Link to={`/read/${article.articleID}`} onClick={()=>{
+                        props.setArticle(article)
+                    }}>
                     <div className="grid-2--child article__item center-hrz--col" key={article.articleID} style={{backgroundImage: `url(${article.banner})`, cursor: "pointer"}}>
                     <div className="article__item__bottom" style={{paddingTop: "0px"}}>
                       <div className="article__item__bottom--title" > 
@@ -61,15 +70,20 @@ const Read = (props) => {
     )
 }
 
+
+
 const mapStateToProps = state=>{
     return {
-      articles: state.firestore.ordered.allArticles
+      articles: state.firestore.ordered.allArticles,
     }
   }
 
+  const mapDispatchToProps = dispatch=>{ //this will allow you to dispatch actions from anywhere in the compoonent
+    return bindActionCreators(actionCreators, dispatch);
+  }
 
 export default compose(
-    connect(mapStateToProps),
+    connect(mapStateToProps, mapDispatchToProps),
     firestoreConnect(props=>[{collection: "allArticles"}])
 )
 (Read)
