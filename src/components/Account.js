@@ -11,7 +11,6 @@ import ShowSocials from './ShowSocials';
 
 
 const Account = (props) => {
-  const [isSignedIn, setIsSignedIn] = useState(false);
   const modalRef = useRef();
   const [linkState, setLinkState] = useState("");
   const [site, setSite] = useState("");
@@ -22,7 +21,7 @@ const Account = (props) => {
     signInFlow: "popup",
     signInOptions: [
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-      firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+      // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
       // firebase.auth.EmailAuthProvider.PROVIDER_ID
     ],
     callbacks: {

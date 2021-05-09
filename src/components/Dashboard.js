@@ -1,28 +1,17 @@
-import React, {Component, useRef, useEffect, useState} from 'react';
+import React, {useRef ,useEffect, useState} from 'react';
 import * as actionCreators from "../redux/actions";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
-import {Link, Route} from "react-router-dom";
-import Logo from "../assets/iamvotingnam.svg";
+import {Route} from "react-router-dom";
 import Menu from "./Menu";
 import Account from "./Account";
 import Articles from "./Articles";
 import Events from "./Events";
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase/app';
 import ScrollToTop from "./ScrollToTop";
 import Editor from "./Editor";
-import Loading from './Loading';
-import EditorEdit from './EditorEdit';
 import EEParent from './EEParent';
-
-
-    
-// firebase.initializeApp({
-//   apiKey: "AIzaSyCKu33RFo02Wiu_6nZdUqcXVgT_wO8pn6o",
-//   authDomain: "iamvoting-628bb.firebaseapp.com"
-// })
 
 const Dasboard = (props) => {
   const dashboardRef = useRef();

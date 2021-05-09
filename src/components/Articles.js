@@ -1,8 +1,7 @@
 import React, {useEffect, useRef} from 'react'
-import {Route, Redirect, Link} from "react-router-dom";
+import { Redirect, Link} from "react-router-dom";
 import firebase from 'firebase/app';
 import {connect} from "react-redux";
-import Editor from "./Editor";
 import {nanoid} from "nanoid";
 import Plus from "../assets/plus.svg";
 import {firestoreConnect} from "react-redux-firebase";

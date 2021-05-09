@@ -1,5 +1,5 @@
 import React from 'react'
-import { Controls, PlayState, Timeline, Tween } from 'react-gsap';
+import {Timeline, Tween } from 'react-gsap';
 import Eye from "../assets/eye.svg";
 import Arrow from "../assets/arrow-circle-up-right.svg";
 import Anchor from "../assets/basic_anchor.svg";

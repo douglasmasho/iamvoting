@@ -1,33 +1,14 @@
-import React, {useRef} from 'react';
-import Navbar from './components/Navbar';
-import Hero from "./components/Hero";
-import ReactPlayer from 'react-player';
-import Intro from "./components/Intro";
-import Socials from "./components/Socials";
+import React from 'react';
 import {connect} from "react-redux";
 import * as actionCreators from "./redux/actions";
 import {bindActionCreators} from "redux";
-import Counters from './components/Counters';
 import {Route} from "react-router-dom";
-import JoinUs from "./components/JoinUs"
-import Footer from './components/Footer';
-import Fade from 'react-reveal/Fade';
-import ScrollToTop from "./components/ScrollToTop";
-import AboutUs from "./components/AboutUs";
+
 import Dashboard from "./components/Dashboard";
 import Home from "./components/Home";
 import Loading from './components/Loading';
 
 function App(props) {
-  const scrollDivRef = useRef();
-
-
-  const scrollToTop = ()=>{
-    scrollDivRef.current.scrollTo(0,0);
-    console.log(document.querySelector(".scrollDiv"));
-    document.querySelector(".scrollDiv").scrollTo(0,0);
-    window.scrollTo(0,0);
-  }
   return (
     <div className="App">  
         <Home/>

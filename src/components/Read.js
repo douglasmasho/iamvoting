@@ -38,8 +38,12 @@ const Read = (props) => {
             <div className="grid-2 grid u-margin-bottom-big">
                 {
                     props.articles ? props.articles.length > 0 ? props.articles.map(obj=>obj).sort((a,b)=>b.createdAt.valueOf() - a.createdAt.valueOf()).map(article=> !article.draft ? (   
-                    <Link to={`/read/${article.articleID}`} onClick={()=>{
-                        props.setArticle(article)
+                    <Link key={article.articleID} to={`/read/${article.articleID}`} onClick={()=>{
+                        props.setArticle({
+                            ...article,
+                            actualDate: moment(article.createdAt.toDate()).format("MMM Do YY")
+                        });
+
                     }}>
                     <div className="grid-2--child article__item center-hrz--col" key={article.articleID} style={{backgroundImage: `url(${article.banner})`, cursor: "pointer"}}>
                     <div className="article__item__bottom" style={{paddingTop: "0px"}}>

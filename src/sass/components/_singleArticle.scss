@@ -1,0 +1,100 @@
+.singleArticle{
+    &__header{
+        width: 100vw;
+        height: 100vh;
+        padding-top: 8rem;
+        &__banner{
+            height: 50%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        &__bottom{
+            padding: 0 !important;
+            height: 50%;
+            @include respond(phone){
+               text-align: center;
+            }
+            &--1,
+            &--2{
+                position: relative;
+                width: 50%;
+                height: 100%;
+                @include respond(phone){
+                    width: 100%;
+                }
+            }
+            
+            &--1{
+                background-color: white;
+                padding-left: 2rem;
+                & h2{
+                    font-size: 5rem;
+                    font-weight: bold;
+                    color: $deep-blue
+                }
+
+                & p{
+                    color: $red-ish;
+                    font-size: 2rem;
+                    font-weight: lighter;
+                    position: absolute;
+                    bottom: 0;
+                    left: 2rem;
+                }
+            }
+
+            &--2{
+                background-color: $deep-blue;
+                // display: ;
+                div div h3{
+                    font-size: 3.5rem;
+                    font-weight: bold;
+                    @include respond(phone){
+                        text-align: center !important;
+                     }
+                }
+
+                div div h4{
+                    font-size: 2rem;
+                    font-weight: lighter;
+                    @include respond(phone){
+                        text-align: center !important;
+                     }
+                }
+
+                &__socials{
+                    position: absolute;
+                    bottom: 0;
+                    right: 2rem;
+                    @include respond(phone){
+                        display: flex;
+                        justify-content: flex-end;
+                        
+                     }
+
+                    &__icon{
+                        width: 5rem;
+                        margin-right: 1rem;
+
+                        // &:last-of-type{
+                        //     margin-right: 0;
+                        // }
+                    }
+
+                    @include respond(phone){
+                        position: relative;
+                        
+                     }
+                }
+
+                &__picture{
+                    border-radius: 50%;
+                    width: 15rem;
+                }
+            }
+        }
+    }
+
+
+}
