@@ -17,13 +17,17 @@
 }
 
 .u-margin-top{
-    margin-top: 2.5rem;
+    margin-top: 2.5rem !important;
 
     &-big{
-      margin-top: 8rem;
+      margin-top: 8rem !important;
     }
     &-huge{
-      margin-top: 15rem;
+      margin-top: 15rem !important;
+    }
+
+    &-small{
+      margin-top: 1.5rem !important;
     }
 }
 

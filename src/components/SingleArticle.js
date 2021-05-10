@@ -9,18 +9,22 @@ import InstagramIcon from "../assets/instagramwhite.svg";
 import {compose} from "redux";
 import {firestoreConnect} from "react-redux-firebase";
 import Loading from './Loading';
+// import {nanoid} from "nanoid";
 
 
 const SingleArticle = (props) => {
 
     useEffect(()=>{
-        console.log("i rendered")
+        if(props.currentArticlee){
+            console.log(props.currentArticlee[0].blocks);
+        }
     })
     return (
         <>
         <Navbar/>
         {
-            props.currentArticlee && props.currentArticlee[0] ?   <div  className="singleArticle">
+            props.currentArticlee && props.currentArticlee[0] ?   
+        <div  className="singleArticle">
             <div className="singleArticle__header">
                 <div className="singleArticle__header__banner" style={{backgroundImage: `url(${props.currentArticlee[0].banner})`}}>
                 </div>
@@ -64,9 +68,53 @@ const SingleArticle = (props) => {
                         </div>
                     </div>
                 </div>
-            </div>         
-        </div> : <Loading/>
-        }
+            </div> 
+            <div className="singleArticle__content">
+                    {
+                        props.currentArticlee[0].blocks.blocks.map(block=>{
+                            switch(block.type){
+                                case "image": return (
+                                    <div style={{width: "100%"}} className="u-margin-bottom-big">
+                                        <div className="center-hrz" style={{width: "100%"}}>
+                                          <img src={block.data.file.url} alt={block.data.caption.replace(/&nbsp;/g, '')} key={block.id} className="singleArticle__content__image"/>
+                                        </div>
+                                      <p className="center-text u-margin-top-small">{block.data.caption.replace(/&nbsp;/g, '')}</p>
+                                    </div>
+                                    )
+
+                                case "header": 
+                                       switch(block.data.level){
+                                           case 1: return <h1>{block.data.text.replace(/&nbsp;/g, '')}</h1>
+                                           case 2: return <h2>{block.data.text.replace(/&nbsp;/g, '')}</h2>
+                                           case 3: return <h3>{block.data.text.replace(/&nbsp;/g, '')}</h3>
+                                           case 4: return <h4>{block.data.text.replace(/&nbsp;/g, '')}</h4>
+                                       }   
+                                       break;
+                                case "paragraph": return  <p className="singleArticle__content__paragraph u-margin-bottom">{block.data.text.replace(/&nbsp;/g, '')}</p>
+                                case "list":
+                                switch(block.data.style){
+                                    case "ordered": return (<ol className="u-margin-bottom normal-text">
+                                                            {block.data.items.map(item=> <li>{item.replace(/&nbsp;/g, '')}</li>)}
+                                                          </ol>)
+                                    case "unordered": return (<ul className="u-margin-bottom normal-text">
+                                                             {block.data.items.map(item=> <li>{item.replace(/&nbsp;/g, '')}</li>)}
+                                                            </ul>)                     
+                                }    
+                                break;
+                                case "quote":
+                                      return (<div className="center-hrz--col singleArticle__content__quote">
+                                                 <p className="center-hrz--col singleArticle__content__quoteText">"<span>{block.data.text.replace(/&nbsp;/g, '')}</span>"</p>
+                                                 <p className="center-hrz--col singleArticle__content__quoteAuthor">-{block.data.caption.replace(/&nbsp;/g, '')}</p>
+                                                 </div>)             
+                            }
+                        })  
+                    }    
+            </div>
+
+
+        </div> 
+        
+        : <Loading/>}
         <Footer/>
 
         </>
