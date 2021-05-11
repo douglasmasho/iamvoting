@@ -7,6 +7,7 @@ import Fade from 'react-reveal/Fade';
 import Structure from "../assets/structure.svg";
 import Navbar from './Navbar';
 import Footer from './Footer';
+import Events from './Events';
 
 const AboutUS = () => {
     return (
@@ -123,6 +124,14 @@ const AboutUS = () => {
                             <img src={Structure} alt="" style={{width: "100%"}}/>
                             </div>
 
+                    </section>
+
+
+                    <section className="aboutus__eventsdiv" id="events">
+                       <Fade>
+                        <h2 className="header-text red-ish-text u-margin-bottom-small">Events</h2>
+                        </Fade>
+                        <Events/>
                     </section>
         </div>
         <Footer/>

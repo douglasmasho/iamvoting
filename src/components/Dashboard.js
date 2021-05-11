@@ -7,7 +7,6 @@ import {Route} from "react-router-dom";
 import Menu from "./Menu";
 import Account from "./Account";
 import Articles from "./Articles";
-import Events from "./Events";
 import firebase from 'firebase/app';
 import ScrollToTop from "./ScrollToTop";
 import Editor from "./Editor";
@@ -74,8 +73,7 @@ const Dasboard = (props) => {
         break;
      case "articles": component = <Articles/>;
          break;
-     case "events": component = <Events/>
-
+         default: //nothing
    }
 
     return (
@@ -94,7 +92,6 @@ const Dasboard = (props) => {
                     return <Articles uid={firebase.auth().currentUser.uid}/>
                   }       
                 }}/>
-                <Route path="/write/events"  component={Events}/>
                 <Route exact path="/write/articles/new/:articleID" component={Editor}/>
                 <Route exact path="/write/articles/edit/:articleID" component={EEParent}/>           
               </div>

@@ -9,8 +9,6 @@ import InstagramIcon from "../assets/instagramwhite.svg";
 import {compose} from "redux";
 import {firestoreConnect} from "react-redux-firebase";
 import Loading from './Loading';
-// import {nanoid} from "nanoid";
-
 
 const SingleArticle = (props) => {
 
@@ -110,10 +108,7 @@ const SingleArticle = (props) => {
                         })  
                     }    
             </div>
-
-
         </div> 
-        
         : <Loading/>}
         <Footer/>
 
