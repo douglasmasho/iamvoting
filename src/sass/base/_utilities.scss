@@ -59,9 +59,6 @@
 
 
 
-.u-padding-large{
-  padding: 5rem;
-}
 
 
 
@@ -69,9 +66,17 @@
   padding: 2rem;
   &-top{
     padding-top: 2rem;
-    &-larger{
+    &-big{
+      padding-top: 5rem;
+    }
+    &-large{
       padding-top: 15rem;
 
     }
+  }
+
+  &-sides{
+    padding-left: 5rem;
+    padding-right: 5rem;
   }
 }

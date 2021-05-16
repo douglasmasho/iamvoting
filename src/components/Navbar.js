@@ -75,12 +75,12 @@ const Navbar = (props) => {
                                 <a href="/aboutus#team" ><li className="sub-link">The Team</li></a>
                                 <Link to="/"><li className="sub-link">Gallery</li></Link>
                                 <Link to="/" ><li className="sub-link">Achievements</li></Link>
-                                <Link to="/" ><li className="sub-link">Events</li></Link>
+                                <a href="/aboutus#events" ><li className="sub-link">Events</li></a>
                             </ul>
                         </div>
                     </li>
                     <li className="nav__link"><a href="#contactus">Contact us</a></li>
-                    <li className="nav__link"><Link to="/" >Donate</Link></li>
+                    {/* <li className="nav__link"><Link to="/" >Donate</Link></li> */}
                 </ul>
             </div>
 

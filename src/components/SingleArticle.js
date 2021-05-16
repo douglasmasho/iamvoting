@@ -91,10 +91,10 @@ const SingleArticle = (props) => {
                                 case "paragraph": return  <p className="singleArticle__content__paragraph u-margin-bottom">{block.data.text.replace(/&nbsp;/g, '')}</p>
                                 case "list":
                                 switch(block.data.style){
-                                    case "ordered": return (<ol className="u-margin-bottom normal-text">
+                                    case "ordered": return (<ol className="u-margin-bottom normal-text u-padding-sides">
                                                             {block.data.items.map(item=> <li>{item.replace(/&nbsp;/g, '')}</li>)}
                                                           </ol>)
-                                    case "unordered": return (<ul className="u-margin-bottom normal-text">
+                                    case "unordered": return (<ul className="u-margin-bottom normal-text u-padding-sides">
                                                              {block.data.items.map(item=> <li>{item.replace(/&nbsp;/g, '')}</li>)}
                                                             </ul>)                     
                                 }    
