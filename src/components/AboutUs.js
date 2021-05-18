@@ -9,7 +9,98 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import Events from './Events';
 
+
 const AboutUS = () => {
+
+    const testAPI = ()=>{
+        console.log("testing the API");
+        async function testCreate (){
+            const bodyObj = {
+                question: "Does this doc help?",
+                identifier: "custom_identifier",
+                data: {
+                    custom: "Poll Data"
+                },
+                options: [
+                    {
+                        text: "Option Text",
+                        data: {
+                            custom: "data"
+                        }
+                    },
+                    {
+                        text: "Option Text2",
+                        data: {
+                            custom: "data"
+                        }
+                    }
+                ]
+            }
+            try{
+               const responseJSON = await fetch("https://api.pollsapi.com/v1/create/poll", {
+                    method: "POST",
+                    headers: {
+                        "Content-type": "application/json",
+                        "api-key": "H0YSMRWP88M4M6GM9RPMFDMN9GRN"
+                    },
+                    body: JSON.stringify(bodyObj)
+                })
+
+                const response = await responseJSON.json();
+                console.log(response);
+
+            }catch(e){
+                console.log(e)
+            }
+        }
+        testCreate();
+    }
+
+    const testAPIGet = ()=>{
+        console.log("testing the API");
+        async function testCreate (){
+            const bodyObj = {
+                question: "Does this doc help?",
+                identifier: "custom_identifier",
+                data: {
+                    custom: "Poll Data"
+                },
+                options: [
+                    {
+                        text: "Option Text",
+                        data: {
+                            custom: "data"
+                        }
+                    },
+                    {
+                        text: "Option Text2",
+                        data: {
+                            custom: "data"
+                        }
+                    }
+                ]
+            }
+            try{
+               const responseJSON = await fetch("https://api.pollsapi.com/v1/create/poll", {
+                    method: "POST",
+                    headers: {
+                        "Content-type": "application/json",
+                        "api-key": "H0YSMRWP88M4M6GM9RPMFDMN9GRN"
+                    },
+                    body: JSON.stringify(bodyObj)
+                })
+
+                const response = await responseJSON.json();
+                console.log(response);
+
+            }catch(e){
+                console.log(e)
+            }
+        }
+        testCreate();
+    }
+
+    
     return (
         <>
         <Navbar/>
@@ -142,6 +233,9 @@ const AboutUS = () => {
                           <iframe src="https://embedsocial.com/facebook_album/pro_instagram/3d14faa8f222bffb209265b543e1ed78bac3fc32" width="900px" height="1200px" frameborder="0" marginheight="0" marginwidth="0"></iframe>
                         </div>
                     </section>
+                    <button onClick={testAPI}>Test the API</button>
+                    <button onClick={testAPIGet}>Test the API</button>
+
 
         </div>
         <Footer/>

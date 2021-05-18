@@ -44,3 +44,44 @@
         
     }
 }
+
+
+@keyframes fadeout{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+@keyframes fadein{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes expand{
+    0%{
+        width: 0%;
+        opacit: 0;
+    }
+    100%{
+        width: 40%;
+        opacity: 1;
+    }
+}
+
+@keyframes collapse{
+    0%{
+        width: 40%;
+        opacity: 1;
+    }
+    100%{
+        width: 0%;
+        opacity: 0;
+    }
+}

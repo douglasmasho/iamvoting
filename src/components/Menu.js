@@ -30,14 +30,14 @@ export default class Menu extends Component{
         return (<div className="menu--container">
             <Link to="/">
                 <div className="center-hrz u-padding menu__logo">
-                <img src={Logo} alt="" style={{width: "80%"}}/>
+                  <img src={Logo} alt="" style={{width: "80%"}}/>
                 </div>
             </Link>
                    <label htmlFor="smenu-1" className="menu--sub"><img src={PencilIcon} alt="bug icon"/>Write</label>
                    <input type="checkbox" id="smenu-1" className="checkBox"/>
                     <div className="menu--content menu--content__1">
                             <Link className="menu--link" to="/write/articles">Articles</Link>
-                            <Link className="menu--link" to="/write/events">Events</Link>
+                            <Link className="menu--link" to="/write/polls">Polls</Link>
                     </div>
 
                     <label htmlFor="smenu-2" className="menu--sub"><img src={Users} alt="users icon"/>My account</label>
