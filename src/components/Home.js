@@ -13,6 +13,7 @@ import AboutUs from "./AboutUs";
 import Terms from './Terms';
 import Read from './Read';
 import SingleArticle from './SingleArticle';
+import WeekPoll from './WeekPoll';
 
 // import Footer from './components/Footer';
 
@@ -36,10 +37,10 @@ const Home = () => {
                     <Navbar/>
                     <Hero/>
                     <Intro/>
+                    <WeekPoll/>
                     <Fade>
                     <Counters/>
                     </Fade>
-                    {/* put the counters here */}
                     <Socials/>
                     <Footer/>
                 </>        

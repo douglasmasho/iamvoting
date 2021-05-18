@@ -12,6 +12,7 @@ import ScrollToTop from "./ScrollToTop";
 import Editor from "./Editor";
 import EEParent from './EEParent';
 import ShowPolls from './ShowPolls';
+import NewPoll from './NewPoll';
 
 const Dasboard = (props) => {
   const dashboardRef = useRef();
@@ -95,7 +96,8 @@ const Dasboard = (props) => {
                 }}/>
                 <Route exact path="/write/articles/new/:articleID" component={Editor}/>
                 <Route exact path="/write/articles/edit/:articleID" component={EEParent}/>    
-                <Route exact path="/write/polls" component={ShowPolls}/>      
+                <Route exact path="/write/polls" component={ShowPolls}/> 
+                <Route exact path="/write/polls/new" component={NewPoll}/>  
               </div>
       </div>
     )
