@@ -1,0 +1,26 @@
+.pollSection{
+    background-color: white;
+    padding: 5rem;
+    overflow: hidden;
+    position: relative;
+    &__div{
+        position: relative;
+        z-index: 1;
+    }
+
+    & span{
+        position: absolute;
+        color: $deep-blue;
+        font-size: 7rem;
+        font-weight: bolder;
+        opacity: 0.5;
+        bottom: -3rem;
+        right: 2rem;
+        z-index: 0;
+    }
+
+    &__label{
+        position: relative;
+        z-index: 1;     
+    }
+}
