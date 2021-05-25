@@ -4,12 +4,36 @@ import firebase from 'firebase/app';
 import * as actionCreators from "../redux/actions";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
+import { Pie } from 'react-chartjs-2';
+
 
 const WeekPoll = (props) => {
+    const colorsArr = ['red','blue', 'yellow', 'white', 'black', 'orange', 'cyan', 'fuschia', 'violet', 'pink'];
     const [qObj, setQObj] = useState("");
     const [option, setOption] = useState("");
+    const [pollData, setPollData] = useState("");
 
-    const   uiConfig = {
+    const data = {
+        labels: [
+            'Red',
+            'Blue',
+            'Yellow',
+            'Cyan'
+          ],
+          datasets: [{
+            label: 'My First Dataset',
+            data: [20, 20, 20,20],
+            backgroundColor: [
+              'rgb(255, 99, 132)',
+              'rgb(54, 162, 235)',
+              'rgb(255, 205, 86)',
+              'cyan'
+            ],
+            hoverOffset: 4
+          }]
+    }
+
+    const uiConfig = {
         signInFlow: "popup",
         signInOptions: [
           firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -26,28 +50,67 @@ const WeekPoll = (props) => {
         console.log("Cast the vote", option);
 
         async function castVote(){
-            const bodyObj = {
-                poll_id: qObj.data.id,
-                option_id: option,
-                identifier: `${qObj.data.id}-${firebase.auth().currentUser.uid}`
+            //this function, addVotw will add vote only after the other votes are deleted
+            async function addVote(){
+                console.log("adding vote")
+                const bodyObj = {
+                    poll_id: qObj.data.id,
+                    option_id: option,
+                    identifier: `${qObj.data.id}-${firebase.auth().currentUser.uid}`
+                }       
+                try{
+                    const responseJSON = await fetch("https://api.pollsapi.com/v1/create/vote", {
+                        method: "POST",
+                        headers:{
+                            "Content-type": "application/json",
+                            "api-key": "H0YSMRWP88M4M6GM9RPMFDMN9GRN"
+                        },
+                        body: JSON.stringify(bodyObj)
+                    })
+                    const response = await responseJSON.json();
+                    console.log(response);
+                    fetchVotes();
+                }catch(e){
+
+                }
             }
-            console.log("casting vote", bodyObj)
             try{
-                const responseJSON = await fetch("https://api.pollsapi.com/v1/create/vote", {
-                    method: "POST",
-                    headers:{
+                console.log("running the delete vote function");
+                const identifier = `${qObj.data.id}-${firebase.auth().currentUser.uid}`;
+                
+                const responseJSON2 = await fetch(`https://api.pollsapi.com/v1/get/votes-with-identifier/${identifier}?offset=0&limit=25`, {
+                    method: "GET",
+                    headers: {
                         "Content-type": "application/json",
-                        "api-key": "H0YSMRWP88M4M6GM9RPMFDMN9GRN"
-                    },
-                    body: JSON.stringify(bodyObj)
+                        "api-key": "H0YSMRWP88M4M6GM9RPMFDMN9GRN"  
+                    }
                 })
-                const response = await responseJSON.json();
-                console.log(response);
+                const response2 = await responseJSON2.json();
+                console.log(response2.data.docs);   
+                    response2.data.docs.forEach((doc)=>{
+                        //creeate the new body
+                        const bodyObj2 = {
+                            vote_id: doc.id
+                        }
+                        //remove each vote
+                        fetch("https://api.pollsapi.com/v1/remove/vote", {
+                            method: "POST",
+                            headers: {
+                                "Content-type": "application/json",
+                                "api-key": "H0YSMRWP88M4M6GM9RPMFDMN9GRN"   
+                            },
+                            body: JSON.stringify(bodyObj2)
+                        }).then(resp=>{
+                            resp.json().then(resp=>{
+                                console.log(resp);
+                            })
+                        })
+                    })
+                    addVote();
                 }catch(e){
                     console.log(e);
                 }
         }
-
         castVote();
     }
 
@@ -60,6 +123,7 @@ const WeekPoll = (props) => {
     }
 
     const fetchVotes = ()=>{
+        //give the poll div a display of none
         async function getVotes(){
             try{
                 const responseJSON = await fetch(`https://api.pollsapi.com/v1/get/poll/${qObj.data.id}`, {
@@ -69,7 +133,24 @@ const WeekPoll = (props) => {
                     }
                 })  
                 const response = await responseJSON.json();
-                console.log(response)
+                console.log(response);
+
+                //set the pollData Object
+                //create an obj
+
+                const dataObj = {
+                    labels: response.data.options.map(option=> option.text),
+                    datasets: [{
+                        label: "Options",
+                        data: response.data.options.map(option=> option.votes_count),
+                        backgroundColor: colorsArr.slice(0, response.data.options.length),
+                        hoverOffset: 4
+                    }]
+                }
+
+                //set the poll data
+                //give the poll div a display of block
+                setPollData(dataObj);
             }catch(e){
                 console.log(e)
             }
@@ -79,7 +160,7 @@ const WeekPoll = (props) => {
 
     useEffect(()=>{
         console.log("requesting")
-        const pollID = "60a3fd69ac99c70010183621";
+        const pollID = "60a401fc37e4f400101e4a84";
         async function getPoll() {
             try{
                 const responseJson = await fetch(`https://api.pollsapi.com/v1/get/poll/${pollID}`, {
@@ -107,7 +188,7 @@ const WeekPoll = (props) => {
     
     return (
         <>
-
+        <div>
         { props.auth && firebase.auth().currentUser ?
         qObj !== "" ? (
             <div className="u-margin-top-big pollSection">
@@ -144,9 +225,16 @@ const WeekPoll = (props) => {
             <p className="center-text normal-text">To prevent Duplicate votes, please sign in to vote on this week's poll</p>
           <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
         </div>
+        }      
+        </div>
+
+
+        {
+            pollData !== "" ?
+            <div>
+              <Pie data={pollData}/>
+            </div> : null
         }
-
-
         <button onClick={fetchVotes}>Test</button>
         </>
     )
@@ -163,8 +251,20 @@ const mapStateToProps = state=>({ //is the state in the store ///will take the s
 
 export default connect(mapStateToProps, mapDispatchToProps)(WeekPoll)
 
-//if they exist, get all the votes with a specific uid ${qObj.data.id}-${firebase.auth().currentUser.uid}
+//if they exist, get all the votes with a specific custom identifier ${qObj.data.id}-${firebase.auth().currentUser.uid}
  //delete/remove them
   //cast the vote
    //remove the poll screen and show the chart using chart js
     //done
+
+
+
+//show the results graph
+   //collect total votes
+   //get the data(how many options does an option have?) on all the options
+   //do the chart thing......find out how to use chart js in react
+
+
+//final adjustments
+   //the poll screen must disappear after voting, but put a button to vote again, if you want to vote again, the pie must disappear
+   //the pue must only show after a vote, that means you must be authenticated to see the results of the poll

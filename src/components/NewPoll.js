@@ -7,22 +7,40 @@ const NewPoll = () => {
         console.log("testing the API");
         async function testCreate (){
             const bodyObj = {
-                question: "Do you have any issues or queries that you would want to be addressed by the political party you support",
+                question: "How do you describe yourself as?",
                 identifier: "custom_identifier",
                 data: {
                     custom: "Poll Data"
                 },
                 options: [
                     {
-                        text: "Yes",
+                        text: "Conservative",
                         data: {
-                            custom: "yes"
+                            custom: "conservative"
                         }
                     },
                     {
-                        text: "No",
+                        text: "Liberal",
                         data: {
-                            custom: "no"
+                            custom: "liberal"
+                        }
+                    },
+                    {
+                        text: "Both",
+                        data: {
+                            custom: "both"
+                        }
+                    },
+                    {
+                        text: "Something Else",
+                        data: {
+                            custom: "something-else"
+                        }
+                    },
+                    {
+                        text: "Don't Know",
+                        data: {
+                            custom: "dont-know"
                         }
                     }
                 ]
