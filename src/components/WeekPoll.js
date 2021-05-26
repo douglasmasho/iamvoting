@@ -4,14 +4,23 @@ import firebase from 'firebase/app';
 import * as actionCreators from "../redux/actions";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import { Pie } from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2';
+import { Bar } from 'react-chartjs-2';
+
+import JustAnimation from './JustAnimation';
+
+
 
 
 const WeekPoll = (props) => {
-    const colorsArr = ['red','blue', 'yellow', 'white', 'black', 'orange', 'cyan', 'fuschia', 'violet', 'pink'];
-    const [qObj, setQObj] = useState("");
+    const colorsArr = ['red','blue', 'yellow', 'green', 'black', 'orange', 'cyan', 'fuschia', 'violet', 'pink'];
+    // const [props.pollObj, setprops.pollObj] = useState("");
     const [option, setOption] = useState("");
     const [pollData, setPollData] = useState("");
+    const pollScreenRef = useRef();
+    const pollResultsRef = useRef();
+    const loadingDivRef = useRef()
+
 
     const data = {
         labels: [
@@ -48,15 +57,17 @@ const WeekPoll = (props) => {
     const handleSubmit = (e)=>{
         e.preventDefault();
         console.log("Cast the vote", option);
-
+        pollScreenRef.current.style.display = "none";
+        // pollResultsRef.current.style.display = "none";
+        loadingDivRef.current.style.display = "block";
         async function castVote(){
             //this function, addVotw will add vote only after the other votes are deleted
             async function addVote(){
                 console.log("adding vote")
                 const bodyObj = {
-                    poll_id: qObj.data.id,
+                    poll_id: props.pollObj.data.id,
                     option_id: option,
-                    identifier: `${qObj.data.id}-${firebase.auth().currentUser.uid}`
+                    identifier: `${props.pollObj.data.id}-${firebase.auth().currentUser.uid}`
                 }       
                 try{
                     const responseJSON = await fetch("https://api.pollsapi.com/v1/create/vote", {
@@ -76,7 +87,7 @@ const WeekPoll = (props) => {
             }
             try{
                 console.log("running the delete vote function");
-                const identifier = `${qObj.data.id}-${firebase.auth().currentUser.uid}`;
+                const identifier = `${props.pollObj.data.id}-${firebase.auth().currentUser.uid}`;
                 
                 const responseJSON2 = await fetch(`https://api.pollsapi.com/v1/get/votes-with-identifier/${identifier}?offset=0&limit=25`, {
                     method: "GET",
@@ -123,10 +134,10 @@ const WeekPoll = (props) => {
     }
 
     const fetchVotes = ()=>{
-        //give the poll div a display of none
+        //show the loading screen, and make everyhting go away
         async function getVotes(){
             try{
-                const responseJSON = await fetch(`https://api.pollsapi.com/v1/get/poll/${qObj.data.id}`, {
+                const responseJSON = await fetch(`https://api.pollsapi.com/v1/get/poll/${props.pollObj.data.id}`, {
                     method: "GET",
                     headers: {
                         "api-key": "H0YSMRWP88M4M6GM9RPMFDMN9GRN"                          
@@ -151,6 +162,9 @@ const WeekPoll = (props) => {
                 //set the poll data
                 //give the poll div a display of block
                 setPollData(dataObj);
+                pollScreenRef.current.style.display = "none";
+                pollResultsRef.current.style.display = "block";
+                loadingDivRef.current.style.display = "none";
             }catch(e){
                 console.log(e)
             }
@@ -158,9 +172,20 @@ const WeekPoll = (props) => {
         getVotes();
     }
 
+    const voteAgain = ()=>{
+        pollScreenRef.current.style.display = "block";
+        pollResultsRef.current.style.display =  "none";
+    }
     useEffect(()=>{
-        console.log("requesting")
+        console.log(props.pollObj);
+    })
+
+    useEffect(()=>{
+        ///every month, change the create_at check, as well as the the pollID;
         const pollID = "60a401fc37e4f400101e4a84";
+        console.log(props.pollObj.data.id);
+        if(props.pollObj === {} || props.pollObj.data.id !==  pollID){
+            console.log("requesting")
         async function getPoll() {
             try{
                 const responseJson = await fetch(`https://api.pollsapi.com/v1/get/poll/${pollID}`, {
@@ -172,13 +197,14 @@ const WeekPoll = (props) => {
                 })
                 const response = await responseJson.json();
                 console.log(response);
-                setQObj(response)
+                props.setPollObj(response);
             }catch(e){
                 console.log(e)
             }
         }
         getPoll();
 
+        }
         firebase.auth().onAuthStateChanged(user=>{
             console.log(user);
             props.setAuthStatus(!!user)
@@ -189,35 +215,54 @@ const WeekPoll = (props) => {
     return (
         <>
         <div>
-        { props.auth && firebase.auth().currentUser ?
-        qObj !== "" ? (
+        { props.auth ?
+         props.pollObj !== "" ? (
             <div className="u-margin-top-big pollSection">
-            <span>Weekly Poll</span>
-            <p className="header-text red-ish-text u-margin-bottom center-text">{qObj.data.question}</p>
-            <div className="center-hrz">
-                <div className="pollSection__div">
-                    <form onSubmit={handleSubmit}>
-                        {qObj.data.options.map(option=>(
-                            <div className="u-margin-bottom" key={option.id}>
-                                <div className="center-hrz">
-                                    <input type="radio" name="pollOption" className="radio"  id={option.id} style={{display: "inline-block"}} required onChange={handleChange}/>
-                                    <label htmlFor={option.id} className="radio-label pollSection__label" tabIndex="2" >{option.text}</label>
-                                    {/* <div style={{display: "inline-block"}}>
-                                        <p>{option.text}</p>
-                                    </div> */}
-                                </div>
-                            </div>
-                        ))}
+                <span>Weekly Poll</span>
+
+                <div ref={pollScreenRef}>
+                    <p className="header-text red-ish-text u-margin-bottom center-text">{props.pollObj.data.question}</p>
                     <div className="center-hrz">
-                           <button type="submit" className="button">Vote</button>
-                      </div>
-                    </form>
+                        <div className="pollSection__div">
+                            <form onSubmit={handleSubmit}>
+                                {props.pollObj.data.options.map(option=>(
+                                    <div className="u-margin-bottom" key={option.id}>
+                                        <div className="center-hrz">
+                                            <input type="radio" name="pollOption" className="radio"  id={option.id} style={{display: "inline-block"}} required onChange={handleChange}/>
+                                            <label htmlFor={option.id} className="radio-label pollSection__label" tabIndex="2" >{option.text}</label>
+                                            {/* <div style={{display: "inline-block"}}>
+                                                <p>{option.text}</p>
+                                            </div> */}
+                                        </div>
+                                    </div>
+                                ))}
+                            <div className="center-hrz">
+                                <button type="submit" className="button">Vote</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div className="center-hrz--col u-margin-top normal-text">
+                    {/* <p>uid: {firebase.auth().currentUser.uid}</p> */}
+                    <button className="button " onClick={()=>firebase.auth().signOut()}>Sign out</button>
+                    </div>
                 </div>
-            </div>
-            <div className="center-hrz--col u-margin-top normal-text">
-              {/* <p>uid: {firebase.auth().currentUser.uid}</p> */}
-             <button className="button " onClick={()=>firebase.auth().signOut()}>Sign out</button>
-            </div>
+
+                {
+                    pollData !== "" ?
+                    <div ref={pollResultsRef}>
+                        <p className="header-text red-ish-text u-margin-bottom center-text">Results</p>
+                        <Doughnut data={pollData} width={100}/>
+                        <div className="center-hrz u-margin-top">
+                           <button className="button" onClick={voteAgain}>Vote Again</button>
+                        </div>
+                    </div> : null
+                }
+
+                <div ref={loadingDivRef} style={{display: "none"}}>
+                  <p className="center-text red-ish-text normal-text">Fetching results</p>
+                  <JustAnimation/>
+                </div>
             </div>
         ) : null 
         : 
@@ -228,13 +273,6 @@ const WeekPoll = (props) => {
         }      
         </div>
 
-
-        {
-            pollData !== "" ?
-            <div>
-              <Pie data={pollData}/>
-            </div> : null
-        }
         <button onClick={fetchVotes}>Test</button>
         </>
     )
@@ -242,7 +280,8 @@ const WeekPoll = (props) => {
 
 
 const mapStateToProps = state=>({ //is the state in the store ///will take the state from the store and put it as props in the component that is being connected
-    auth: state.authStatus
+    auth: state.authStatus,
+    pollObj: state.pollObj
   });
   
   const mapDispatchToProps = dispatch=>{ //will allow you to dispatch actions from anywhere in the compoonent
@@ -251,7 +290,7 @@ const mapStateToProps = state=>({ //is the state in the store ///will take the s
 
 export default connect(mapStateToProps, mapDispatchToProps)(WeekPoll)
 
-//if they exist, get all the votes with a specific custom identifier ${qObj.data.id}-${firebase.auth().currentUser.uid}
+//if they exist, get all the votes with a specific custom identifier ${props.pollObj.data.id}-${firebase.auth().currentUser.uid}
  //delete/remove them
   //cast the vote
    //remove the poll screen and show the chart using chart js
@@ -266,5 +305,5 @@ export default connect(mapStateToProps, mapDispatchToProps)(WeekPoll)
 
 
 //final adjustments
-   //the poll screen must disappear after voting, but put a button to vote again, if you want to vote again, the pie must disappear
+   //the poll screen must disappear after voting, but put a button to vote again, if you want to vote again, the Doughnut must disappear
    //the pue must only show after a vote, that means you must be authenticated to see the results of the poll

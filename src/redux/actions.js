@@ -133,3 +133,11 @@ export const setArticle = (articleObj)=>{
     }
 }
 
+
+export const setPollObj = (pollObj)=>{
+    return {
+        type: "SET_POLL",
+        pollObj
+    }
+}
+
