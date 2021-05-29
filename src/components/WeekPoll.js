@@ -281,30 +281,30 @@ const WeekPoll = (props) => {
                     pollData !== [] ?
                     <div ref={pollResultsRef} style={{display: "none"}}>
                         <p className="header-text red-ish-text u-margin-bottom center-text">{props.pollObj.data.question}</p>
-                        {/* <div className="row" style={{justifyContent: "space-evenly"}}> */}
+                        <div className="row" style={{justifyContent: "space-evenly"}}>
                                 {
                                     pollData.map((option, index, options)=>{
-                                        return (<div key={option.label} className="u-margin-bottom-medium">
-                                                  <p className="center-text normal-text">{option.label}</p>
-                                                  <ProgressBar completed={(pollOptionVotes[index] / pollTotal) * 100} bgColor={"#000957"} borderRadius="5px" height="30px"/>
-                                              </div>)
+                                    //     return (<div key={option.label} className="u-margin-bottom-medium">
+                                    //               <p className="center-text normal-text">{option.label}</p>
+                                    //               <ProgressBar completed={(pollOptionVotes[index] / pollTotal) * 100} bgColor={"#000957"} borderRadius="5px" height="30px"/>
+                                    //           </div>)
 
-                                        // return (<div key={option.label} className=" u-margin-bottom-medium" style={{width: `${(100 / options.length) - 5}%`}} className="fullOnPhone">
-                                        //              <CircularProgressbar value={(pollOptionVotes[index] / pollTotal) * 100} 
-                                        //                                   text={`${(pollOptionVotes[index] / pollTotal) * 100}%`} 
-                                        //                                   styles={buildStyles(
-                                        //                                                {textSize: '16px', 
-                                        //                                                   textColor: 'rgba(249, 65, 68, 1)',
-                                        //                                                   trailColor: '#000957', 
-                                        //                                                   pathColor: `rgba(249, 65, 68, 1)`
-                                        //                                                   }
-                                        //                                         )}/>
-                                        //              <p className="center-text normal-text u-margin-bottom">{option.label}</p>
+                                        return (<div key={option.label} className=" u-margin-bottom" style={{width: `${(100 / options.length) - 5}%`}} className="fullOnPhone">
+                                                     <CircularProgressbar value={(pollOptionVotes[index] / pollTotal) * 100} 
+                                                                          text={`${(pollOptionVotes[index] / pollTotal) * 100}%`} 
+                                                                          styles={buildStyles(
+                                                                                       {textSize: '16px', 
+                                                                                          textColor: 'rgba(249, 65, 68, 1)',
+                                                                                          trailColor: '#000957', 
+                                                                                          pathColor: `rgba(249, 65, 68, 1)`
+                                                                                          }
+                                                                                )}/>
+                                                     <p className="center-text normal-text u-margin-bottom">{option.label}</p>
 
-                                        //    </div>)
+                                           </div>)
                                     })
                                 }     
-                        {/* </div> */}
+                        </div>
                         <div className="center-hrz u-margin-top">
                            <button className="button" onClick={voteAgain}>Vote Again</button>
                         </div>

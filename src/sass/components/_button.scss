@@ -9,6 +9,10 @@
     font-weight: bold;
     cursor:pointer;
     transition: all .3s;
+    @include respond(tab-port){
+       font-size: 3rem;
+
+     }
 
     &:hover{
         background-color: white;

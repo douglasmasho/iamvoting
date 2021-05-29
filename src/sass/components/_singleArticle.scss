@@ -99,6 +99,9 @@
     &__content{
         background-color: white;
         padding: 2rem 20rem;
+        @include respond(tab-port){
+            padding: 2rem 8rem;
+         }
 
         &__image{
             width: 100%;
@@ -107,6 +110,9 @@
 
         &__paragraph{
             font-size: 1.6rem;
+            @include respond(tab-port){
+                font-size: 2rem;
+             }
         }
 
         &__quote{

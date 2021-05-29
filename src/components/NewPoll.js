@@ -1,7 +1,12 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useEffect} from 'react';
 import {nanoid} from "nanoid";
+import firebase from 'firebase/app';
+import { Redirect, Link} from "react-router-dom";
+import {connect} from "react-redux";
 
-const NewPoll = () => {
+
+
+const NewPoll = (props) => {
     const [options, setOptions] = useState([]);
     const addQuestion = ()=>{
         console.log("testing the API");
@@ -64,13 +69,36 @@ const NewPoll = () => {
         }
         testCreate();
     }
+
+    // useEffect(()=>{
+    //     console.log(firebase.auth().currentUser.uid);
+    // })
+
+    // if(!props.auth && !firebase.auth().currentUser){
+    //     return <Redirect to="/write/account"/>
+    //   }
+
     return (
-        <div className="screen">
-            
-            <button onClick={addQuestion}>Add Poll</button>
-      </div>
+        <>
+
+       {
+           firebase.auth().currentUser && (firebase.auth().currentUser.uid !== "kbE2qHKewyP9ihFKNNvcUgHWkGA3") ? <Redirect to="/write/account"/> :         
+           <div className="screen">  
+              <button onClick={addQuestion}>Add Poll</button>
+           </div>
+       }
+       </>
         
     )
 }
 
-export default NewPoll
+
+const mapStateToProps = state=>{
+    console.log(state.firestore.ordered.userArticles)
+    return {
+      auth: state.authStatus,
+      articles: state.firestore.ordered.userArticles
+    }
+  }
+
+export default connect(mapStateToProps, null)(NewPoll)

@@ -19,12 +19,12 @@ class JoinUs extends React.Component {
             lastName: "",
             email: "",
             address1:"",
-            address2:"",
+            // address2:"",
             city: "",
             region: "",
-            institution: "",
+            // institution: "",
             age: "",
-            idnumber: ""
+            // idnumber: ""
         };
     }
 
@@ -79,14 +79,14 @@ class JoinUs extends React.Component {
             </div>
 
             <div className="input-group center-hrz--col row-2--child">
-                    <input type="text" name="fullAddress" id="address1" className="input-textbox" placeholder="Address Line 1" required onChange={this.handleChange}/>
-                    <label htmlFor="address1" className="input--label">Address Line 1</label>
+                    <input type="text" name="fullAddress" id="address1" className="input-textbox" placeholder="Address" required onChange={this.handleChange}/>
+                    <label htmlFor="address1" className="input--label">Address</label>
               </div>
 
-            <div className="input-group center-hrz--col row-2--child">
+            {/* <div className="input-group center-hrz--col row-2--child">
                  <input type="text" name="fullAddress" id="address2" className="input-textbox" placeholder="Address Line 2" required onChange={this.handleChange}/>
                  <label htmlFor="address2" className="input--label">Address Line 2</label>
-            </div>
+            </div> */}
 
             <div className="input-group center-hrz--col row-2--child">
                  <input type="text" name="fullAddress" id="city" className="input-textbox" placeholder="City" required onChange={this.handleChange}/>
@@ -108,7 +108,7 @@ class JoinUs extends React.Component {
                  <label htmlFor="age" className="input--label">Age</label>
             </div>     
 
-            <div className="input-group center-hrz--col row-2--child">
+            {/* <div className="input-group center-hrz--col row-2--child">
                  <input type="text" name="number" id="institution" className="input-number" placeholder="Instituion of Schooling" required onChange={this.handleChange}/>
                  <label htmlFor="institution" className="input--label">Institution Of Schooling</label>
             </div>   
@@ -116,7 +116,7 @@ class JoinUs extends React.Component {
             <div className="input-group center-hrz--col row-2--child">
                  <input type="text" name="number" id="idnumber" className="input-number" placeholder="ID Number" required onChange={this.handleChange}/>
                  <label htmlFor="idnumber" className="input--label">ID number</label>
-            </div>  
+            </div>   */}
             
                 {/* <input type="text" id="name" placeholder="name" onChange={this.handleChange} required/>
                 <input type="email" id="email" placeholder="email" onChange={this.handleChange} required/>

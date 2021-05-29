@@ -88,7 +88,7 @@ const SingleArticle = (props) => {
                                            case 4: return <h4>{block.data.text.replace(/&nbsp;/g, '')}</h4>
                                        }   
                                        break;
-                                case "paragraph": return  <p className="singleArticle__content__paragraph u-margin-bottom">{block.data.text.replace(/&nbsp;/g, '')}</p>
+                                case "paragraph": return  <p className="singleArticle__content__paragraph u-margin-bottom justify-text">{block.data.text.replace(/&nbsp;/g, '')}</p>
                                 case "list":
                                 switch(block.data.style){
                                     case "ordered": return (<ol className="u-margin-bottom normal-text u-padding-sides">

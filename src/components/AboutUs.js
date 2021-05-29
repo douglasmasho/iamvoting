@@ -233,10 +233,8 @@ const AboutUS = () => {
                           <iframe src="https://embedsocial.com/facebook_album/pro_instagram/3d14faa8f222bffb209265b543e1ed78bac3fc32" width="900px" height="1200px" frameborder="0" marginheight="0" marginwidth="0"></iframe>
                         </div>
                     </section>
-                    <button onClick={testAPI}>Test the API</button>
-                    <button onClick={testAPIGet}>Test the API</button>
-
-
+                    {/* <button onClick={testAPI}>Test the API</button>
+                    <button onClick={testAPIGet}>Test the API</button> */}
         </div>
         <Footer/>
      </>

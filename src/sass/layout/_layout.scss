@@ -12,6 +12,9 @@
     width: 15%;
     background-color: #03071E;
     position: relative;
+    @include respond(tab-port){
+        width: 25%;
+     }
     // @include respond(phone){
     //     width: 0%;
     //     position: fixed;

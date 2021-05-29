@@ -28,8 +28,8 @@ const Read = (props) => {
         <Navbar/>
             <div className="u-padding-top-larger articlesList__div">
 
-            <div className="center-hrz">
-            <h1 className="aboutus__intro-title">Articles</h1>
+            <div className="center-hrz u-padding-top-large">
+              <h1 className="aboutus__intro-title">Articles</h1>
             </div>    
                 <div className="center-hrz u-margin-bottom-small">
                 <div className="redline redline--aboutus showAbove" style={{marginTop: 0}}></div>
@@ -67,8 +67,9 @@ const Read = (props) => {
                     ): null) : <p>No data</p> : <Loading/>
                 }
             </div>
-
            </div>
+
+           
         <Footer/>
         </>
     )

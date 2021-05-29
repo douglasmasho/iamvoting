@@ -37,7 +37,7 @@ export default class Menu extends Component{
                    <input type="checkbox" id="smenu-1" className="checkBox"/>
                     <div className="menu--content menu--content__1">
                             <Link className="menu--link" to="/write/articles">Articles</Link>
-                            <Link className="menu--link" to="/write/polls">Polls</Link>
+                            {/* <Link className="menu--link" to="/write/polls">Polls</Link> */}  
                     </div>
 
                     <label htmlFor="smenu-2" className="menu--sub"><img src={Users} alt="users icon"/>My account</label>
@@ -49,3 +49,5 @@ export default class Menu extends Component{
             )
     }
 }
+
+

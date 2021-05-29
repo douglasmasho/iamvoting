@@ -14,6 +14,8 @@ import Terms from './Terms';
 import Read from './Read';
 import SingleArticle from './SingleArticle';
 import WeekPoll from './WeekPoll';
+import { slide as Menu } from 'react-burger-menu';
+
 // import Footer from './components/Footer';
 const Home = () => {
     const scrollDivRef = useRef();
@@ -31,9 +33,10 @@ const Home = () => {
           <Route exact path="/" render={()=>{
               return (
                 <>
+
                     <Navbar/>
                     <Hero/>
-                    <Intro/>
+                    {/* <Intro/> */}
                     <WeekPoll/>
                     <Fade>
                     <Counters/>

@@ -1,6 +1,5 @@
-.nav{
+.nav,.nav--mobile{
     background-color: white;
-    display: flex;
     padding: 1rem;
     position: fixed;
     justify-content: space-between;
@@ -14,9 +13,22 @@
     &__logo{
         width: 6rem;
         margin-left: 2rem;
+        @include respond(tab-port){
+            width: 10rem; 
+          }
+          @include respond(phone){
+            width: 12rem; 
+          }
     }
 
     &__link{
+        @include respond(tab-port){
+            display: block;
+            font-size: 3rem; 
+            margin-bottom: 2rem;
+            text-align: center;
+            margin-right: 0 !important;
+          }
         font-size: 1.6rem;
         display: inline-block;
         font-weight: bold;
@@ -50,8 +62,26 @@
     }
 }
 
+
+.nav{
+    @include respond(tab-port){
+        display: none;  
+      }
+      display: flex; 
+
+      &--mobile{
+        @include respond(tab-port){
+            display: flex;  
+            z-index: 2000;
+          }
+          display: none;  
+      }
+}
+
+
 .logo-container{
     width: 30%;
+
 }
 
 .link-container{
@@ -60,6 +90,25 @@
     justify-content: flex-end;
     align-items: center;
     margin-right: 3rem;
+
+    &__mobile{
+        @include respond(tab-port){
+             width: 100vw;
+             height: 100vh;
+             position: fixed;
+             z-index: 1000;
+             background-color: white;
+          animation: fadein forwards 0.5s;
+
+          }
+
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+        //   margin-right: 3rem;
+    }
 }
 
 .sub-menu-1,
