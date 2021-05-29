@@ -14,12 +14,9 @@ import Terms from './Terms';
 import Read from './Read';
 import SingleArticle from './SingleArticle';
 import WeekPoll from './WeekPoll';
-
 // import Footer from './components/Footer';
-
 const Home = () => {
     const scrollDivRef = useRef();
-
 
     const scrollToTop = ()=>{
       scrollDivRef.current.scrollTo(0,0);

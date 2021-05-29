@@ -6,6 +6,9 @@ import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import { Doughnut } from 'react-chartjs-2';
 import { Bar } from 'react-chartjs-2';
+import ProgressBar from "@ramonak/react-progress-bar";
+import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 import JustAnimation from './JustAnimation';
 
@@ -13,14 +16,16 @@ import JustAnimation from './JustAnimation';
 
 
 const WeekPoll = (props) => {
-    const colorsArr = ['red','blue', 'yellow', 'green', 'black', 'orange', 'cyan', 'fuschia', 'violet', 'pink'];
+    const colorsArr = ['#FF0000','#0000FF', '#FFFF00', '#00FF00', '#000000', '#FFA500', '#00FFFF', '#FF0080', '#8F00FF', '#FFC0CB'];
     // const [props.pollObj, setprops.pollObj] = useState("");
     const [option, setOption] = useState("");
-    const [pollData, setPollData] = useState("");
+    const [pollData, setPollData] = useState([]);
+    const [pollTotal, setPollTotal] = useState(0);
     const pollScreenRef = useRef();
     const pollResultsRef = useRef();
-    const loadingDivRef = useRef()
-
+    const loadingDivRef = useRef();
+    const [pollOptionVotes, setPollOptionVotes] = useState([0,0,0,0,0,0,0,0,0,0]);
+    const votesArrRef = useRef(null);
 
     const data = {
         labels: [
@@ -53,6 +58,8 @@ const WeekPoll = (props) => {
           signInSuccess: () => false
         }
       }
+
+
 
     const handleSubmit = (e)=>{
         e.preventDefault();
@@ -148,22 +155,44 @@ const WeekPoll = (props) => {
 
                 //set the pollData Object
                 //create an obj
+                const dataObjArr = response.data.options.map((option, index)=>{
+                    return {
+                        label: option.text,
+                        votes: option.votes_count,
+                        bgColor: colorsArr[index]
+                    }
+                })
 
-                const dataObj = {
-                    labels: response.data.options.map(option=> option.text),
-                    datasets: [{
-                        label: "Options",
-                        data: response.data.options.map(option=> option.votes_count),
-                        backgroundColor: colorsArr.slice(0, response.data.options.length),
-                        hoverOffset: 4
-                    }]
-                }
+                const totalVotes = response.data.options.reduce((a,c)=>{
+                    return a + c.votes_count
+                }, 0);
+
+                console.log(totalVotes);
+
+                const votesArr =  response.data.options.map(option=>{
+                    return option.votes_count
+                })
+
+                votesArrRef.current = votesArr;
+                // const dataObj = {
+                //     labels: response.data.options.map(option=> option.text),
+                //     datasets: [{
+                //         label: "Options",
+                //         data: response.data.options.map(option=> option.votes_count), //reduce the votes_count array to get the total, then 
+                //         backgroundColor: colorsArr.slice(0, response.data.options.length),
+                //         hoverOffset: 4
+                //     }]
+                // }
 
                 //set the poll data
                 //give the poll div a display of block
-                setPollData(dataObj);
+                setPollData(dataObjArr);
+                setPollTotal(totalVotes);
                 pollScreenRef.current.style.display = "none";
                 pollResultsRef.current.style.display = "block";
+                setTimeout(()=>{
+                    setPollOptionVotes(votesArr);
+                },200)
                 loadingDivRef.current.style.display = "none";
             }catch(e){
                 console.log(e)
@@ -177,7 +206,7 @@ const WeekPoll = (props) => {
         pollResultsRef.current.style.display =  "none";
     }
     useEffect(()=>{
-        console.log(props.pollObj);
+        console.log(pollTotal);
     })
 
     useEffect(()=>{
@@ -218,7 +247,7 @@ const WeekPoll = (props) => {
         { props.auth ?
          props.pollObj !== "" ? (
             <div className="u-margin-top-big pollSection">
-                <span>Weekly Poll</span>
+                <span className="pollSection__span">Weekly Poll</span>
 
                 <div ref={pollScreenRef}>
                     <p className="header-text red-ish-text u-margin-bottom center-text">{props.pollObj.data.question}</p>
@@ -249,10 +278,33 @@ const WeekPoll = (props) => {
                 </div>
 
                 {
-                    pollData !== "" ?
-                    <div ref={pollResultsRef}>
-                        <p className="header-text red-ish-text u-margin-bottom center-text">Results</p>
-                        <Doughnut data={pollData} width={100}/>
+                    pollData !== [] ?
+                    <div ref={pollResultsRef} style={{display: "none"}}>
+                        <p className="header-text red-ish-text u-margin-bottom center-text">{props.pollObj.data.question}</p>
+                        {/* <div className="row" style={{justifyContent: "space-evenly"}}> */}
+                                {
+                                    pollData.map((option, index, options)=>{
+                                        return (<div key={option.label} className="u-margin-bottom-medium">
+                                                  <p className="center-text normal-text">{option.label}</p>
+                                                  <ProgressBar completed={(pollOptionVotes[index] / pollTotal) * 100} bgColor={"#000957"} borderRadius="5px" height="30px"/>
+                                              </div>)
+
+                                        // return (<div key={option.label} className=" u-margin-bottom-medium" style={{width: `${(100 / options.length) - 5}%`}} className="fullOnPhone">
+                                        //              <CircularProgressbar value={(pollOptionVotes[index] / pollTotal) * 100} 
+                                        //                                   text={`${(pollOptionVotes[index] / pollTotal) * 100}%`} 
+                                        //                                   styles={buildStyles(
+                                        //                                                {textSize: '16px', 
+                                        //                                                   textColor: 'rgba(249, 65, 68, 1)',
+                                        //                                                   trailColor: '#000957', 
+                                        //                                                   pathColor: `rgba(249, 65, 68, 1)`
+                                        //                                                   }
+                                        //                                         )}/>
+                                        //              <p className="center-text normal-text u-margin-bottom">{option.label}</p>
+
+                                        //    </div>)
+                                    })
+                                }     
+                        {/* </div> */}
                         <div className="center-hrz u-margin-top">
                            <button className="button" onClick={voteAgain}>Vote Again</button>
                         </div>
@@ -263,6 +315,9 @@ const WeekPoll = (props) => {
                   <p className="center-text red-ish-text normal-text">Fetching results</p>
                   <JustAnimation/>
                 </div>
+
+                {/* <CircularProgressbar value={95} text={`95%`} style={buildStyles({textSize: '16px'})}/> */}
+
             </div>
         ) : null 
         : 
@@ -273,7 +328,7 @@ const WeekPoll = (props) => {
         }      
         </div>
 
-        <button onClick={fetchVotes}>Test</button>
+        {/* <button onClick={fetchVotes}>Test</button> */}
         </>
     )
 }

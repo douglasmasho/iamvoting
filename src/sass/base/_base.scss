@@ -37,3 +37,9 @@ html{
   position: relative;
   z-index: 200;
 }
+
+.fullOnPhone{
+  @include respond(phone){
+    width: 50% !important;  
+  }
+}

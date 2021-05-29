@@ -3,7 +3,6 @@ import {connect} from "react-redux";
 import * as actionCreators from "./redux/actions";
 import {bindActionCreators} from "redux";
 import {Route} from "react-router-dom";
-
 import Dashboard from "./components/Dashboard";
 import Home from "./components/Home";
 import Loading from './components/Loading';
