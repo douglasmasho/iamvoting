@@ -39,7 +39,7 @@ html{
 }
 
 .fullOnPhone{
-  @include respond(phone){
+  @include respond(tab-port){
     width: 50% !important;  
   }
 }

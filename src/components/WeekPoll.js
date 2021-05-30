@@ -206,15 +206,13 @@ const WeekPoll = (props) => {
         pollResultsRef.current.style.display =  "none";
     }
     useEffect(()=>{
-        console.log(pollTotal);
+        console.log(props.pollObj, "this is the data");
     })
 
     useEffect(()=>{
         ///every month, change the create_at check, as well as the the pollID;
-        const pollID = "60a401fc37e4f400101e4a84";
-        console.log(props.pollObj.data.id);
-        if(props.pollObj === {} || props.pollObj.data.id !==  pollID){
-            console.log("requesting")
+        const pollID = "60a3ffde88b5d30016def316";
+        // console.log(props.pollObj.data.id);
         async function getPoll() {
             try{
                 const responseJson = await fetch(`https://api.pollsapi.com/v1/get/poll/${pollID}`, {
@@ -231,8 +229,15 @@ const WeekPoll = (props) => {
                 console.log(e)
             }
         }
-        getPoll();
+        if(!props.pollObj.hasOwnProperty("data")){
+            console.log("requesting")
+            getPoll();
+        }
 
+
+        if(props.pollObj.data && props.pollObj.data.id !== pollID){
+            console.log("requesting")
+            getPoll();
         }
         firebase.auth().onAuthStateChanged(user=>{
             console.log(user);
@@ -249,7 +254,9 @@ const WeekPoll = (props) => {
             <div className="u-margin-top-big pollSection">
                 <span className="pollSection__span">Weekly Poll</span>
 
-                <div ref={pollScreenRef}>
+                {
+                    props.pollObj.data ?
+                    <div ref={pollScreenRef}>
                     <p className="header-text red-ish-text u-margin-bottom center-text">{props.pollObj.data.question}</p>
                     <div className="center-hrz">
                         <div className="pollSection__div">
@@ -275,13 +282,16 @@ const WeekPoll = (props) => {
                     {/* <p>uid: {firebase.auth().currentUser.uid}</p> */}
                     <button className="button " onClick={()=>firebase.auth().signOut()}>Sign out</button>
                     </div>
-                </div>
+                </div> : <p>waiting</p>
 
+                }
+
+            
                 {
-                    pollData !== [] ?
+                    pollData !== [] && props.pollObj.data ?
                     <div ref={pollResultsRef} style={{display: "none"}}>
                         <p className="header-text red-ish-text u-margin-bottom center-text">{props.pollObj.data.question}</p>
-                        <div className="row" style={{justifyContent: "space-evenly"}}>
+                        <div className="row row-tab-col" style={{justifyContent: "space-evenly"}}>
                                 {
                                     pollData.map((option, index, options)=>{
                                     //     return (<div key={option.label} className="u-margin-bottom-medium">
@@ -289,9 +299,9 @@ const WeekPoll = (props) => {
                                     //               <ProgressBar completed={(pollOptionVotes[index] / pollTotal) * 100} bgColor={"#000957"} borderRadius="5px" height="30px"/>
                                     //           </div>)
 
-                                        return (<div key={option.label} className=" u-margin-bottom" style={{width: `${(100 / options.length) - 5}%`}} className="fullOnPhone">
+                                        return (<div key={option.label} className=" u-margin-bottom" style={{width: `${Math.round((100 / options.length)) - 5}%`}} className="fullOnPhone">
                                                      <CircularProgressbar value={(pollOptionVotes[index] / pollTotal) * 100} 
-                                                                          text={`${(pollOptionVotes[index] / pollTotal) * 100}%`} 
+                                                                          text={`${Math.round((pollOptionVotes[index] / pollTotal) * 100)}%`} 
                                                                           styles={buildStyles(
                                                                                        {textSize: '16px', 
                                                                                           textColor: 'rgba(249, 65, 68, 1)',
@@ -300,7 +310,6 @@ const WeekPoll = (props) => {
                                                                                           }
                                                                                 )}/>
                                                      <p className="center-text normal-text u-margin-bottom">{option.label}</p>
-
                                            </div>)
                                     })
                                 }     

@@ -65,3 +65,11 @@
         }   
     }
 }
+
+.row-tab-col{
+    @include respond(tab-port){
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+}

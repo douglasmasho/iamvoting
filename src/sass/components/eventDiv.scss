@@ -3,7 +3,12 @@
     padding: 1rem 3rem;
     overflow: hidden;
     border-radius: 25px;
-    height: 70vh;
+    min-height: 70vh;
+    @include respond(phone){
+    min-height: 40vh;
+    width: 80vw;
+    padding: 3rem 5rem;
+    }
     width: 70vw;
     position: relative;
 
@@ -20,6 +25,10 @@
         text-align: left;
         color: white;
         font-size: 1.6rem;
+
+        @include respond(phone){
+            font-size: 3rem;
+        }
     }
 
 }

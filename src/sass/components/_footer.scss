@@ -24,12 +24,26 @@
         justify-content: space-evenly;
         padding-bottom: 4rem;
         border-bottom: 3px $red-ish solid;
+        @include respond(tab-port){
+            flex-direction: column;
+        }
 
         &__1{
             width: 30%;
+            @include respond(tab-port){
+                width: 100%;
+                text-align: center;
+                margin-bottom: 2rem;
+                & h3, h1{
+                    display: block;
+                }
+            }
         }
         &__2{
             width: 70%;
+            @include respond(tab-port){
+                width: 100%
+            }
         }
     }
 
@@ -38,9 +52,18 @@
         display: flex;
         border-bottom: 3px $red-ish solid;
         padding-bottom: 4rem;
+        @include respond(tab-port){
+            flex-direction: column;
+        }
         &__1{
             display: flex;
             width: 50%;
+            @include respond(tab-port){
+               width: 100%;
+               display: flex;
+               justify-content: space-evenly;
+               margin-bottom: 3rem; 
+            }
             & ul li{
                 margin-bottom: 1rem;
             }
@@ -48,8 +71,23 @@
         &__2{
             width: 50%;
             text-align: center;
+            @include respond(tab-port){
+                width: 100%;
+             }
             // background-color: whiteb;
         }
+    }
+
+    &__inputContainer, 
+    &__buttonContainer{
+        @include respond(tab-port){
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    &__inputContainer{
+        margin-bottom: 3rem;
     }
 
     &__text{
@@ -63,6 +101,10 @@
     &__logo{
         width: 10rem;
         margin-right: 2rem;
+
+        @include respond(tab-port){
+            width: 20rem;
+        }
     }
 
     &__icon{
