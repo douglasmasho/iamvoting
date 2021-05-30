@@ -6,6 +6,12 @@
     left: 0;
     right: 0;
 
+    &__inp{
+        @include respond(phone){
+            width: 90% !important;
+        }
+    }
+
     // @include respond(tab-land){
     //     margin-top: 30rem;
     //     } 
@@ -15,9 +21,9 @@
     //         @include respond(phone){
     //             margin-top: 30rem;
     //             } 
-    &__newsletter-form{
+    // &__newsletter-form{
 
-    }
+    // }
 
     &__firstdiv{
         display: flex;
@@ -125,6 +131,13 @@
         &:hover{
             transform: scale(1.2);
             cursor: pointer;
+        }
+
+        @include respond(tab-port){
+            width: 6rem;
+        }
+        @include respond(phone){
+            width: 7rem;
         }
     }
     &__social-list{

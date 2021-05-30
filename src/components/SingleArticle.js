@@ -9,6 +9,10 @@ import InstagramIcon from "../assets/instagramwhite.svg";
 import {compose} from "redux";
 import {firestoreConnect} from "react-redux-firebase";
 import Loading from './Loading';
+// import Zoom from 'react-medium-image-zoom';
+// import 'react-medium-image-zoom/dist/styles.css';
+// import {Magnifier} from "react-image-magnifiers";
+import {Magnifier, SideBySideMagnifier} from "react-image-magnifiers";
 
 const SingleArticle = (props) => {
 
@@ -34,7 +38,7 @@ const SingleArticle = (props) => {
                     <div className="singleArticle__header__bottom--2 center-vert">
                         <div className="row"style={{justifyContent: "center"}}>
                             <div>
-                            <img src={props.currentArticlee[0].authorDetails.photo} alt="author picture" className="singleArticle__header__bottom--2__picture u-margin-right"/>
+                              <img src={props.currentArticlee[0].authorDetails.photo} alt="author picture" className="singleArticle__header__bottom--2__picture u-margin-right"/>
                             </div>
                            <div className="center-vert">
                             <h3 className="white-text bigger-text" style={{textAlign: "left", justifyContent: "flex-start"}}>{props.currentArticlee[0].authorDetails.name}</h3>
@@ -74,7 +78,11 @@ const SingleArticle = (props) => {
                                 case "image": return (
                                     <div style={{width: "100%"}} className="u-margin-bottom-big">
                                         <div className="center-hrz" style={{width: "100%"}}>
-                                          <img src={block.data.file.url} alt={block.data.caption.replace(/&nbsp;/g, '')} key={block.id} className="singleArticle__content__image"/>
+                                            <div style={{borderRadius: "20px", overflow: "hidden"}}>
+                                              <Magnifier imageSrc={block.data.file.url} imageAlt="{block.data.caption.replace(/&nbsp;/g, '')}" style={{width: "500"}} dragToMove={false}/>
+                                            </div>
+                                            {/* <img src={block.data.file.url} alt={block.data.caption.replace(/&nbsp;/g, '')} key={block.id} className="singleArticle__content__image" width="500"/> */}
+                                            
                                         </div>
                                       <p className="center-text u-margin-top-small">{block.data.caption.replace(/&nbsp;/g, '')}</p>
                                     </div>

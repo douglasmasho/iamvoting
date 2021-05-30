@@ -100,8 +100,9 @@
         background-color: white;
         padding: 2rem 20rem;
         @include respond(tab-port){
-            padding: 2rem 8rem;
+            padding: 2rem 4rem;
          }
+
 
         &__image{
             width: 100%;
@@ -111,7 +112,7 @@
         &__paragraph{
             font-size: 1.6rem;
             @include respond(tab-port){
-                font-size: 2rem;
+                font-size: 3rem;
              }
         }
 
@@ -122,9 +123,13 @@
         &__quoteText{
             color: $red-ish;
             font-size: 5rem;
+
             & span{
                 color: white;
             font-size: 2rem;
+            @include respond(tab-port){
+                font-size: 3rem;
+             }
             }
         }
         &__quoteAuthor{

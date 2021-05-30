@@ -41,7 +41,7 @@
 
     &__aboutdiv{
         background-color: white;
-        text-align: center;
+        text-align: justify;
         padding: 5rem;
     }
 
@@ -57,6 +57,13 @@
         width: 50%;
         margin-bottom: 15rem;
         margin-top: 5rem;
+        @include respond(tab-port){
+          width: 60%;
+        }
+
+        @include respond(phone){
+            width: 90%;
+         }
     }
 
     &__icon{

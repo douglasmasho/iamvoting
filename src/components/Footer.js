@@ -58,7 +58,7 @@ export class Footer extends Component {
                     <div className="footer__firstdiv__2">
                     <form action="" onSubmit={this.handleSubmit}>
                         <div className="footer__inputContainer">
-                          <input id="subEmail" type="email" placeholder="enter your email address" className="footer__text u-margin-right input-text" required onChange={this.handleChange} ref={this.inputRef}/>
+                          <input id="subEmail" type="email" placeholder="enter your email address" className="footer__inp input-text footer__text u-margin-right " required onChange={this.handleChange} ref={this.inputRef}/>
                         </div>
                         <div className="footer__buttonContainer">
                         <button type="submit" className="button">Subscribe</button>
