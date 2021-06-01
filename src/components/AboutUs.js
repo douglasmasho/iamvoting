@@ -4,7 +4,7 @@ import Eye from "../assets/eye.svg";
 import Arrow from "../assets/arrow-circle-up-right.svg";
 import Anchor from "../assets/basic_anchor.svg";
 import Fade from 'react-reveal/Fade';
-import Structure from "../assets/structure.svg";
+import Structure from "../assets/structureNew.svg";
 import Navbar from './Navbar';
 import Footer from './Footer';
 import Events from './Events';

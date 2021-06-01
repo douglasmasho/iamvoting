@@ -1,6 +1,6 @@
 import React, {useEffect, useRef} from 'react';
 import lottie from "lottie-web";
-import LoadingAnim from "../assets/animations/loading.json";
+import LoadingAnim from "../assets/animations/loadingNew.json";
 
 
 const JustAnimation = () => {

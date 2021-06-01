@@ -11,7 +11,7 @@ import {reduxFirestore, getFirestore, createFirestoreInstance} from "redux-fires
 import {reactReduxFirebase ,getFirebase, ReactReduxFirebaseProvider} from "react-redux-firebase"; //interact with firebase
 import fbConfig from "./config/fbConfig";
 import firebase from 'firebase/app';
-import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
+// import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 import {persistStore} from "redux-persist";
 import {PersistGate} from "redux-persist/integration/react";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";

@@ -304,9 +304,9 @@ const WeekPoll = (props) => {
                                                                           text={`${Math.round((pollOptionVotes[index] / pollTotal) * 100)}%`} 
                                                                           styles={buildStyles(
                                                                                        {textSize: '16px', 
-                                                                                          textColor: 'rgba(249, 65, 68, 1)',
-                                                                                          trailColor: '#000957', 
-                                                                                          pathColor: `rgba(249, 65, 68, 1)`
+                                                                                          textColor: '#B5C933',
+                                                                                          trailColor: '#242C6B', 
+                                                                                          pathColor: `#B5C933`
                                                                                           }
                                                                                 )}/>
                                                      <p className="center-text normal-text u-margin-bottom">{option.label}</p>
