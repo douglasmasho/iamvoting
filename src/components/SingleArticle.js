@@ -108,7 +108,7 @@ const SingleArticle = (props) => {
                                 }    
                                 break;
                                 case "quote":
-                                      return (<div className="center-hrz--col singleArticle__content__quote">
+                                      return (<div className="center-hrz--col singleArticle__content__quote u-margin-bottom-big">
                                                  <p className="center-hrz--col singleArticle__content__quoteText">"<span>{block.data.text.replace(/&nbsp;/g, '')}</span>"</p>
                                                  <p className="center-hrz--col singleArticle__content__quoteAuthor">-{block.data.caption.replace(/&nbsp;/g, '')}</p>
                                                  </div>)             
