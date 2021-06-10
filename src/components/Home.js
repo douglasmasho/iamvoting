@@ -37,8 +37,8 @@ const Home = () => {
                     <Navbar/>
                     <Hero/>
                     {/* <Intro/> */}
-                    <div>
-                      <p>SEE Namibia is a youth-led organization that provides voter and civic education. We are accredited by the Electoral Commission of Namibia.</p>
+                    <div style={{backgroundColor: 'white', textAlign: "center", padding: "2rem"}}>
+                      <p className="normal-text">SEE Namibia is a youth-led organization that provides voter and civic education. SEE Namibia is accredited by the Electoral Commission of Namibia.</p>
                     </div>
                     <WeekPoll/>
                     <Fade>

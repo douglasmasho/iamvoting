@@ -251,7 +251,7 @@ const WeekPoll = (props) => {
         <div>
         { props.auth ?
          props.pollObj !== "" ? (
-            <div className="u-margin-top-big pollSection">
+            <div className="u-margin-top pollSection">
                 <span className="pollSection__span">Weekly Poll</span>
 
                 {
