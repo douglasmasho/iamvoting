@@ -11,7 +11,7 @@
     position: relative;
 
     &__overlay{
-        background-color: rgba($deep-blue, 0.8);
+        background-color: rgba($deep-blue, 0.1);
         width: 100vw;
         height: 100vh;
         position: absolute;
@@ -22,8 +22,19 @@
 
     &__title{
         margin-left: 3rem;
+        @include respond(phone){
+            margin-top: -40rem;
+            text-align: center;
+        }
 
-        
+        &--container{
+            @include respond(phone){
+            width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
         
         & h1{
             display: inline-block;
@@ -37,15 +48,28 @@
             }
 
             &:first-child{
-                color: white;
+                color: $deep-blue;
                 display: block;
             }
             &:nth-child(2){
-                color: $deep-blue;
-                background-color: white;
+                color: white;
+                background-color: $deep-blue;
                 padding: 0.5rem 1rem;
                 background-image: white;
             }
         }
+    }
+}
+
+
+.bgDesktop{
+    @include respond(phone){
+        display: none;
+    }
+}
+.bgPhone{
+    display: none;
+    @include respond(phone){
+        display: block;
     }
 }

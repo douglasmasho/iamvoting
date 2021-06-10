@@ -90,7 +90,7 @@ export class Footer extends Component {
                 </div>
                 <div className="u-padding-top">
                    <p className="bigger-text white-text" style={{textAlign: "center"}}>Made with  <span><FontAwesomeIcon icon={faHeart} className="footer__icon" style={{color: "orange"}}/></span>by <a style={{color: "orange"}} href="https://douglasmasho.github.io">byteArc</a></p>
-                   <p  className="normal-text white-text" style={{textAlign: "center"}}> &#169; IAmVoting Namibia</p>
+                   <p  className="normal-text white-text" style={{textAlign: "center"}}> &#169; SEE Namibia</p>
                 </div>
             </div>
         </div>

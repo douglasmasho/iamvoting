@@ -37,6 +37,9 @@ const Home = () => {
                     <Navbar/>
                     <Hero/>
                     {/* <Intro/> */}
+                    <div>
+                      <p>SEE Namibia is a youth-led organization that provides voter and civic education. We are accredited by the Electoral Commission of Namibia.</p>
+                    </div>
                     <WeekPoll/>
                     <Fade>
                     <Counters/>

@@ -133,7 +133,7 @@ const AboutUS = () => {
 
                 <div className="aboutus__aboutdiv u-margin-bottom-big">
                     <div className="u-padding-large u-margin-bottom-big">
-                        <h2 className="normal-text align-center">Established in 2019, I Am Voting Namibia is the
+                        <h2 className="normal-text align-center">Established in 2019, SEE Namibia is the
                                     first youth organization to be accredited by the 
                                     Electoral Commission of Namibia (ECN). The 
                                     organization is registered under the ministry
