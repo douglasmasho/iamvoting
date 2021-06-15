@@ -23,7 +23,7 @@
     &__title{
         margin-left: 3rem;
         @include respond(phone){
-            margin-top: -40rem;
+            // margin-top: -40rem;
             text-align: center;
         }
 
@@ -62,14 +62,14 @@
 }
 
 
-.bgDesktop{
-    @include respond(phone){
-        display: none;
-    }
-}
-.bgPhone{
-    display: none;
-    @include respond(phone){
-        display: block;
-    }
-}
+// .bgDesktop{
+//     @include respond(phone){
+//         display: none;
+//     }
+// }
+// .bgPhone{
+//     display: none;
+//     @include respond(phone){
+//         display: block;
+//     }
+// }

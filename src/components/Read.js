@@ -11,7 +11,7 @@ import moment from "moment";
 import * as actionCreators from "../redux/actions";
 import {bindActionCreators} from "redux";
 
-
+import Header from "../assets/socialnoticeicon.svg";
 
 const Read = (props) => {
     useEffect(()=>{
@@ -28,12 +28,10 @@ const Read = (props) => {
         <Navbar/>
             <div className="u-padding-top-larger articlesList__div">
 
-            <div className="center-hrz u-padding-top-large">
-              <h1 className="aboutus__intro-title">Articles</h1>
+            <div className="center-hrz u-padding-top-large u-margin-bottom-big">
+              {/* <h1 className="aboutus__intro-title">Articles</h1> */}
+              <img src={Header} alt="header" className="articles__header"/>
             </div>    
-                <div className="center-hrz u-margin-bottom-small">
-                <div className="redline redline--aboutus showAbove" style={{marginTop: 0}}></div>
-            </div>
             
             <div className="grid-2 grid u-margin-bottom-big">
                 {

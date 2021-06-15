@@ -211,7 +211,7 @@ const WeekPoll = (props) => {
 
     useEffect(()=>{
         ///every month, change the create_at check, as well as the the pollID;
-        const pollID = "60a3ffde88b5d30016def316";
+        const pollID = "60c8e0bf37e4f400101e4bcd";
         // console.log(props.pollObj.data.id);
         async function getPoll() {
             try{

@@ -1,7 +1,7 @@
 .menu{
 
     &__logo{
-        background-color: black;
+        background-color: white;
         transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
         @include respond(tab-port){
             & img{

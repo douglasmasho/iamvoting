@@ -1,5 +1,5 @@
 import React, { Component, createRef } from 'react'
-import Logo from "../assets/iamvotingnam.svg"
+import Logo from "../assets/seelogodarkbg.svg"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'

@@ -47,9 +47,6 @@ const Hero = () => {
                   <div className="bgDesktop">
                     <BackgroundSlideshow images={[ Image1, Image2]}  animationDelay= "2000"/>
                   </div>
-                  <div className="bgPhone">
-                    <BackgroundSlideshow images={[ Image3, Image4]}  animationDelay= "2000"/>
-                  </div>
               </div>
           </div>
         </div>

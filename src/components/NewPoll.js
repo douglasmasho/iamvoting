@@ -12,40 +12,40 @@ const NewPoll = (props) => {
         console.log("testing the API");
         async function testCreate (){
             const bodyObj = {
-                question: "How do you describe yourself as?",
+                question: "Environment safety is more important than business tax revenue.",
                 identifier: "custom_identifier",
                 data: {
                     custom: "Poll Data"
                 },
                 options: [
                     {
-                        text: "Conservative",
+                        text: "Completely agree",
                         data: {
-                            custom: "conservative"
+                            custom: "Completely agree"
                         }
                     },
                     {
-                        text: "Liberal",
+                        text: "Somewhat agree",
                         data: {
-                            custom: "liberal"
+                            custom: "Somewhat agree"
                         }
                     },
                     {
-                        text: "Both",
+                        text: "Neutral",
                         data: {
-                            custom: "both"
+                            custom: "Neutral"
                         }
                     },
                     {
-                        text: "Something Else",
+                        text: "Somewhat disagree",
                         data: {
-                            custom: "something-else"
+                            custom: "Somewhat disagree"
                         }
                     },
                     {
-                        text: "Don't Know",
+                        text: "Completely disagree",
                         data: {
-                            custom: "dont-know"
+                            custom: "Completely disagree"
                         }
                     }
                 ]
@@ -61,7 +61,11 @@ const NewPoll = (props) => {
                 })
 
                 const response = await responseJSON.json();
-                console.log(response);
+                console.log(response)
+                const firestore = firebase.firestore();
+
+                //upload to firestore in the polls 
+                firestore.collection("polls").doc(response.data.id).set(response);
 
             }catch(e){
                 console.log(e)
