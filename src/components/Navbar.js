@@ -67,7 +67,7 @@ const Navbar = (props) => {
                 <ul>
                     <li className="nav__link"><Link to="/" >Home</Link></li>
                     <li className="nav__link sub-menu-link-2">
-                       <Link to="/" >Blog</Link>
+                       <Link to="/" >News</Link>
                        <div className="sub-menu-2">
                             <ul>
                                 <Link to="/articleList" ><li className="sub-link">Read</li></Link>
@@ -76,20 +76,20 @@ const Navbar = (props) => {
                         </div>
 
                     </li>
-                    <li className="nav__link"><Link to="joinus">Join Us</Link></li>
+                    <li className="nav__link"><Link to="joinus">Join</Link></li>
                     <li className="nav__link sub-menu-link">
-                        <Link to="/aboutus">About Us</Link>
+                        <Link to="/aboutus">About</Link>
                         <div className="sub-menu-1">
                             <ul>
                             <a href="/aboutus" ><li className="sub-link">Introduction</li></a>
                                 <a href="/aboutus#team" ><li className="sub-link">The Team</li></a>
-                                <Link to="/"><li className="sub-link">Gallery</li></Link>
+                                <Link to="/aboutus#gallery"><li className="sub-link">Gallery</li></Link>
                                 {/* <Link to="/" ><li className="sub-link">Achievements</li></Link> */}
                                 <a href="/aboutus#events" ><li className="sub-link">Events</li></a>
                             </ul>
                         </div>
                     </li>
-                    <li className="nav__link"><a href="#contactus">Contact us</a></li>
+                    <li className="nav__link"><a href="#contactus">Contact</a></li>
                     {/* <li className="nav__link"><Link to="/" >Donate</Link></li> */}
                 </ul>
             </div>
@@ -116,7 +116,7 @@ const Navbar = (props) => {
                 <ul>
                     <li className="nav__link"><Link to="/" onClick={()=>{setActiveState(!activeState);}}>Home</Link></li>
                     <li className="nav__link sub-menu-link-2">
-                       <p>Blog</p>
+                       <p>News</p>
                        <div className="sub-menu-2">
                             <ul>
                                 <Link to="/articleList" ><li className="sub-link" onClick={()=>{setActiveState(!activeState);}}>Read</li></Link>
@@ -125,9 +125,9 @@ const Navbar = (props) => {
                         </div>
 
                     </li>
-                    <li className="nav__link" onClick={()=>{setActiveState(!activeState);}}><Link to="joinus">Join Us</Link></li>
+                    <li className="nav__link" onClick={()=>{setActiveState(!activeState);}}><Link to="joinus">Join</Link></li>
                     <li className="nav__link sub-menu-link" onClick={()=>{setActiveState(!activeState);}}>
-                        <Link to="/aboutus">About Us</Link>
+                        <Link to="/aboutus">About</Link>
                         {
                                                 //     <div className="sub-menu-1">
                                                 //     <ul>
@@ -140,7 +140,7 @@ const Navbar = (props) => {
                                                 // </div>
                         }
                     </li>
-                    <li className="nav__link" onClick={()=>{setActiveState(!activeState);}}><a href="#contactus">Contact us</a></li>
+                    <li className="nav__link" onClick={()=>{setActiveState(!activeState);}}><a href="#contactus">Contact</a></li>
                     {/* <li className="nav__link"><Link to="/" >Donate</Link></li> */}
                 </ul>
             </div>

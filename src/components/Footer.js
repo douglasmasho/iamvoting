@@ -89,7 +89,10 @@ export class Footer extends Component {
 
                 </div>
                 <div className="u-padding-top">
-                   <p className="bigger-text white-text" style={{textAlign: "center"}}>Made with  <span><FontAwesomeIcon icon={faHeart} className="footer__icon" style={{color: "orange"}}/></span>by <a style={{color: "orange"}} href="https://douglasmasho.github.io">byteArc</a></p>
+                   {/* <p className="bigger-text white-text" style={{textAlign: "center"}}>Made with  <span><FontAwesomeIcon icon={faHeart} className="footer__icon" style={{color: "orange"}}/></span>by <a style={{color: "orange"}} href="https://douglasmasho.github.io">byteArc</a></p> */}
+                   <p className="normal-text white-text center-text">SEE wishes to acknowledge and thank its partners, who make the accomplishment of our vision a reality.
+All content © SEE Unless otherwise noted images are supplied by SEE Multimedia.
+This website was created by <a href="https://douglasmasho.github.io/" className="link">Douglas Mashonganyika.</a></p>
                    <p  className="normal-text white-text" style={{textAlign: "center"}}> &#169; SEE Namibia</p>
                 </div>
             </div>
