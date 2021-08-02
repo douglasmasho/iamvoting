@@ -31,7 +31,15 @@
                 & h2{
                     font-size: 5rem;
                     font-weight: bold;
-                    color: $deep-blue
+                    color: $deep-blue;
+                    @include respond(tab-port){
+                        margin: 2rem;
+                    font-size: 3rem;
+                    }
+                    @include respond(phone){
+                        padding: 2rem;
+                        font-size: 5rem;
+                    }
                 }
 
                 & p{
@@ -75,10 +83,9 @@
                     &__icon{
                         width: 5rem;
                         margin-right: 1rem;
-
-                        // &:last-of-type{
-                        //     margin-right: 0;
-                        // }
+                        @include respond(phone){
+                        width: 8rem;
+                        }
                     }
 
                     @include respond(phone){
@@ -90,6 +97,10 @@
                 &__picture{
                     border-radius: 50%;
                     width: 15rem;
+                    @include respond (phone){
+                    width: 25rem;
+                    padding: 3rem !important;
+                    }
                 }
             }
         }
@@ -102,7 +113,9 @@
         @include respond(tab-port){
             padding: 2rem 4rem;
          }
-
+         @include respond(phone){
+            padding: 2rem 8rem;
+         }
 
         &__image{
             width: 100%;

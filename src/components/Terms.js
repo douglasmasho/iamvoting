@@ -15,7 +15,7 @@ const Terms = () => {
                 
                     <div className="u-margin-bottom-big">
                     <h2 className="header-text red-ish-text u-margin-bottom">1.	INTRODUCTION</h2>
-                    <p className="white-text normal-text">Welcome to SEE Namibia! We start every new subscriber relationship with a contract. 
+                    <p className="white-text normal-text justify-text">Welcome to SEE Namibia! We start every new subscriber relationship with a contract. 
                         The following contract spells out what you can expect from us, and what we expect from you. 
                         By signing the subscription form, you agree to all the terms in the document. We intend this to be the legal 
                         equivalent of your signature on a written contract, and equally binding.
@@ -26,7 +26,7 @@ const Terms = () => {
                     <div className="u-margin-bottom-big">
 
                     <h2 className="header-text red-ish-text u-margin-bottom">2.	ACCESS AND SERVICES</h2>
-                    <p className="white-text normal-text">Your access to the various services available in SEE
+                    <p className="white-text normal-text justify-text">Your access to the various services available in SEE
                      Namibia depends on the level of access you select. You may change or
                      discontinue your account at any time. We reserve the right to modify, suspend or terminate access to the 
                      service to our SEE Namibia at any time for any reason without notice or refund, including the right to require 
@@ -37,7 +37,7 @@ const Terms = () => {
 
                       <div className="u-margin-bottom-big">
                         <h2 className="header-text red-ish-text u-margin-bottom">3.	FEES AND PAYMENT</h2>
-                        <p className="white-text normal-text">We will charge you a standard monthly fee for subscribing to SEE Namibia. 
+                        <p className="white-text normal-text justify-text">We will charge you a standard monthly fee for subscribing to SEE Namibia. 
                         You should review the complete and current price list before signing up for any services. Subscription fee is N$50.00. 
                         You will be given the opportunity to pay by credit card or by cash when you sign up. You can cancel your account at any time,
                          but you will remain liable for all charges accrued up to that time, including full monthly charges for the month for which you 
@@ -48,7 +48,7 @@ const Terms = () => {
 
                         <div className="u-margin-bottom-big">
                             <h2 className="header-text red-ish-text u-margin-bottom">4.	PRIVACY CONSIDERATIONS</h2>
-                            <p className="white-text normal-text">Your communications on SEE Namibia websites and other social media 
+                            <p className="white-text normal-text justify-text">Your communications on SEE Namibia websites and other social media 
                             platforms are, in most cases, viewed only by you and anyone to whom you address your message. However, as SEE
                              Namibia websites and social media platforms operators, we may need to review or monitor your electronic mail and other communications 
                              from time to time. In addition, we reserve the right to copy and distribute to third parties any information associated with your 
@@ -58,14 +58,14 @@ const Terms = () => {
 
                         <div className="u-margin-bottom-big">
                             <h2 className="header-text red-ish-text u-margin-bottom">5.	PROPRIETARY RIGHTS</h2>
-                            <p className="white-text normal-text">By posting messages, uploading files, inputting data, or engaging
+                            <p className="white-text normal-text justify-text">By posting messages, uploading files, inputting data, or engaging
                              in any form of communication on our platforms, you are hereby granting to the public an 
                             unrestricted license to use, copy, modify, adapt or document in any form any communications, information
                              or any underlying work in which you may possess proprietary rights, including but not 
                              limited to copyright rights. All subscribers to SEE Namibia are therefore deemed to have disclaimed or waived all copyright ownership rights in their messages or files, even if they contain copyright notices.
                               You shall have absolutely no recourse against us as the websites and platforms operators for any alleged or actual infringement of any proprietary rights to which you may claim ownership.
                             </p><br />
-                            <p className="white-text normal-text">
+                            <p className="white-text normal-text justify-text">
                             Your use of SEE Namibia websites and social media platforms affords you access to many of the features
                              and services that our organization offers, but some aspects of our services remain within our exclusive
                               proprietary control. We or our suppliers own the intellectual property rights to any and all protectable 
@@ -78,7 +78,7 @@ const Terms = () => {
                         <div className="u-margin-bottom-big">
 
                                 <h2 className="header-text red-ish-text u-margin-bottom"> 6. LIMITATION OF LIABILITY</h2>
-                                <p className="white-text normal-text">You must bear the risk of any liability relating to your use of our services. We would not be able to afford to operate this SEE Namibia 
+                                <p className="white-text normal-text justify-text">You must bear the risk of any liability relating to your use of our services. We would not be able to afford to operate this SEE Namibia 
                                 Organization if we were held accountable for every wrongful action by every subscriber. ACCORDINGLY, 
                                 YOUR SUBSCRIPTION TO SEE NAMIBIA IS ENTIRELY AT YOUR SOLE RISK. WE WILL NOT BE RESPONSIBLE TO YOU 
                                 OR ANY THIRD PARTIES FOR ANY DIRECT OR INDIRECT, CONSEQUENTIAL, SPECIAL OR PUNITIVE DAMAGES OR LOSSES YOU MAY INCUR IN CONNECTION 
@@ -89,7 +89,7 @@ const Terms = () => {
                             
                         <div className="u-margin-bottom-big">
                             <h2 className="header-text red-ish-text u-margin-bottom">7.	INDEMNITY</h2>
-                            <p className="white-text normal-text">You shall defend and indemnify us and hold us harmless from and 
+                            <p className="white-text normal-text justify-text">You shall defend and indemnify us and hold us harmless from and 
                             against any and all claims, proceedings, damages, injuries, liabilities, losses, costs and expenses 
                             (including reasonable attorneys' fees), relating to any acts by you or materials or information transmitted 
                             by you in connection with our system, leading wholly or partially to claims against the organization by other subscribers or third parties, 
@@ -99,7 +99,7 @@ const Terms = () => {
                         
                         <div className="u-margin-bottom-big">
                             <h2 className="header-text red-ish-text u-margin-bottom">8.	DISCLAIMERS OF WARRANTY</h2>
-                            <p className="white-text normal-text">THE SERVICES PROVIDED BY SEE NAMIBIA IS "AS IS" AND WE MAKE 
+                            <p className="white-text normal-text justify-text">THE SERVICES PROVIDED BY SEE NAMIBIA IS "AS IS" AND WE MAKE 
                             NO WARRANTIES, EXPRESS OR IMPLIED, AS TO THE MERCHANTABILITY, FITNESS FOR A PARTICULAR USE OR PURPOSE, 
                             TITLE, NON-INFRINGEMENT OR ANY OTHER WARRANTY, CONDITION, GUARANTY, OR REPRESENTATION, WHETHER ORAL, IN 
                             WRITING OR IN ELECTRONIC FORM, INCLUDING BUT NOT LIMITED TO THE ACCURACY OR COMPLETENESS OF ANY INFORMATION 
@@ -109,7 +109,7 @@ const Terms = () => {
 
                         <div className="u-margin-bottom-big">
                             <h2 className="header-text red-ish-text u-margin-bottom">9.	CHOICE OF LAW</h2>
-                            <p className="white-text normal-text">You agree that this Agreement shall for all purposes be governed by and construed in accordance with the 
+                            <p className="white-text normal-text justify-text">You agree that this Agreement shall for all purposes be governed by and construed in accordance with the 
                             laws of the Republic of Namibia, and that any action arising out of this Agreement shall be litigated and enforced under the laws of the Republic of 
                             Namibia. In addition, you agree to submit to the jurisdiction of the courts of the Republic of Namibia, and that any legal action pursued by you shall 
                             be within the exclusive jurisdiction of the courts of the Republic of Namibia.
@@ -119,7 +119,7 @@ const Terms = () => {
 
                         <div className="u-margin-bottom-big">
                             <h2 className="header-text red-ish-text u-margin-bottom">10. ACKNOWLEDGMENT</h2>
-                            <p className="white-text normal-text">This Agreement represents the entire understanding between you and us regarding your relationship to 
+                            <p className="white-text normal-text justify-text">This Agreement represents the entire understanding between you and us regarding your relationship to 
                             Online and supersedes any prior statements or representations. IF YOU AGREE TO BE BOUND BY THE TERMS OF THIS SUBSCRIBER AGREEMENT, by signing 
                             the subscription form, you agree to all the terms in the document. We intend this to be the legal equivalent of your signature on a written contract, 
                             and equally binding.

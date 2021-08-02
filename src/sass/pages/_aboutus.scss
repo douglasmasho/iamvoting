@@ -3,13 +3,17 @@
         padding-top: 15rem;
         background-image: linear-gradient(
             to right bottom,
-            rgba($deep-blue, 0.3),
-            rgba($deep-blue, 0.3)),
+            rgba($deep-blue, 0.05),
+            rgba($deep-blue, 0.05)
+            ),
         url(../../assets/90304987_558423835032242_5353362425220221772_n.png);
         height: 100vh;
         background-size: cover;
+        background-position: center;
         @include respond(tab-port){
-            padding-top: 20rem; 
+            padding-top: 20rem;
+            background-size:contain;
+            background-position: center;
          }
     }
     

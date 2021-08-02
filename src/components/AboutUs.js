@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 import {Timeline, Tween } from 'react-gsap';
 import Eye from "../assets/eye.svg";
 import Arrow from "../assets/arrow-circle-up-right.svg";
 import Anchor from "../assets/basic_anchor.svg";
 import Fade from 'react-reveal/Fade';
-import Structure from "../assets/structureNew.svg";
+import Structure from "../assets/newTeam.svg";
 import Navbar from './Navbar';
 import Footer from './Footer';
 import Events from './Events';
@@ -133,12 +133,12 @@ const AboutUS = () => {
 
                 <div className="aboutus__aboutdiv u-margin-bottom-big">
                     <div className="u-padding-large u-margin-bottom-big">
-                        <h2 className="normal-text align-center">Established in 2019, SEE Namibia is the
-                                    first youth organization to be accredited by the 
-                                    Electoral Commission of Namibia (ECN). The 
-                                    organization is registered under the ministry
-                                    of youth, sport and culture, and we provide 
-                                    voter and civic education to the general public.
+                        <h2 className="normal-text align-center">Established in 2019, as I Am Voting Namibia now SEE (Socially Enabled Education), We are the
+        first youth organization to be accredited by the 
+        Electoral Commission of Namibia (ECN). The 
+        organization is registered under the ministry
+        of youth, sport and culture, and we provide 
+        voter and civic education to the general public.
                         </h2>
                     </div>
 
@@ -154,7 +154,7 @@ const AboutUS = () => {
                                     <div className="redline redline--aboutus showAbove" style={{marginTop: 0}}></div>
                                     </div>
                                     {/* <p className="normal-text align-center">For Namibian youth to be actively paritcipating in the democratic process. </p> */}
-                                    <p className="normal-text align-center">To advocate for youth participationand engaegement in democratic processes.</p>
+                                    <p className="normal-text align-center">Namibian youth actively participating in democratic processes.</p>
                                 </section>
                         </Fade>
 
@@ -169,15 +169,10 @@ const AboutUS = () => {
                                     <div className="center-hrz u-margin-bottom-small">
                                     <div className="redline redline--aboutus showAbove" style={{marginTop: 0}}></div>
                                     </div>
-                                    {/* <p className="normal-text align-center">Our core work is based on the understanding 
-                                                of democratic processes. We empower young
-                                                people as equal participants in democratic 
-                                                processes with information on why, when, where 
-                                                and how to vote through outreach and 
-                                                education programs.
-                                    </p> */}
-                                         <p className="normal-text align-center">To make it easier for people to understand and participate in the 
-                                         democratic process, empower young people as equal participants in democratic processes with civics and social edcation.
+                                         <p className="normal-text align-center">Provide transformative and empowering leadership opportunities to young people through civic engagement, 
+                                                social education and leadership capacity building. Our core work shall be achieved by becoming a strategic 
+                                                partner to government in ensuring that all democratic rights are upheld by both the state and the citizens at 
+                                                large. 
                                     </p>
                                 </section>
                             </Fade>
@@ -219,7 +214,7 @@ const AboutUS = () => {
                                         </ul>
                                     </p>
                                 </section>
-                            </Fade>
+                            </Fade> 
 
                     </div>
 

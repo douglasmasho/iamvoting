@@ -18,7 +18,7 @@
           }
           @include respond(phone){
             width: 20rem;
-            margin: 10rem !important; 
+            // margin: 10rem !important; 
           }
     }
 
@@ -29,6 +29,10 @@
             margin-bottom: 2rem;
             text-align: center;
             margin-right: 0 !important;
+          }
+          @include respond(phone){
+            font-size: 5rem;
+            margin-bottom: 4rem;
           }
         font-size: 1.6rem;
         display: inline-block;
@@ -99,8 +103,9 @@
              position: fixed;
              z-index: 1000;
              background-color: white;
-          animation: fadein forwards 0.5s;
+             animation: fadein forwards 0.5s;
 
+             
           }
 
           width: 100%;

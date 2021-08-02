@@ -4,9 +4,6 @@ import firebase from 'firebase/app';
 import * as actionCreators from "../redux/actions";
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import { Doughnut } from 'react-chartjs-2';
-import { Bar } from 'react-chartjs-2';
-import ProgressBar from "@ramonak/react-progress-bar";
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
@@ -210,6 +207,12 @@ const WeekPoll = (props) => {
     })
 
     useEffect(()=>{
+
+        firebase.auth().onAuthStateChanged(user=>{
+            console.log(user);
+            props.setAuthStatus(!!user)
+          })
+          
         ///every month, change the create_at check, as well as the the pollID;
         const pollID = "60c8e0bf37e4f400101e4bcd";
         // console.log(props.pollObj.data.id);
@@ -239,10 +242,7 @@ const WeekPoll = (props) => {
             console.log("requesting")
             getPoll();
         }
-        firebase.auth().onAuthStateChanged(user=>{
-            console.log(user);
-            props.setAuthStatus(!!user)
-          })
+
     }, [])
 
     

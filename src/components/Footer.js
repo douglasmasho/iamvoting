@@ -72,7 +72,7 @@ export class Footer extends Component {
                        <img src={Logo} alt="" className="footer__logo"/>
                        <ul style={{listStyle: "none"}} className="center-vert">
                            <li><FontAwesomeIcon icon={faPhoneAlt} className="footer__icon"/><p className="white-text normal-text" style={{display: "inline-block"}}>+264 81 550 3063</p></li>
-                           <li><FontAwesomeIcon icon={faEnvelope} className="footer__icon"/><p className="white-text normal-text" style={{display: "inline-block"}}>info@iamvotingnam.org</p></li>
+                           <li><FontAwesomeIcon icon={faEnvelope} className="footer__icon"/><p className="white-text normal-text" style={{display: "inline-block"}}>seenamibiaorg@gmail.com</p></li>
                            <li><FontAwesomeIcon icon={faMapMarkerAlt} className="footer__icon"/><p className="white-text normal-text" style={{display: "inline-block"}}>Windhoek, Naimibia</p></li>
                        </ul>
                     </section>
@@ -92,7 +92,7 @@ export class Footer extends Component {
                    {/* <p className="bigger-text white-text" style={{textAlign: "center"}}>Made with  <span><FontAwesomeIcon icon={faHeart} className="footer__icon" style={{color: "orange"}}/></span>by <a style={{color: "orange"}} href="https://douglasmasho.github.io">byteArc</a></p> */}
                    <p className="normal-text white-text center-text">SEE wishes to acknowledge and thank its partners, who make the accomplishment of our vision a reality.
 All content © SEE Unless otherwise noted images are supplied by SEE Multimedia.
-This website was created by <a href="https://douglasmasho.github.io/" className="link">Douglas Mashonganyika.</a></p>
+This website was created by <a href="https://douglasmasho.github.io/" className="link">ByteArc.</a></p>
                    <p  className="normal-text white-text" style={{textAlign: "center"}}> &#169; SEE Namibia</p>
                 </div>
             </div>
