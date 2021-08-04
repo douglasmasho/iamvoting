@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { hydrate, render } from "react-dom";
 import "./sass/main.scss";
 import App from './App';
 import rootReducer from "./redux/reducers";
@@ -34,16 +35,25 @@ let store = createStore(rootReducer,
     createFirestoreInstance
   };
 
-ReactDOM.render( 
+  const rootElement = document.getElementById('root');
+
+  const AppElement = ()=>{
+    return (
   <BrowserRouter>
-  <ReactReduxFirebaseProvider {...rrfProps}>
-  <Provider store = {store}>
-    <PersistGate persistor={persistor}>
-       <App />
-    </PersistGate>
-    </Provider>
-  </ReactReduxFirebaseProvider>
-  </BrowserRouter>
-  ,
-  document.getElementById('root')
-);
+    <ReactReduxFirebaseProvider {...rrfProps}>
+    <Provider store = {store}>
+      <PersistGate persistor={persistor}>
+        <App />
+      </PersistGate>
+      </Provider>
+    </ReactReduxFirebaseProvider>
+    </BrowserRouter>
+    )
+  }
+
+  if(rootElement.hasChildNodes()){
+    hydrate(<AppElement />, rootElement);
+  }else{
+    render(<AppElement />, rootElement);
+  }
+

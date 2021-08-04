@@ -4,11 +4,7 @@ import BackgroundSlideshow from 'react-background-slideshow';
 
 import Image1 from "../assets/seebg.png";
 import Image2 from "../assets/seebg2.png";
-import Image3 from "../assets/stbg.png";
-import Image4 from "../assets/stbg2.png";
-import Image5 from "../assets/stbg3.png";
-import Image6 from "../assets/stbg4.png";
-import Image7 from "../assets/stbg5.png";
+
 
 const Hero = () => {
     return (
@@ -43,7 +39,7 @@ const Hero = () => {
                   <div className="hero__overlay">
                   </div>
                   <div className="bgDesktop">
-                    <BackgroundSlideshow images={[ Image1, Image2, Image3, Image4, Image5, Image6, Image7]}  animationDelay= "2000"/>
+                    <BackgroundSlideshow images={[ Image1, Image2]}  animationDelay= "2000"/>
                   </div>
               </div>
           </div>
