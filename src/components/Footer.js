@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import {connect} from "react-redux";
 import * as actionCreators from "../redux/actions";
 import {bindActionCreators} from "redux";
@@ -80,11 +79,11 @@ export class Footer extends Component {
                     <div className="footer__seconddiv__2">
                         <p className="bigger-text white-text u-margin-bottom-small">Social Media</p>
                         <ul style={{listStyle: "none"}} className="footer__social-list  u-margin-bottom-small">
-                            <li><a target="_blank" href="https://twitter.com/iamvoting_nam/"><img src={Twitter} alt="twitter-link" className="footer__social-icon"/></a></li>
-                            <li><a target="_blank" href="https://www.instagram.com/iamvoting_nam/"><img src={Instagram} alt="instagram-link" className="footer__social-icon"/></a></li>
-                            <li><a target="_blank" href="https://www.facebook.com/Iamvoting_nam-102697754419237/"><img src={Facebook} alt="facebook-link" className="footer__social-icon"/></a></li>
+                            <li><a target="_blank" href="https://twitter.com/see_namibia"><img src={Twitter} alt="twitter-link" className="footer__social-icon"/></a></li>
+                            <li><a target="_blank" href="https://www.instagram.com/see_namibia/"><img src={Instagram} alt="instagram-link" className="footer__social-icon"/></a></li>
+                            <li><a target="_blank" href="https://www.facebook.com/Iamvoting_nam-102697754419237"><img src={Facebook} alt="facebook-link" className="footer__social-icon"/></a></li>
                        </ul>
-                       <p className="bigger-text white-text u-margin-bottom-small">@iamvoting_nam</p>
+                       <p className="bigger-text white-text u-margin-bottom-small">@see_namibia</p>
                     </div>
 
                 </div>

@@ -17,7 +17,7 @@ const Socials = () => {
                                 <Timeline
                                     dataSource={{
                                         sourceType: 'profile',
-                                        screenName: 'iamvoting_nam'
+                                        screenName: 'see_namibia'
                                     }}
                                     options={{
                                         height: '500',

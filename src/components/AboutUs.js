@@ -4,7 +4,7 @@ import Eye from "../assets/eye.svg";
 import Arrow from "../assets/arrow-circle-up-right.svg";
 import Anchor from "../assets/basic_anchor.svg";
 import Fade from 'react-reveal/Fade';
-import Structure from "../assets/newTeam.svg";
+import Structure from "../assets/editorialTeam.svg";
 import Navbar from './Navbar';
 import Footer from './Footer';
 import Events from './Events';
@@ -12,93 +12,8 @@ import Events from './Events';
 
 const AboutUS = () => {
 
-    const testAPI = ()=>{
-        console.log("testing the API");
-        async function testCreate (){
-            const bodyObj = {
-                question: "Does this doc help?",
-                identifier: "custom_identifier",
-                data: {
-                    custom: "Poll Data"
-                },
-                options: [
-                    {
-                        text: "Option Text",
-                        data: {
-                            custom: "data"
-                        }
-                    },
-                    {
-                        text: "Option Text2",
-                        data: {
-                            custom: "data"
-                        }
-                    }
-                ]
-            }
-            try{
-               const responseJSON = await fetch("https://api.pollsapi.com/v1/create/poll", {
-                    method: "POST",
-                    headers: {
-                        "Content-type": "application/json",
-                        "api-key": "H0YSMRWP88M4M6GM9RPMFDMN9GRN"
-                    },
-                    body: JSON.stringify(bodyObj)
-                })
 
-                const response = await responseJSON.json();
-                console.log(response);
 
-            }catch(e){
-                console.log(e)
-            }
-        }
-        testCreate();
-    }
-
-    const testAPIGet = ()=>{
-        console.log("testing the API");
-        async function testCreate (){
-            const bodyObj = {
-                question: "Does this doc help?",
-                identifier: "custom_identifier",
-                data: {
-                    custom: "Poll Data"
-                },
-                options: [
-                    {
-                        text: "Option Text",
-                        data: {
-                            custom: "data"
-                        }
-                    },
-                    {
-                        text: "Option Text2",
-                        data: {
-                            custom: "data"
-                        }
-                    }
-                ]
-            }
-            try{
-               const responseJSON = await fetch("https://api.pollsapi.com/v1/create/poll", {
-                    method: "POST",
-                    headers: {
-                        "Content-type": "application/json",
-                        "api-key": "H0YSMRWP88M4M6GM9RPMFDMN9GRN"
-                    },
-                    body: JSON.stringify(bodyObj)
-                })
-
-                const response = await responseJSON.json();
-                console.log(response);
-
-            }catch(e){
-                console.log(e)
-            }
-        }
-        testCreate();
-    }
 
     
     return (
@@ -196,20 +111,19 @@ const AboutUS = () => {
                                         <ul style={{listStyle: "none"}}>
                                             <li className="u-margin-bottom"><strong style={{display: "block"}}>Independence:</strong>
                                                 While we depend on support of our partners and donors, we are independent of outside influences. Our
-                                                leading light is the vision and mission of this network
+                                                leading light is the vision and mission of this network.
                                             </li>
                                             <li className="u-margin-bottom"><strong style={{display: "block"}}>Inclusiveness:</strong>
-                                                We recognize the powerful role played by local communities in times of crisis and in development. We want
-                                                to ensure that the muted voices are heard, resources are fairly shared and partnerships are equitable and
-                                                dignified.
+                                            We recognize the powerful role played by local authorities in times of crisis and in development. We want to foster an understanding of the important role played by local 
+                                            authorities in times of crisis and in fostering development.
                                             </li>
                                             <li className="u-margin-bottom"><strong style={{display: "block"}}>Commitment:</strong>
                                                 The belief that mutual trust is key to success and this trust is generated by the commitment pledged by the
-                                                association towards all the society members
+                                                association towards all the society members.
                                             </li>
                                             <li className="u-margin-bottom"><strong style={{display: "block"}}>Professionalism and objectivity:</strong>
-                                                the work is based on professional practices that are clear, smooth, and well known to all the pioneers of the
-                                                organization from various social and economic levels
+                                                The work is based on professional practices that are clear, smooth, and well known to all the pioneers of the
+                                                organization from various social and economic levels.
                                             </li>
                                         </ul>
                                     </p>
@@ -245,7 +159,7 @@ const AboutUS = () => {
                         <h2 className="header-text red-ish-text u-margin-bottom-small">Gallery</h2>
                         </Fade>
                         <div className="center-hrz">
-                          <iframe src="https://embedsocial.com/facebook_album/pro_instagram/3d14faa8f222bffb209265b543e1ed78bac3fc32" width="900px" height="1200px" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+                          <iframe src="https://embedsocial.com/facebook_album/pro_instagram/aee3e8ca605abf31b1eb17f667609d13aed105be'" width="900px" height="1200px" frameborder="0" marginheight="0" marginwidth="0"></iframe>
                         </div>
                     </section>
                     {/* <button onClick={testAPI}>Test the API</button>
