@@ -5,6 +5,10 @@ body{
     color: white;
 }
 
+.bold-text{
+    font-weight: bold;
+}
+
 .header-text{
     font-size: 3rem;
     font-weight: bold;
@@ -39,11 +43,18 @@ body{
 .bigger-text{
     font-size: 2rem;
     @include respond(tab-port){
-        font-size: 4rem;
+        font-size: 2rem;
      }
     @include respond(phone){
         font-size: 4rem;  
       }
+}
+
+.bigger2-text{
+    font-size: 2.2rem;
+    @include respond(tab-port){
+        font-size: 4.2rem;
+     }
 }
 
 .align-center{
@@ -64,4 +75,12 @@ body{
 
 .justify-text{
     text-align: justify;
+}
+
+.green-ish-text{
+    color: $red-ish
+}
+
+.deep-blue-text{
+    color: $deep-blue;
 }

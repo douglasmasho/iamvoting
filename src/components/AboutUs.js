@@ -4,18 +4,133 @@ import Eye from "../assets/eye.svg";
 import Arrow from "../assets/arrow-circle-up-right.svg";
 import Anchor from "../assets/basic_anchor.svg";
 import Fade from 'react-reveal/Fade';
-import Structure from "../assets/editorialTeam.svg";
+import Structure from "../assets/editorialTeam.png";
 import Navbar from './Navbar';
 import Footer from './Footer';
 import Events from './Events';
+import SocialNoticeLogo from "../assets/socialnoticelogo.svg";
+import EditorialMember from './EditorialMember';
+import Mena from "../assets/editorialteam/mena.jpeg";
+import Frieda from "../assets/editorialteam/frieda.jpg";
+import Martha from "../assets/editorialteam/martha.jpeg";
+import Douglas from "../assets/editorialteam/douglas.jpg";
+import Silas from "../assets/editorialteam/silas.jpeg";
+
+
+
+
 
 
 const AboutUS = () => {
 
+    const members = [
+        {
+            pic: Mena,
+            firstName: "Menarandjambi",
+            lastName: "Tjaverua",
+            position: "Executive Editor",
+            links: [
+                {
+                    link: "https://www.facebook.com/max.tjaverua",
+                    type: "facebook"
+                },
+                {
+                    link: "https://www.instagram.com/mena_tjaverua/",
+                    type: "instagram"
+                },
+                {
+                    link: "https://twitter.com/SammyTenacious",
+                    type: "twitter"
+                },
+                {
+                    link: "https://youtube.com/channel/UCN5ZhQaTt0ZdGGZnfboCWOg",
+                    type: "youtube"
+                },
+            
+            ]
 
+        },
+        {
+            pic: Frieda,
+            firstName: "Frieda",
+            lastName: "Mukufa",
+            position: "Editor",
+            links: [
+                {
+                    link: "#",
+                    type: "facebook"
+                },
+                {
+                    link: "#",
+                    type: "instagram"
+                },
+                {
+                    link: "#",
+                    type: "twitter"
+                },
+            ]
 
+        },
+        {
+            pic: Martha,
+            firstName: "Martha",
+            lastName: "Frans",
+            position: "Content Creator",
+            links: [
+                {
+                    link: "https://www.instagram.com/marthacupid",
+                    type: "instagram"
+                }
+            ]
+        },
+        {
+            pic: Douglas,
+            firstName: "Douglas",
+            lastName: "Mashonganyika",
+            position: "Full Stack Developer",
+            links: [
+                {
+                    link: "https://www.facebook.com/douglas.mashonganyika.505",
+                    type: "facebook"
+                },
+                {
+                    link: "https://github.com/douglasmasho",
+                    type: "github"
+                },
+                {
+                    link: "https://www.instagram.com/bytearc_/",
+                    type: "instagram"
+                },
+                {
+                    link: "https://twitter.com/douglasmashodev",
+                    type: "twitter"
+                }
+            ]
 
-    
+        },
+        {
+            pic: Silas,
+            firstName: "Silas",
+            lastName: "Silas Shiimbi",
+            position: "Multi-Media Designer",
+            links: [
+                {
+                    link: "https://www.facebook.com/dandygraphix",
+                    type: "facebook"
+                },
+                {
+                    link: "https://www.instagram.com/dandy_graphix/",
+                    type: "instagram"
+                },
+                {
+                    link: "https://twitter.com/dandy_graphix",
+                    type: "twitter"
+                }
+            ]
+
+        },
+    ]
+
     return (
         <>
         <Navbar/>
@@ -46,7 +161,7 @@ const AboutUS = () => {
                         </div>
                 </div>
 
-                <div className="aboutus__aboutdiv u-margin-bottom-big">
+                <div className="aboutus__aboutdiv">
                     <div className="u-padding-large u-margin-bottom-big">
                         <h2 className="normal-text align-center">Established in 2019, as I Am Voting Namibia now SEE (Socially Enabled Education), We are the
         first youth organization to be accredited by the 
@@ -101,7 +216,7 @@ const AboutUS = () => {
                                     <div className="center-hrz u-margin-bottom-small">
                                     <div className="redline redline--aboutus showAbove" style={{marginTop: 0}}></div>
                                     </div>
-                                    <p className="normal-text align-center" style={{zIndex: "5", position:"relative"}}>
+                                    <div className="normal-text align-center" style={{zIndex: "5", position:"relative"}}>
                                         {/* <ul style={{listStyle: "none"}}>
                                             <li>Independence</li>
                                             <li>Inclusiveness</li>
@@ -119,14 +234,14 @@ const AboutUS = () => {
                                             </li>
                                             <li className="u-margin-bottom"><strong style={{display: "block"}}>Commitment:</strong>
                                                 The belief that mutual trust is key to success and this trust is generated by the commitment pledged by the
-                                                association towards all the society members.
+                                                association towards all the society members
                                             </li>
                                             <li className="u-margin-bottom"><strong style={{display: "block"}}>Professionalism and objectivity:</strong>
                                                 The work is based on professional practices that are clear, smooth, and well known to all the pioneers of the
                                                 organization from various social and economic levels.
                                             </li>
                                         </ul>
-                                    </p>
+                                    </div>
                                 </section>
                             </Fade> 
 
@@ -135,15 +250,19 @@ const AboutUS = () => {
                 </div>
                     
                     <section className="aboutus__teamdiv" id="team">
-                        <Fade>
-                        <h2 className="header-text red-ish-text u-margin-bottom-small">The team</h2>
-                        </Fade>
-                        <h2 className="white-text bigger-text align-center u-margin-bottom-big">Our organizational structure</h2>
-                        
-                            <div className="center-hrz">
-                            <img src={Structure} alt="" style={{width: "100%"}}/>
-                            </div>
+                        <div className="aboutus__teamdiv__header">
+                           <img src={SocialNoticeLogo} alt="social notice logo" className="aboutus__teamdiv__logo"/>
+                           <h3 className="aboutus__teamdiv__headertext">Editorial Team</h3>
+                        </div>
 
+                        <div className="grid-2 grid">
+                            {
+                                members.map(member=>(
+                                    <EditorialMember memberData={member} key={member.firstName}/>
+                                ))
+                            }
+                        </div>
+                        
                     </section>
 
 
@@ -159,7 +278,7 @@ const AboutUS = () => {
                         <h2 className="header-text red-ish-text u-margin-bottom-small">Gallery</h2>
                         </Fade>
                         <div className="center-hrz">
-                          <iframe src="https://embedsocial.com/facebook_album/pro_instagram/aee3e8ca605abf31b1eb17f667609d13aed105be'" width="900px" height="1200px" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+                        <iframe src="https://embedsocial.com/facebook_album/pro_instagram/aee3e8ca605abf31b1eb17f667609d13aed105be" width="900px" height="1200px" frameBorder="0" marginHeight="0" marginWidth="0"></iframe>
                         </div>
                     </section>
                     {/* <button onClick={testAPI}>Test the API</button>
