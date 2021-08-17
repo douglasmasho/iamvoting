@@ -176,9 +176,9 @@ const AboutUS = () => {
 
                         <Fade right>
                             <section className="aboutus__introdiv" id="vision">
-                                   <Fade left>
+                                   {/* <Fade left>
                                    <img src={Eye} alt="" className="aboutus__icon aboutus__icon--right"/>
-                                   </Fade>
+                                   </Fade> */}
                                     <h1 className="aboutus__intro-title">Our Vision</h1>
                                     <div className="center-hrz u-margin-bottom-small">
                                     <div className="redline redline--aboutus showAbove" style={{marginTop: 0}}></div>
@@ -192,9 +192,9 @@ const AboutUS = () => {
 
                             <Fade left>
                                 <section className="aboutus__introdiv" id="mission">
-                                    <Fade right>
+                                    {/* <Fade right>
                                     <img src={Arrow} alt="" className="aboutus__icon aboutus__icon--left"/>
-                                    </Fade>
+                                    </Fade> */}
                                     <h1 className="aboutus__intro-title">Our Mission</h1>
                                     <div className="center-hrz u-margin-bottom-small">
                                     <div className="redline redline--aboutus showAbove" style={{marginTop: 0}}></div>
@@ -209,9 +209,9 @@ const AboutUS = () => {
 
                             <Fade right>
                                 <section className="aboutus__introdiv" id="values">
-                                    <Fade left>
+                                    {/* <Fade left>
                                     <img src={Anchor} alt="" className="aboutus__icon aboutus__icon--right"/>
-                                    </Fade>
+                                    </Fade> */}
                                     <h1 className="aboutus__intro-title">Our Values</h1>
                                     <div className="center-hrz u-margin-bottom-small">
                                     <div className="redline redline--aboutus showAbove" style={{marginTop: 0}}></div>
