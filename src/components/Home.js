@@ -15,6 +15,7 @@ import Read from './Read';
 import SingleArticle from './SingleArticle';
 import WeekPoll from './WeekPoll';
 import { slide as Menu } from 'react-burger-menu';
+import ServicesPage from "./Services/ServicesPage";
 
 // import Footer from './components/Footer';
 const Home = () => {
@@ -52,6 +53,7 @@ const Home = () => {
             <Route path="/joinus" component={JoinUs}/>
             <Route path="/aboutus" component={AboutUs}/>
             <Route path="/terms" component={Terms}/>
+            <Route path="/services" component={ServicesPage}/>
             <Route path="/articleList" component={Read}/>
             <Route exact path="/read/:articleID" component={SingleArticle}/>
         </div>

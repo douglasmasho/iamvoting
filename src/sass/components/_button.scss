@@ -1,5 +1,5 @@
 .button{
-    padding: 1rem;
+    padding: 1rem 2rem;
     background-color: $red-ish;
     border-radius: 100px;
     border: none;
@@ -10,7 +10,7 @@
     cursor:pointer;
     transition: all .3s;
     @include respond(tab-port){
-       font-size: 3rem;
+       font-size: 2.5rem;
 
      }
 

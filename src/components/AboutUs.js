@@ -25,32 +25,6 @@ const AboutUS = () => {
 
     const members = [
         {
-            pic: Mena,
-            firstName: "Menarandjambi",
-            lastName: "Tjaverua",
-            position: "Executive Editor",
-            links: [
-                {
-                    link: "https://www.facebook.com/max.tjaverua",
-                    type: "facebook"
-                },
-                {
-                    link: "https://www.instagram.com/mena_tjaverua/",
-                    type: "instagram"
-                },
-                {
-                    link: "https://twitter.com/SammyTenacious",
-                    type: "twitter"
-                },
-                {
-                    link: "https://youtube.com/channel/UCN5ZhQaTt0ZdGGZnfboCWOg",
-                    type: "youtube"
-                },
-            
-            ]
-
-        },
-        {
             pic: Frieda,
             firstName: "Frieda",
             lastName: "Mukufa",
