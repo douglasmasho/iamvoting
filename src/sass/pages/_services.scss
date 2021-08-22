@@ -5,6 +5,84 @@
         padding: 5rem;
     }
 
+    
+    &__modal{
+        // z-index: 1000;
+        position: fixed;
+        width: 80%;
+        background-color: #020A3D;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        border-radius: 10px;
+        transition: all 0.5s;
+        padding: 4rem;
+        @include respond(phone){
+            padding: 4rem 6rem;
+        }
+        z-index: 8000;
+        overflow-y: scroll !important;
+        height: 75% !important;
+        // @include respond(tab-port){
+        //     z-index: 80000;
+    
+        //  }
+
+        &__top{
+            background-color: white;
+            width: 100%;
+            border-radius: 10px;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 2rem 3rem;
+
+            @include respond(phone){
+                padding-bottom: 5rem;
+            }
+        }
+
+        &__bottom{
+            background-color: white;
+            width: 90%;
+            border-radius: 10px;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 2rem 3rem;
+
+            @include respond(phone){
+                padding-bottom: 5rem;
+            }
+        }
+
+        &__logo{
+            width: 30rem;
+        }
+        &__name{
+            font-size: 3.5rem;
+            color: $deep-blue;
+            text-transform: capitalize;
+            width: 50%;
+
+            @include respond(phone){
+                text-align: center;
+            }
+        }
+        &__text{
+            text-align: justify;
+        }
+
+        &__list{
+            padding: 0rem 3rem;
+            font-size: 1.6rem;
+            text-align: justify;
+
+            & li{
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+
     &__item{
         position: relative;
         background-color: white;

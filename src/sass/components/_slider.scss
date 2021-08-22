@@ -1,0 +1,40 @@
+.slider{
+    &__arrow{
+        border: none;
+        background: none;
+        cursor: pointer;
+        padding: 1rem;
+        transition: all .5s;
+        &:hover{
+            & i {
+                color: $red-ish;
+               background-color: $deep-blue;
+               border-radius: 10px;
+            }
+        }
+        & i{
+            padding: 5px;
+            font-size: 3rem;
+            transition: all .5s;
+            // font-weight: lighter;
+        }
+
+        &--disabled{
+            opacity: 0;
+        }
+    }
+
+    &__div{
+        width: 90%;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+    }
+
+    &__image{
+        border-radius: 10px;
+        @include respond(tab-port){
+            width: 100%;
+        }
+    }
+}

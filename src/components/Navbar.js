@@ -18,7 +18,6 @@ const Navbar = (props) => {
 
     const openModal = ()=>{
         modalRef.current.classList.add("active");
-        console.log("to the base");
         const overlay = overlayRef.current;
         overlay.classList.add("active"); 
         // setActiveState(false);
@@ -83,7 +82,7 @@ const Navbar = (props) => {
                             <ul>
                             <a href="/aboutus" ><li className="sub-link">Introduction</li></a>
                                 <a href="/aboutus#team" ><li className="sub-link">The Team</li></a>
-                                <Link to="/aboutus#gallery"><li className="sub-link">Gallery</li></Link>
+                                <a href="/aboutus#gallery"><li className="sub-link">Gallery</li></a>
                                 {/* <Link to="/" ><li className="sub-link">Achievements</li></Link> */}
                                 <a href="/aboutus#events" ><li className="sub-link">Events</li></a>
                                 

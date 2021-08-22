@@ -14,8 +14,6 @@
     //     z-index: 80000;
 
     //  }
-
-
 }
 
 .modal.active{
@@ -43,19 +41,20 @@
 .close-button{
     border: none;
     background: none;
-    font-size: 2.5rem;
+    font-size: 4rem;
     position: absolute;
+    color: $red-ish;
     @include respond(tab-port){
         font-size: 4rem;
-
-
+     }
+     @include respond(phone){
+         font-size: 8rem !important;
      }
     top: 0;
     right: 0;
     margin: 1rem;
     cursor: pointer;
     transition: all 0.3s;
-    color: white;
     &:hover{
       color: red;
     }
