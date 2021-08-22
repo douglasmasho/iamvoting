@@ -6,6 +6,8 @@ import { servicesData } from './servicesData';
 import ImageOne from "../../assets/services/mockpic.jpg";
 import Carousel, { Dots, arrowsPlugin } from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
+import Fade from 'react-reveal/Fade';
+
 
 
 const ServicesPage = () => {
@@ -69,6 +71,7 @@ const ServicesPage = () => {
                     <div className="grid-2 grid">
                      {
                          servicesData.map((item, index)=>(
+                            <Fade left>
                              <div className="grid-2--child services__item" key={index}>
                                  <div className="center-hrz--col u-margin-bottom-big">
                                     <img src={item.logo} alt={`${item.name} logo`} className="services__item__image"/>
@@ -80,6 +83,7 @@ const ServicesPage = () => {
                                     }}>More</button>
                                  </div>
                              </div>
+                             </Fade>
                          ))
                      }
                     </div>
