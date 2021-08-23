@@ -14,6 +14,14 @@ body{
     font-weight: bold;
     text-transform: uppercase;
 }
+.sub-header-text{
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    @include respond(phone){
+        font-size: 3rem;
+    }
+}
 
 .red-ish-text{
     color: $red-ish;
@@ -84,3 +92,4 @@ body{
 .deep-blue-text{
     color: $deep-blue;
 }
+

@@ -65,7 +65,7 @@ class JoinUs extends React.Component {
                 </div> 
 
                 <div className="center-hrz" style={{alignItems: 'center'}}>
-                        <Link to="/terms"><button className="button" style={{borderRadius: "10px"}}><p className="deep-blue-text center-text">Terms</p></button></Link>
+                        <Link to="/terms"><button className="button" style={{borderRadius: "10px"}}><p className="deep-blue-text center-text">View Policies and Guidelines</p></button></Link>
                     </div>
             <form  onSubmit={this.handleSubmit} className="center-hrz--col">
             <div className="input-group center-hrz--col row-2--child">
