@@ -8,7 +8,7 @@ const Terms = () => {
             <Navbar/>
                 <div style={{padding: "15rem 4rem", textTransform: "normal"}}>
                     <div className="u-margin-bottom-huge">
-                        <h1 className="screen__header">Subscription Terms</h1>
+                        <h1 className="screen__header">Terms</h1>
                         <div className="redline redline--aboutus showAbove" style={{marginTop: 0}}></div>
                     </div>
 

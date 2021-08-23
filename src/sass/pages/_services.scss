@@ -29,7 +29,9 @@
         //  }
 
         &__top{
-            background-color: white;
+            // background-image: linear-gradient(to right, white, rgba($red-ish, 0.65)), url(../../assets/services/forum.jpg);
+            // background-position: center;
+            background-size: cover;
             width: 100%;
             border-radius: 10px;
             justify-content: space-evenly;
@@ -62,7 +64,6 @@
             color: $deep-blue;
             text-transform: capitalize;
             width: 50%;
-
             @include respond(phone){
                 text-align: center;
             }

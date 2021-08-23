@@ -95,7 +95,7 @@ const ServicesPage = () => {
                   Object.keys(currentService).length !== 0 ?
                   <>
                   <div className="center-hrz">
-                    <div className="services__modal__top row u-margin-bottom">
+                    <div className="services__modal__top row u-margin-bottom" style={{backgroundImage: `linear-gradient(to right, white, rgba(179, 199, 51, 0.5)), url(${currentService.background})`}}>
                             <img src={currentService.logo} alt="" className="services__modal__logo"/>
                             <h3 className="services__modal__name">{currentService.name}</h3>
                      </div>

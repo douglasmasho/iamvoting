@@ -61,11 +61,11 @@ class JoinUs extends React.Component {
             
 
              <div className="center-hrz ">
-                    <h2 className="header-text red-ish-text u-margin-bottom">Become a member</h2>
+                    <h2 className="header-text red-ish-text u-margin-bottom">Become a volunteer</h2>
                 </div> 
 
                 <div className="center-hrz" style={{alignItems: 'center'}}>
-                        <Link to="/terms"><button className="button" style={{borderRadius: "10px"}}><p className="normal-text center-text">Subscription Terms</p></button></Link>
+                        <Link to="/terms"><button className="button" style={{borderRadius: "10px"}}><p className="deep-blue-text center-text">Terms</p></button></Link>
                     </div>
             <form  onSubmit={this.handleSubmit} className="center-hrz--col">
             <div className="input-group center-hrz--col row-2--child">
