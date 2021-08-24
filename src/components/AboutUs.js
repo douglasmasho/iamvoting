@@ -20,7 +20,6 @@ import Silas from "../assets/editorialteam/silas.jpeg";
 
 
 
-
 const AboutUS = () => {
 
     const members = [
@@ -54,6 +53,10 @@ const AboutUS = () => {
                 {
                     link: "https://www.instagram.com/marthacupid",
                     type: "instagram"
+                },
+                {
+                    link: "https://www.youtube.com/channel/UCuLtKffGPMIeTQ7JNGNyznA",
+                    type: "youtube"
                 }
             ]
         },
@@ -159,6 +162,7 @@ const AboutUS = () => {
                                     </div>
                                     {/* <p className="normal-text align-center">For Namibian youth to be actively paritcipating in the democratic process. </p> */}
                                     <p className="normal-text align-center">Namibian youth actively participating in democratic processes.</p>
+                                    
                                 </section>
                         </Fade>
 

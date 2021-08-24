@@ -446,8 +446,100 @@ const Terms = () => {
 
 
                     </div>
+               
+                    <div className="u-margin-bottom-big">
+                        <h2 className="header-text red-ish-text u-margin-bottom">6.	Volunteer Support and Recognition</h2>
+                        <div className="joinus__sub">
+                            <h3 className="sub-header-text white-text u-margin-bottom-small">6.1 Reimbursement of Expenses</h3>
+                            <p className="white-text normal-text justify-text ">Volunteers are [may be] eligible for reimbursement of reasonable expenses incurred while undertaking business for the organization. The Volunteer Sub-Committee shall distribute information to all volunteers regarding specific reimbursable items. Prior approval must be sought for any major expenditure. 
+                            </p>
+                        </div>
+
+                        <div className="joinus__sub">
+                            <h3 className="sub-header-text white-text u-margin-bottom-small">6.2 Access to Organization Property and Materials</h3>
+                            <p className="white-text normal-text justify-text ">As appropriate, volunteers shall have access to organization property and materials necessary to fulfill their duties, and shall receive training in the operation of any equipment. Property and materials shall be utilized only when directly required for organization purposes. This policy includes [does not include] access to and use of organization vehicles.   
+                            </p>
+                        </div>
+
+                        <div className="joinus__sub">
+                            <h3 className="sub-header-text white-text u-margin-bottom-small">6.3 Insurance</h3>
+                            <p className="white-text normal-text justify-text ">Liability and accident insurance is not provided for all volunteers engaged in organization business. Volunteers are encouraged to take reasonable care when conducting their work. Specific information regarding such insurance is available from the Volunteer Sub-Committee. 
+                            </p>
+                        </div>
+
+                        <div className="joinus__sub">
+                            <h3 className="sub-header-text white-text u-margin-bottom-small">6.4 Recognition</h3>
+                            <p className="white-text normal-text justify-text ">An annual volunteer recognition event will be conducted to highlight and reward the contribution of volunteers to the organization. Volunteers will be consulted and involved in order to develop an appropriate format for the event. 
+                            </p>
+                            <br />
+                            <p className="white-text normal-text justify-text ">Furthermore after volunteering for the organization each volunteer will get a letter of recommendation from the organization that will serve as proof for their volunteerism and that will assist them in their future endeavors should they seek employment.
+                            </p>
+                        </div>
+
+                        <div className="joinus__sub">
+                            <h3 className="sub-header-text white-text u-margin-bottom-small">6.5 Informal Recognition</h3>
+                            <p className="white-text normal-text justify-text ">All staff and volunteers responsible for volunteer supervision are encouraged to undertake on-going methods of recognition of volunteer service on a regular basis throughout the year. These methods of informal recognition should range from simple ‘"Thank You’s" to a concerted effort to include volunteers as full participants in program decision making and implementation. 
+                            </p>
+                        </div>
+
+                        <div className="joinus__sub">
+                            <h3 className="sub-header-text white-text u-margin-bottom-small">6.6 Volunteer Career Paths</h3>
+                            <p className="white-text normal-text justify-text ">Volunteers are encouraged to grow and develop their skills while serving with the organization, and are to be assisted through promotion to new volunteer jobs to assume additional and greater responsibilities. If so desired by the volunteer, the organization should assist the volunteer in maintaining appropriate records of volunteer experience that would assist the volunteer in future career opportunities, both paid and volunteer. 
+                            </p>
+                        </div>
+
+                        <div className="joinus__sub">
+                            <h3 className="sub-header-text white-text u-margin-bottom-small">6.7 Staff Recognition</h3>
+                            <p className="white-text normal-text justify-text ">The Volunteer Sub-Committee shall design a program for recognition of staff who work well with volunteers and shall consult with volunteers to identify appropriate staff to receive such awards.
+                            </p>
+                        </div>
+
 
                     </div>
+
+                    <div className="u-margin-bottom-big">
+                        <h2 className="header-text red-ish-text u-margin-bottom">7. MANAGEMENT OF THE VOLUNTEERS</h2>
+                        <div className="joinus__sub">
+                            <h3 className="sub-header-text white-text u-margin-bottom-small">7.1 Maintenance of Records</h3>
+                            <p className="white-text normal-text justify-text ">A system of records will be maintained on each volunteer with the Organization, including dates of service, positions held, duties performed, evaluation of work, and awards received. Volunteers and Chief Coordinators shall be responsible for submitting all appropriate records and information to the Volunteer Sub-Committee in a timely and accurate fashion. Volunteer personnel records shall be accorded the same confidentiality as staff personnel records.
+                            </p>
+                        </div>
+
+                        <div className="joinus__sub">
+                            <h3 className="sub-header-text white-text u-margin-bottom-small">7.2 Representation of the Organization </h3>
+                            <p className="white-text normal-text justify-text ">Prior to any action or statement which might significantly affect or obligate the organization, volunteers should seek prior consultation and approval from appropriate Chief Coordinators. These actions may include, but are not limited to, public statements to the press, coalition or lobbying efforts with other organizations, or any agreements involving contractual or other financial obligations. Volunteers are authorized to act as representatives of the organization as specifically indicated within their job descriptions and only to the extent of such written specifications.
+                            </p>
+                        </div>
+
+                        <div className="joinus__sub">
+                            <h3 className="sub-header-text white-text u-margin-bottom-small">7.3 Confidentiality</h3>
+                            <p className="white-text normal-text justify-text ">Volunteers are responsible for maintaining the confidentiality of all proprietary or privileged information to which they are exposed while serving as a volunteer, whether this information involves a single director, volunteer, client, or other person or involves overall operations of the organization. Failure to maintain confidentiality may result in termination of the volunteer’s relationship with the organization or other corrective action.
+                            </p>
+                        </div>
+
+                        <div className="joinus__sub">
+                            <h3 className="sub-header-text white-text u-margin-bottom-small">7.4 Worksite</h3>
+                            <p className="white-text normal-text justify-text ">An appropriate worksite, depending on region of the volunteer and the type of work they will be performing shall be established and communicated to the volunteer prior to the commencement of any work.
+                            </p>
+                        </div>
+
+                        <div className="joinus__sub">
+                            <h3 className="sub-header-text white-text u-margin-bottom-small">7.5 Dress Code</h3>
+                            <p className="white-text normal-text justify-text ">As representatives of the organization, volunteers, like staff, are responsible for presenting a good image to all stakeholders and to the community. Volunteers shall dress appropriately for the conditions and performance of their duties. And in certain cases volunteers will be provided with the organizations Caps and T-shirts of which they will be expected to wear.
+                            </p>
+                        </div>
+
+                        <div className="joinus__sub">
+                            <h3 className="sub-header-text white-text u-margin-bottom-small">7.6 Timesheets</h3>
+                            <p className="white-text normal-text justify-text ">Individual volunteers are responsible for the accurate completion and timely submission of timesheets provided by their respective Chief Coordinator or supervisor.
+                            </p>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
                     
                 
             <Footer/>
