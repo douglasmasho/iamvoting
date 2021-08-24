@@ -76,9 +76,12 @@
         }
         &__2{
             width: 50%;
-            text-align: center;
+            text-align: right;
+            padding-right: 3rem;
             @include respond(tab-port){
+                margin-top: 10rem;
                 width: 100%;
+                text-align: center;
              }
             // background-color: whiteb;
         }
