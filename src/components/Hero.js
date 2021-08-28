@@ -35,7 +35,7 @@ const Hero = () => {
                   <Timeline target={ <p className="showAbove deep-blue-text moto">Empowering Society</p>}>
                   <Tween to={{ y: "0", x: 0, opacity: 1, scale: 1}} delay={0.5} duration={0.6} from={{ opacity: 0, y: "100%"}}/>
                   </Timeline>
-
+                  
                   <div className="hero__overlay">
                   </div>
                   <div className="bgDesktop">

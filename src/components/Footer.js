@@ -49,6 +49,24 @@ export class Footer extends Component {
         return (
         <div className="footer">
             <div className="footer__newsletter-form">
+                {/* <div className="footer__firstdiv">
+                    <div className="footer__firstdiv__1">
+                        <h3 className="white-text header-text">Stay Updated</h3>
+                        <p className="white-text normal-text">subscribe to our newsletter</p>
+                    </div>
+                    <div className="footer__firstdiv__2">
+                    <form action="" onSubmit={this.handleSubmit}>
+                        <div className="footer__inputContainer">
+                          <input id="subEmail" type="email" placeholder="enter your email address" className="footer__inp input-text footer__text u-margin-right " required onChange={this.handleChange} ref={this.inputRef}/>
+                        </div>
+                        <div className="footer__buttonContainer">
+                        <button type="submit" className="button">Subscribe</button>
+                        </div>
+                     </form>
+                    </div>
+                </div> */}
+
+                <div className="footer__seconddiv">
                 <div className="footer__firstdiv">
                     <div className="footer__firstdiv__1">
                         <h3 className="white-text header-text">Stay Updated</h3>
@@ -65,18 +83,7 @@ export class Footer extends Component {
                      </form>
                     </div>
                 </div>
-
-                <div className="footer__seconddiv">
-                    <section id="contactus" className="footer__seconddiv__1">
-                       <img src={Logo} alt="" className="footer__logo"/>
-                       <ul style={{listStyle: "none"}} className="center-vert">
-                           <li><FontAwesomeIcon icon={faPhoneAlt} className="footer__icon"/><p className="white-text normal-text" style={{display: "inline-block"}}>+264 81 550 3063</p></li>
-                           <li><FontAwesomeIcon icon={faEnvelope} className="footer__icon"/><p className="white-text normal-text" style={{display: "inline-block"}}>seenamibiaorg@gmail.com</p></li>
-                           <li><FontAwesomeIcon icon={faMapMarkerAlt} className="footer__icon"/><p className="white-text normal-text" style={{display: "inline-block"}}>Windhoek, Namibia</p></li>
-                       </ul>
-                    </section>
-
-                    <div className="footer__seconddiv__2">
+                <div className="footer__seconddiv__2">
                         <p className="bigger-text white-text u-margin-bottom-small">Social Media</p>
                         <ul style={{listStyle: "none"}} className="footer__social-list  u-margin-bottom-small">
                             <li><a target="_blank" href="https://twitter.com/see_namibia"><img src={Twitter} alt="twitter-link" className="footer__social-icon"/></a></li>
@@ -85,6 +92,17 @@ export class Footer extends Component {
                        </ul>
                        <p className="bigger-text white-text u-margin-bottom-small">@see_namibia</p>
                     </div>
+
+                    <section id="contactus" className="footer__seconddiv__1">
+                       <ul style={{listStyle: "none"}} className="center-vert align-right u-margin-right">
+                           <li><FontAwesomeIcon icon={faPhoneAlt} className="footer__icon"/><p className="white-text normal-text" style={{display: "inline-block"}}>+264 81 550 3063</p></li>
+                           <li><FontAwesomeIcon icon={faEnvelope} className="footer__icon"/><p className="white-text normal-text" style={{display: "inline-block"}}>seenamibiaorg@gmail.com</p></li>
+                           <li><FontAwesomeIcon icon={faMapMarkerAlt} className="footer__icon"/><p className="white-text normal-text" style={{display: "inline-block"}}>Windhoek, Namibia</p></li>
+                       </ul>
+                       <img src={Logo} alt="" className="footer__logo"/>
+                    </section>
+
+                   
 
                 </div>
                 <div className="u-padding-top">

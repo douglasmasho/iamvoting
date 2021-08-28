@@ -54,3 +54,24 @@ html{
     font-size: 2.5rem;
   }
 }
+
+// .forSmall{
+//   display: none;
+//   @include respond(phone){
+//     display: flex;
+//   }
+// }
+
+
+.forBig{
+  @include respond(phone){
+    display: none;
+  }
+}
+
+.columnWhenSmall{
+  @include respond(phone){
+    display: flex;
+    flex-direction: column;
+  }
+}

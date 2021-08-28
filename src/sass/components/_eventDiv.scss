@@ -1,0 +1,36 @@
+.eventDiv{
+    background-color: $deep-blue;
+    background-size: cover;
+    background-position: right;
+    padding: 5rem;
+    overflow: hidden;
+    border-radius: 25px;
+    min-height: 70vh;
+    @include respond(phone){
+    min-height: 40vh;
+    width: 80vw;
+    padding: 3rem 5rem;
+    }
+    width: 70vw;
+    position: relative;
+
+    &__month{
+        position: absolute;
+        color: white;
+        font-size: 15rem;
+        font-weight: bolder;
+        opacity: 0.5;
+        bottom: -2rem;
+        right: 0;
+    }
+    &__list{
+        text-align: left;
+        color: white;
+        font-size: 1.6rem;
+
+        @include respond(phone){
+            font-size: 3rem;
+        }
+    }
+
+}

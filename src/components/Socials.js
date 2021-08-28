@@ -4,7 +4,7 @@ import Twitter from "../assets/twitter.svg";
 import { Timeline } from 'react-twitter-widgets'
 const Socials = () => {
     return (
-        <div className="u-margin-top-huge">
+        <div className="u-margin-top-big">
             <Fade right>
                 <div className="center-hrz">
                     <h2 className="header-text red-ish-text u-margin-bottom">Our Socials</h2>

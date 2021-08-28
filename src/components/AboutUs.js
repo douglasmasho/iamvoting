@@ -20,6 +20,8 @@ import Silas from "../assets/editorialteam/silas.jpeg";
 
 
 
+
+
 const AboutUS = () => {
 
     const members = [
@@ -139,7 +141,7 @@ const AboutUS = () => {
                 </div>
 
                 <div className="aboutus__aboutdiv">
-                    <div className="u-padding-large u-margin-bottom-big">
+                    <div className="u-padding-large u-margin-bottom">
                         <h2 className="normal-text align-center">Established in 2019, as I Am Voting Namibia now SEE (Socially Enabled Education), We are the
         first youth organization to be accredited by the 
         Electoral Commission of Namibia (ECN). The 

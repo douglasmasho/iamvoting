@@ -10,7 +10,7 @@ const Counters = (props) => {
 
 
     return (
-        <div className="center-hrz u-margin-top-huge">
+        <div className="center-hrz u-margin-top">
          <div className="counters__div">
              <div className="counters__counter">
                  <p className="counters__number">14</p>

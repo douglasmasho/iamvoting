@@ -20,6 +20,17 @@
         left: 0;
     }
 
+    &__overlay-2{
+        background: rgb(0,19,255);
+        background: linear-gradient(90deg, rgb(0, 9, 87) 0%, rgba(0,19,255,0.18531162464985995) 69%);
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        z-index: 100;
+        top: 0;
+        left: 0;
+    }
+
     &__title{
         margin-left: 3rem;
         @include respond(phone){
@@ -39,6 +50,46 @@
         & h1{
             display: inline-block;
             font-size: 7rem;
+            background-image: rgba($deep-blue, 0.86);
+            overflow: hidden;
+            font-weight: 900;
+            & span{
+                display: inline-block; 
+                // transform: translateY(100%);
+            }
+
+            &:first-child{
+                color: $deep-blue;
+                display: block;
+            }
+            &:nth-child(2){
+                color: white;
+                background-color: $deep-blue;
+                padding: 0.5rem 1rem;
+                background-image: white;
+            }
+        }
+    }
+
+    &__title-2{
+        margin-left: 3rem;
+        @include respond(phone){
+            // margin-top: -40rem;
+            text-align: center;
+        }
+
+        &--container{
+            @include respond(phone){
+            width: 100%;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+        
+        & h1{
+            display: inline-block;
+            font-size: 4rem;
             background-image: rgba($deep-blue, 0.86);
             overflow: hidden;
             font-weight: 900;

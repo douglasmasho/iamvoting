@@ -1,20 +1,48 @@
 import React from 'react';
-import Fade from 'react-reveal/Fade';
+import { Controls, PlayState, Timeline, Tween } from 'react-gsap';
+import BackgroundSlideshow from 'react-background-slideshow';
+import Image1 from "../assets/fts/ps1.jpg";
+import Image2 from "../assets/fts/ps2.jpg";
+import Image3 from "../assets/fts/ps3.jpg";
+
+import {Link} from "react-router-dom"
+
+
+
 
 const Intro = () => {
     return (
-        <div className="u-margin-top-big">
-                <Fade right>
-                <div className="center-hrz ">
-                    <h2 className="header-text red-ish-text u-margin-bottom">What we strive for</h2>
-                </div> 
-             </Fade>
+        <div className="hero">
+          <div className="hero__title--container">
+            <div className="hero__title-2">          
+                <h1>
+                <Timeline target={<span className="showAbove white-text">Empowering</span>}>
+                      <Tween to={{ y: "0", x: 0, opacity: 1, scale: 1}} duration={0.6} from={{ opacity: 0, y: "100%"}}/>
+                  </Timeline>       
+                </h1>
+                
+                <Timeline target={
+                  <h1 className="showAbove">     
+                    <Timeline target={<span className="showAbove white-text">Society</span>}>
+                          <Tween to={{ y: "0", x: 0, opacity: 1, scale: 1}} delay={0.5} duration={0.6} from={{ opacity: 0, y: "90%"}}/>
+                      </Timeline>
+                  </h1>
+                }>
+                  <Tween to={{ width: "", padding: "0.5rem 1rem" }} delay={-0.5} duration={0.6} from={{ width: "0px", padding: 0}}/>
+              </Timeline>
+              <div className="columnWhenSmall">
+              <p className="showAbove u-margin-top-small normal-text white-text forBig u-margin-bottom" style={{width: "30%"}}>SEE Namibia is a youth-led organization that provides voter and civic education. SEE Namibia is accredited by the Electoral Commission of Namibia.</p>
+              <Link className="button showAbove u-margin-top" to="/aboutus">About Us</Link>  
+              </div>
 
-            <div className="center-hrz">
-                <Fade bottom>
-                <iframe src="https://player.vimeo.com/video/531000373?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="iamvotingintro"></iframe>               </Fade>
-            </div>
-       </div>
+                  <div className="hero__overlay-2">
+                  </div>
+                  <div className="bgDesktop">
+                    <BackgroundSlideshow images={[ Image1, Image2, Image3]}  animationDelay= "2000"/>
+                  </div>
+              </div>
+          </div>
+        </div>
     )
 }
 

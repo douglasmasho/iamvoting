@@ -1,6 +1,6 @@
 .footer{
     background-color: #0F0F0F;
-    padding: 6rem 3rem 1rem 3rem;
+    padding: 2rem 3rem 1rem 3rem;
     // position: fixed;
     bottom: 0;
     left: 0;
@@ -29,14 +29,12 @@
         display: flex;
         justify-content: space-evenly;
         padding-bottom: 4rem;
-        border-bottom: 3px $red-ish solid;
         @include respond(tab-port){
             flex-direction: column;
         }
 
         &__1{
-            width: 30%;
-            @include respond(tab-port){
+            @include respond(tab-land){
                 width: 100%;
                 text-align: center;
                 margin-bottom: 2rem;
@@ -47,7 +45,7 @@
         }
         &__2{
             width: 70%;
-            @include respond(tab-port){
+            @include respond(tab-land){
                 width: 100%
             }
         }
@@ -58,12 +56,14 @@
         display: flex;
         border-bottom: 3px $red-ish solid;
         padding-bottom: 4rem;
-        @include respond(tab-port){
+        justify-content: space-between;
+    align-items: center;
+        @include respond(tab-land){
             flex-direction: column;
         }
         &__1{
             display: flex;
-            width: 50%;
+            
             @include respond(tab-port){
                width: 100%;
                display: flex;
@@ -75,11 +75,11 @@
             }
         }
         &__2{
-            width: 50%;
-            text-align: right;
+           
+            text-align: center;
             padding-right: 3rem;
-            @include respond(tab-port){
-                margin-top: 10rem;
+            @include respond(tab-land){
+                margin: 2.5rem 0;
                 width: 100%;
                 text-align: center;
              }
@@ -100,7 +100,7 @@
     }
 
     &__text{
-        padding: 2rem;
+        padding: 1rem 2rem;
         border-radius: 100px;
         border: none;
         width: 70%;
