@@ -3,6 +3,10 @@
     padding: 5rem;
     overflow: hidden;
     position: relative;
+    box-shadow: 6px 9px 35px -13px rgba(0,0,0,0.15);
+    -webkit-box-shadow: 6px 9px 35px -13px rgba(0,0,0,0.15);
+    -moz-box-shadow: 6px 9px 35px -13px rgba(0,0,0,0.15);
+    border-radius: 20px;
     &__div{
         position: relative;
         z-index: 1;

@@ -10,7 +10,8 @@ const Socials = () => {
                     <h2 className="header-text red-ish-text u-margin-bottom">Our Socials</h2>
                 </div> 
             </Fade>
-            <div className="socials-div u-margin-bottom-huge">
+
+            <div className="socials-div u-margin-bottom">
                     <Fade>
                         {/* <img src={Twitter} alt="" className="socials-icon"/> */}
                         <div className="center-hrz">

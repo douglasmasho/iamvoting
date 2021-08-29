@@ -34,15 +34,16 @@ const Home = () => {
           <Route exact path="/" render={()=>{
               return (
                 <>
-
                     <Navbar/>
                     <Hero/>
                     <Intro/>
-                    <WeekPoll/>
-                    <Fade>
-                    <Counters/>
-                    </Fade>
-                    <Socials/>
+                    <div className="home-bg">
+                        <WeekPoll/>
+                        <Fade>
+                        <Counters/>
+                        </Fade>
+                        <Socials/>
+                    </div>
                     <Footer/>
                 </>        
               )
