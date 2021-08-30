@@ -4,7 +4,6 @@ import BackgroundSlideshow from 'react-background-slideshow';
 import Image1 from "../assets/bgs/ps1.jpg";
 import Image2 from "../assets/bgs/ps2.jpg";
 import Image3 from "../assets/bgs/ps3.jpg";
-import Image4 from "../assets/bgs/ps5.jpg";
 
 
 import {Link} from "react-router-dom"
@@ -37,7 +36,7 @@ const IntroJoin = () => {
                   <div className="hero__overlay-2">
                   </div>
                   <div className="bgDesktop">
-                    <BackgroundSlideshow images={[ Image1, Image2, Image3, Image4]}  animationDelay= "2000"/>
+                    <BackgroundSlideshow images={[ Image1, Image2, Image3]}  animationDelay= "2000"/>
                   </div>
               </div>
           </div>
