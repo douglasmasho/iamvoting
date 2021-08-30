@@ -83,9 +83,8 @@ const Navbar = (props) => {
                             <a href="/aboutus" ><li className="sub-link">Introduction</li></a>
                                 <a href="/aboutus#team" ><li className="sub-link">The Team</li></a>
                                 <a href="/aboutus#gallery"><li className="sub-link">Gallery</li></a>
-                                {/* <Link to="/" ><li className="sub-link">Achievements</li></Link> */}
                                 <a href="/aboutus#events" ><li className="sub-link">Events</li></a>
-                                
+                                <Link to="/faq" ><li className="sub-link">Frequently Asked</li></Link>
                             </ul>
                         </div>
                     </li>
@@ -141,6 +140,7 @@ const Navbar = (props) => {
                                                 // </div>
                         }
                     </li>
+                    <li className="nav__link"><Link to="/faq">Frequently Asked</Link></li>
                     <li className="nav__link"><Link to="/services">Services</Link></li>
                     <li className="nav__link" onClick={()=>{setActiveState(!activeState);}}><a href="#contactus">Contact</a></li>
                     {/* <li className="nav__link"><Link to="/" >Donate</Link></li> */}

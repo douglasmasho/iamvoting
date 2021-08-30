@@ -57,12 +57,12 @@ class JoinUs extends React.Component {
             <>
             <Navbar/>
         <div className="joinus__div">
-
-            
-
              <div className="center-hrz ">
                     <h2 className="header-text red-ish-text u-margin-bottom">Become a volunteer</h2>
                 </div> 
+                <div className="center-hrz u-margin-bottom">
+                    <p className="normal-text white-text">Please note that the due date for volunteer registration is on the 15th of November 2021</p>
+                </div>
 
                 <div className="center-hrz" style={{alignItems: 'center'}}>
                         <Link to="/terms"><button className="button" style={{borderRadius: "10px"}}><p className="deep-blue-text center-text">View Policies and Guidelines</p></button></Link>

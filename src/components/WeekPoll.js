@@ -214,7 +214,7 @@ const WeekPoll = (props) => {
           })
           
         ///every month, change the create_at check, as well as the the pollID;
-        const pollID = "60c8e0bf37e4f400101e4bcd";
+        const pollID = "60c8d80188b5d30016def405";
         // console.log(props.pollObj.data.id);
         async function getPoll() {
             try{

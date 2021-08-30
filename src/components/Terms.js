@@ -60,7 +60,7 @@ const Terms = () => {
                             <br />
                             <p className="white-text normal-text justify-text">
                             SEE Namibia, reserves the exclusive right to change any of these policies at any time and to expect adherence to the changed policy. 
-                            Changes to or exceptions from these policies may only be granted by the Executive Committee, Primarily the Executive Director and Director of operations. And such exclusion must be obtained in advance and in writing. Areas not specifically covered by 
+                            Changes to or exceptions from these policies may only be granted by the Executive Committee, Primarily the Executive Director and operations. And such exclusion must be obtained in advance and in writing. Areas not specifically covered by 
                             these policies shall be determined by the Volunteer Program Coordinator.
                             </p>
                         </div>
@@ -96,8 +96,8 @@ const Terms = () => {
                             </p>
                             <br />
                            <ul className="normal-text white-text u-padding" style={{paddingTop: "0px"}}>
-                               <li>Project coordinator: Director of Operations</li>
-                               <li>Project overseeing: Director of Programs</li>
+                               <li>Project coordinator: Operations Director</li>
+                               <li>Project overseeing: Programs Director</li>
                                <li>Oversight Chair: Chief Coordinator</li>
                                <li>Local chair: Regional Coordinator</li>
                                <li>Two town council Representatives</li>
@@ -535,13 +535,7 @@ const Terms = () => {
                             </p>
                         </div>
                     </div>
-
-
-
-
-                </div>
-                    
-                
+                </div>      
             <Footer/>
     </>
     )

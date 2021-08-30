@@ -18,7 +18,7 @@ const Counters = (props) => {
              </div>
              <div className="counters__counter">
                  {props.count && props.count.length >=1 ? <p className="counters__number">{props.count[0].mNumber}</p>: null}
-                 <p>Members</p>
+                 <p>Volunteers</p>
              </div>
          </div>
         </div>
