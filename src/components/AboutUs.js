@@ -15,6 +15,8 @@ import Frieda from "../assets/editorialteam/frieda.jpg";
 import Martha from "../assets/editorialteam/martha.jpeg";
 import Douglas from "../assets/editorialteam/douglas.jpg";
 import Silas from "../assets/editorialteam/silas.jpeg";
+import Iyaloo from "../assets/editorialteam/iyaloo.jpg";
+
 
 
 
@@ -26,26 +28,46 @@ const AboutUS = () => {
 
     const members = [
         {
-            pic: Frieda,
-            firstName: "Frieda",
-            lastName: "Mukufa",
-            position: "Editor",
+            pic: Iyaloo,
+            firstName: "Iyaloo",
+            lastName: "Magongo",
+            position: "Executive Editor",
             links: [
                 {
-                    link: "#",
-                    type: "facebook"
-                },
-                {
-                    link: "#",
+                    link: "https://www.instagram.com/iyaloo_2/?hl=en",
                     type: "instagram"
                 },
                 {
-                    link: "#",
+                    link: " https://www.linkedin.com/in/iyaloo-magongo-02b96a161/",
+                    type: "linkedin"
+                },
+                {
+                    link: "https://twitter.com/iyaloo_2",
                     type: "twitter"
                 },
             ]
 
         },
+        // {
+        //     pic: Frieda,
+        //     firstName: "Frieda",
+        //     lastName: "Mukufa",
+        //     position: "Editor",
+        //     links: [
+        //         {
+        //             link: "#",
+        //             type: "facebook"
+        //         },
+        //         {
+        //             link: "#",
+        //             type: "instagram"
+        //         },
+        //         {
+        //             link: "#",
+        //             type: "twitter"
+        //         },
+        //     ]
+        // },
         {
             pic: Martha,
             firstName: "Martha",
