@@ -16,6 +16,7 @@ import Martha from "../assets/editorialteam/martha.jpeg";
 import Douglas from "../assets/editorialteam/douglas.jpg";
 import Silas from "../assets/editorialteam/silas.jpeg";
 import Iyaloo from "../assets/editorialteam/iyaloo.jpg";
+import IntroAbout from './IntroAbout';
 
 
 
@@ -136,42 +137,8 @@ const AboutUS = () => {
         <>
         <Navbar/>
         <div>
-                    <div className="aboutus__herodiv">
-                    <div className="aboutus__title">
-                    <h1>
-                    <Timeline target={<span className="showAbove">About</span>}>
-                            <Tween to={{ y: "0", x: 0, opacity: 1, scale: 1}} duration={0.6} from={{ opacity: 0, y: "100%"}}/>
-                        </Timeline>
-                        
-                    </h1>
-                    
-                    <Timeline target={
-                        <h1 className="showAbove">     
-                        <Timeline target={<span className="showAbove">Us</span>}>
-                                <Tween to={{ y: "0", x: 0, opacity: 1, scale: 1}} delay={0.5} duration={0.6} from={{ opacity: 0, y: "100%"}}/>
-                            </Timeline>
-                        </h1>
-                    }>
-                        <Tween to={{ width: "auto", padding: "0.5rem 1rem" }} delay={-0.5} duration={0.6} from={{ width: "0px", padding: 0}}/>
-                    </Timeline>
-
-
-                    <Timeline target={ <div className="redline showAbove"></div>}>
-                            <Tween to={{ opacity: 1, width: "100px"}} delay={0.5} duration={0.6} from={{ opacity: 0, width: 0}}/>
-                        </Timeline>
-                        </div>
-                </div>
-
+            <IntroAbout/>
                 <div className="aboutus__aboutdiv">
-                    <div className="u-padding-large u-margin-bottom">
-                        <h2 className="normal-text align-center">Established in 2019, as I Am Voting Namibia now SEE (Socially Enabled Education), We are the
-        first youth organization to be accredited by the 
-        Electoral Commission of Namibia (ECN). The 
-        organization is registered under the ministry
-        of youth, sport and culture, and we provide 
-        voter and civic education to the general public.
-                        </h2>
-                    </div>
 
                     <div className="center-hrz--col">
 

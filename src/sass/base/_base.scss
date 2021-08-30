@@ -80,3 +80,24 @@ html{
   background-color: white !important;
   padding: 0 3rem;
 }
+
+
+.herodiv{
+  height: 90vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include respond(tab-port){
+      background-size:cover;
+      background-position: center;
+   }
+  }
+
+  .hero-text{
+    font-size: 5rem;
+    @include respond(phone){
+      font-size: 8rem;
+    }
+  }

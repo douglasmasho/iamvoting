@@ -5,6 +5,7 @@ import {bindActionCreators} from "redux";
 import Navbar from './Navbar';
 import Footer from './Footer';
 import {Link} from "react-router-dom";
+import IntroJoin from './IntroJoin';
 
 
 
@@ -56,17 +57,15 @@ class JoinUs extends React.Component {
         return (
             <>
             <Navbar/>
+            <IntroJoin/>
         <div className="joinus__div">
              <div className="center-hrz ">
                     <h2 className="header-text red-ish-text u-margin-bottom">Become a volunteer</h2>
                 </div> 
                 <div className="center-hrz u-margin-bottom">
-                    <p className="normal-text white-text">Please note that the due date for volunteer registration is on the 15th of November 2021</p>
+                    <p className="normal-text center-text red-text u-padding">Please note that the due date for volunteer registration is on the 15th of November 2021</p>
                 </div>
 
-                <div className="center-hrz" style={{alignItems: 'center'}}>
-                        <Link to="/terms"><button className="button" style={{borderRadius: "10px"}}><p className="deep-blue-text center-text">View Policies and Guidelines</p></button></Link>
-                    </div>
             <form  onSubmit={this.handleSubmit} className="center-hrz--col">
             <div className="input-group center-hrz--col row-2--child">
                 <input type="text" name="text" id="firstName" className="input-textbox" placeholder="First name" required onChange={this.handleChange}/>

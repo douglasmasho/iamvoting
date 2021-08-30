@@ -10,6 +10,9 @@ import {Link} from "react-router-dom";
 import moment from "moment";
 import * as actionCreators from "../redux/actions";
 import {bindActionCreators} from "redux";
+import {Timeline, Tween } from 'react-gsap';
+import BG from "../assets/bgs/articles.jpg";
+
 
 import Header from "../assets/socialnoticeicon.svg";
 
@@ -27,10 +30,13 @@ const Read = (props) => {
         <>
         <Navbar/>
             <div className="u-padding-top-larger articlesList__div">
+            <div className="herodiv" style={{backgroundImage: `linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(0,19,255,0.18531162464985995) 65%), url(${BG})`}}>
+                <img src={Header} alt="header" className="articles__header"/>
+            </div>
 
+    
             <div className="center-hrz u-padding-top-large u-margin-bottom-big">
               {/* <h1 className="aboutus__intro-title">Articles</h1> */}
-              <img src={Header} alt="header" className="articles__header"/>
             </div>    
             
             <div className="grid-2 grid u-margin-bottom-big">
