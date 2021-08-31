@@ -8,11 +8,13 @@ import {connect} from "react-redux";
 
 const NewPoll = (props) => {
     const [options, setOptions] = useState([]);
+    const {REACT_APP_POLLSAPI_KEY} = process.env;
+
     const addQuestion = ()=>{
         console.log("testing the API");
         async function testCreate (){
             const bodyObj = {
-                question: "Environment safety is more important than business tax revenue.",
+                question: "TEeeeeest Question",
                 identifier: "custom_identifier",
                 data: {
                     custom: "Poll Data"
@@ -55,7 +57,7 @@ const NewPoll = (props) => {
                     method: "POST",
                     headers: {
                         "Content-type": "application/json",
-                        "api-key": "H0YSMRWP88M4M6GM9RPMFDMN9GRN"
+                        "api-key": REACT_APP_POLLSAPI_KEY
                     },
                     body: JSON.stringify(bodyObj)
                 })

@@ -2,6 +2,7 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
 import "firebase/storage";
+import "firebase/analytics";
 //remember to import whatever functionality you need from firebase
 
 const firebaseConfig = {
@@ -17,6 +18,7 @@ const firebaseConfig = {
 
 
   firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
 //   firebase.firestore().settings({ timestampInSnapShots});
 
 export default firebase; 

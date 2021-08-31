@@ -24,6 +24,8 @@ const WeekPoll = (props) => {
     const [pollOptionVotes, setPollOptionVotes] = useState([0,0,0,0,0,0,0,0,0,0]);
     const votesArrRef = useRef(null);
 
+    const {REACT_APP_POLLSAPI_KEY} = process.env;
+
     const data = {
         labels: [
             'Red',
@@ -78,7 +80,7 @@ const WeekPoll = (props) => {
                         method: "POST",
                         headers:{
                             "Content-type": "application/json",
-                            "api-key": "H0YSMRWP88M4M6GM9RPMFDMN9GRN"
+                            "api-key": REACT_APP_POLLSAPI_KEY
                         },
                         body: JSON.stringify(bodyObj)
                     })
@@ -97,7 +99,7 @@ const WeekPoll = (props) => {
                     method: "GET",
                     headers: {
                         "Content-type": "application/json",
-                        "api-key": "H0YSMRWP88M4M6GM9RPMFDMN9GRN"  
+                        "api-key": REACT_APP_POLLSAPI_KEY  
                     }
                 })
                 const response2 = await responseJSON2.json();
@@ -112,7 +114,7 @@ const WeekPoll = (props) => {
                             method: "POST",
                             headers: {
                                 "Content-type": "application/json",
-                                "api-key": "H0YSMRWP88M4M6GM9RPMFDMN9GRN"   
+                                "api-key": REACT_APP_POLLSAPI_KEY   
                             },
                             body: JSON.stringify(bodyObj2)
                         }).then(resp=>{
@@ -144,7 +146,7 @@ const WeekPoll = (props) => {
                 const responseJSON = await fetch(`https://api.pollsapi.com/v1/get/poll/${props.pollObj.data.id}`, {
                     method: "GET",
                     headers: {
-                        "api-key": "H0YSMRWP88M4M6GM9RPMFDMN9GRN"                          
+                        "api-key": REACT_APP_POLLSAPI_KEY                          
                     }
                 })  
                 const response = await responseJSON.json();
@@ -222,7 +224,7 @@ const WeekPoll = (props) => {
                     method: "GET",
                     headers: {
                         "Content-type": "application/json",
-                        "api-key": "H0YSMRWP88M4M6GM9RPMFDMN9GRN"
+                        "api-key": REACT_APP_POLLSAPI_KEY
                     }
                 })
                 const response = await responseJson.json();
