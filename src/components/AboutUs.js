@@ -10,20 +10,12 @@ import Footer from './Footer';
 import Events from './Events';
 import SocialNoticeLogo from "../assets/socialnoticelogo.svg";
 import EditorialMember from './EditorialMember';
-import Mena from "../assets/editorialteam/mena.jpeg";
-import Frieda from "../assets/editorialteam/frieda.jpg";
 import Martha from "../assets/editorialteam/martha.jpeg";
 import Douglas from "../assets/editorialteam/douglas.jpg";
 import Silas from "../assets/editorialteam/silas.jpeg";
 import Iyaloo from "../assets/editorialteam/iyaloo.jpg";
+import Josephine from "../assets/editorialteam/josephine.jpeg";
 import IntroAbout from './IntroAbout';
-
-
-
-
-
-
-
 
 const AboutUS = () => {
 
@@ -47,28 +39,28 @@ const AboutUS = () => {
                     type: "twitter"
                 },
             ]
+        },
+        {
+            pic: Josephine,
+            firstName: "Josephine",
+            lastName: "Mbangula",
+            position: "Editor Associate",
+            links: [
+                {
+                    link: "https://www.instagram.com/josephine_mbangula/",
+                    type: "instagram"
+                },
+                {
+                    link: " https://www.linkedin.com/in/josephine-mbangula-2758031a2/",
+                    type: "linkedin"
+                },
+                {
+                    link: "https://twitter.com/Ndjashi1",
+                    type: "twitter"
+                },
+            ]
 
         },
-        // {
-        //     pic: Frieda,
-        //     firstName: "Frieda",
-        //     lastName: "Mukufa",
-        //     position: "Editor",
-        //     links: [
-        //         {
-        //             link: "#",
-        //             type: "facebook"
-        //         },
-        //         {
-        //             link: "#",
-        //             type: "instagram"
-        //         },
-        //         {
-        //             link: "#",
-        //             type: "twitter"
-        //         },
-        //     ]
-        // },
         {
             pic: Martha,
             firstName: "Martha",
@@ -92,10 +84,6 @@ const AboutUS = () => {
             position: "Full Stack Developer",
             links: [
                 {
-                    link: "https://www.facebook.com/douglas.mashonganyika.505",
-                    type: "facebook"
-                },
-                {
                     link: "https://github.com/douglasmasho",
                     type: "github"
                 },
@@ -104,9 +92,9 @@ const AboutUS = () => {
                     type: "instagram"
                 },
                 {
-                    link: "https://twitter.com/douglasmashodev",
-                    type: "twitter"
-                }
+                    link: " www.linkedin.com/in/douglasmasho",
+                    type: "linkedin"
+                },
             ]
 
         },

@@ -17,6 +17,7 @@
     "@testing-library/user-event": "^12.8.3",
     "bootstrap": "^4.6.0",
     "chart.js": "^3.3.0",
+    "env-cmd": "^10.1.0",
     "firebase": "^8.3.2",
     "gsap": "^3.6.1",
     "lottie-web": "^5.7.8",
