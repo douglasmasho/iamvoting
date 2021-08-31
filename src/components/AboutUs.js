@@ -27,7 +27,7 @@ const AboutUS = () => {
             position: "Executive Editor",
             links: [
                 {
-                    link: "https://www.instagram.com/iyaloo_2/?hl=en",
+                    link: "https://www.instagram.com/iyaloo_2",
                     type: "instagram"
                 },
                 {
@@ -72,6 +72,10 @@ const AboutUS = () => {
                     type: "instagram"
                 },
                 {
+                    link: "https://twitter.com/NDEYAPO96",
+                    type: "twitter"
+                },
+                {
                     link: "https://www.youtube.com/channel/UCuLtKffGPMIeTQ7JNGNyznA",
                     type: "youtube"
                 }
@@ -92,7 +96,7 @@ const AboutUS = () => {
                     type: "instagram"
                 },
                 {
-                    link: " www.linkedin.com/in/douglasmasho",
+                    link: "https://www.linkedin.com/in/douglasmasho",
                     type: "linkedin"
                 },
             ]
@@ -109,7 +113,7 @@ const AboutUS = () => {
                     type: "facebook"
                 },
                 {
-                    link: "https://www.instagram.com/dandy_graphix/",
+                    link: "https://www.instagram.com/dandy_graphix",
                     type: "instagram"
                 },
                 {
