@@ -129,7 +129,7 @@
 
     &__social-icon{
         color: white;
-        width: 4rem;
+        width: 3rem;
         transition: all .3s;
         &:hover{
             transform: scale(1.2);
@@ -137,10 +137,10 @@
         }
 
         @include respond(tab-port){
-            width: 6rem;
+            width: 4rem;
         }
         @include respond(phone){
-            width: 7rem;
+            width: 5rem;
         }
     }
     &__social-list{

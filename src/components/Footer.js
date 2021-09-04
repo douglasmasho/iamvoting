@@ -12,7 +12,8 @@ import {bindActionCreators} from "redux";
 import Facebook from "../assets/facebookwhite.svg";
 import Instagram from "../assets/instagramwhite.svg";
 import Twitter from "../assets/twitter.svg";
-
+import Linkedin from "../assets/linkedin.svg";
+import YouTube from "../assets/youtube.svg";
 
 export class Footer extends Component {
     constructor(){
@@ -84,32 +85,32 @@ export class Footer extends Component {
                     </div>
                 </div>
                 <div className="footer__seconddiv__2">
-                        <p className="bigger-text white-text u-margin-bottom-small">Social Media</p>
+                        <p className="bigger-text white-text u-margin-bottom-small">Get Social With</p>
                         <ul style={{listStyle: "none"}} className="footer__social-list  u-margin-bottom-small">
+                            <li><a target="_blank" href="https://www.facebook.com/Iamvoting_nam-102697754419237"><img src={Facebook} alt="facebook-link" className="footer__social-icon"/></a></li>
                             <li><a target="_blank" href="https://twitter.com/see_namibia"><img src={Twitter} alt="twitter-link" className="footer__social-icon"/></a></li>
                             <li><a target="_blank" href="https://www.instagram.com/see_namibia/"><img src={Instagram} alt="instagram-link" className="footer__social-icon"/></a></li>
-                            <li><a target="_blank" href="https://www.facebook.com/Iamvoting_nam-102697754419237"><img src={Facebook} alt="facebook-link" className="footer__social-icon"/></a></li>
+                            <li><a target="_blank" href="https://www.linkedin.com/company/iamvoting-namibia"><img src={Linkedin} alt="instagram-link" className="footer__social-icon"/></a></li>
+                            <li><a target="_blank" href="#"><img src={YouTube} alt="instagram-link" className="footer__social-icon"/></a></li>
+
                        </ul>
-                       <p className="bigger-text white-text u-margin-bottom-small">@see_namibia</p>
                     </div>
 
                     <section id="contactus" className="footer__seconddiv__1">
                        <ul style={{listStyle: "none"}} className="center-vert align-right u-margin-right">
-                           <li><FontAwesomeIcon icon={faPhoneAlt} className="footer__icon"/><p className="white-text normal-text" style={{display: "inline-block"}}>+264 81 550 3063</p></li>
+                           {/* <li><FontAwesomeIcon icon={faPhoneAlt} className="footer__icon"/><p className="white-text normal-text" style={{display: "inline-block"}}>+264 81 550 3063</p></li> */}
                            <li><FontAwesomeIcon icon={faEnvelope} className="footer__icon"/><p className="white-text normal-text" style={{display: "inline-block"}}>seenamibiaorg@gmail.com</p></li>
                            <li><FontAwesomeIcon icon={faMapMarkerAlt} className="footer__icon"/><p className="white-text normal-text" style={{display: "inline-block"}}>Windhoek, Namibia</p></li>
                        </ul>
                        <img src={Logo} alt="" className="footer__logo"/>
                     </section>
-
-                   
-
                 </div>
                 <div className="u-padding-top">
                    {/* <p className="bigger-text white-text" style={{textAlign: "center"}}>Made with  <span><FontAwesomeIcon icon={faHeart} className="footer__icon" style={{color: "orange"}}/></span>by <a style={{color: "orange"}} href="https://douglasmasho.github.io">byteArc</a></p> */}
-                   <p className="normal-text white-text center-text">SEE wishes to acknowledge and thank its partners, who make the accomplishment of our vision a reality.
+                   <p className="normal-text white-text center-text light-text">SEE wishes to acknowledge and thank its partners, who make the accomplishment of our vision a reality.
 All content © SEE Unless otherwise noted images are supplied by SEE Multimedia.
-This website was created by <a href="https://douglasmasho.github.io/" className="link">Douglas Mashonganyika (ByteArc).</a></p>
+
+This website was created by <a href="https://douglasmasho.github.io/" className="link">ByteArc</a></p>
                    <p  className="normal-text white-text" style={{textAlign: "center"}}> &#169; SEE Namibia</p>
                 </div>
             </div>

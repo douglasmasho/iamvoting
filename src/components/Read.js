@@ -33,13 +33,9 @@ const Read = (props) => {
             <div className="herodiv" style={{backgroundImage: `linear-gradient(90deg, rgb(255, 255, 255) 0%, rgba(0,19,255,0.18531162464985995) 65%), url(${BG})`}}>
                 <img src={Header} alt="header" className="articles__header"/>
             </div>
-
-    
-            <div className="center-hrz u-padding-top-large u-margin-bottom-big">
-              {/* <h1 className="aboutus__intro-title">Articles</h1> */}
-            </div>    
+ 
             
-            <div className="grid-2 grid u-margin-bottom-big">
+            <div className="grid-2 grid u-margin-bottom-big read__bg">
                 {
                     props.articles ? props.articles.length > 0 ? props.articles.map(obj=>obj).sort((a,b)=>b.createdAt.valueOf() - a.createdAt.valueOf()).map(article=> !article.draft ? (   
                     <Link key={article.articleID} to={`/read/${article.articleID}`} onClick={()=>{

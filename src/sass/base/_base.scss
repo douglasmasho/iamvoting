@@ -101,3 +101,20 @@ html{
       font-size: 8rem;
     }
   }
+
+
+  .faq{
+    &__bg{
+      background-color: $light-gray;
+    }
+  }
+
+
+  .read{
+    &__bg{
+      background-image: linear-gradient(90deg, rgb(9, 0, 138) 0%, rgba(0,19,255,0.18531162464985995) 65%), url(../../assets/articlesbg.jpg);
+      background-size: cover;
+      background-position-x: center;
+      background-position-y: top;
+    }
+  }
