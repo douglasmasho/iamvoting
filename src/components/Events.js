@@ -11,7 +11,7 @@ const Events = () => {
     let slides = [
                <div className="eventDiv" style={{backgroundImage: `linear-gradient(90deg, rgb(0, 9, 87) 0%, rgba(0,19,255,0.18531162464985995) 69%), url(${Flag})`}}>
                    <ul className="eventDiv__list">
-                       <li>21st: Independece Day</li>
+                       <li>21st: Independence Day</li>
                    </ul>
                    <span className="eventDiv__month">Mar</span>
                </div>  ,
@@ -29,13 +29,13 @@ const Events = () => {
                </div> ,
                    <div className="eventDiv"  style={{backgroundImage: `linear-gradient(337deg, rgb(0, 9, 87) 0%, rgba(0,19,255,0.18531162464985995) 69%), url(${Iyambo})`}}>
                    <ul className="eventDiv__list">
-                       <li>14th: Abraham Iiyambo Archivers awards</li>
+                       <li>14th: Abraham Iyambo Archivers awards</li>
                    </ul>
                    <span className="eventDiv__month">Sept</span>
                </div>,
                 <div className="eventDiv"  style={{backgroundImage: `linear-gradient(90deg, rgb(0, 9, 87) 0%, rgba(0,19,255,0.18531162464985995) 69%), url(${Prefect})`}}>
                     <ul className="eventDiv__list">
-                         <li>15th-19th: LRC training</li>
+                         <li>15th-19th: LRC(Learner's representative council) training</li>
                      </ul>
                      <span className="eventDiv__month">Dec</span>
                  </div>

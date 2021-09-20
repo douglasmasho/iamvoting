@@ -30,13 +30,13 @@ export const servicesData = [
         info: [
             {
                 type: "paragraph",
-                data: "Improve LRC/SRC’S standard of leadership by honing interpersonal and communication skills, their ability to evaluate their progress and track record and moulding them to be active participants in democratic structures."
+                data: "Improve LRC(Learner's representative council)/SRC(Student representative council) standard of leadership by honing interpersonal and communication skills, their ability to evaluate their progress and track record and moulding them to be active participants in democratic structures."
             },
             {
                 type: "list",
                 data: [
-                    "Engage NID and foster an operational agreement.",
-                    "Engage with the respective school management boards to foster a memorandum of understanding for the organization to train their LRCs.",
+                    "Engage NID and develop an operational agreement.",
+                    "Engage with the respective school management boards to foster a memorandum of understanding for the organisation to train their LRCs.",
                     "Engage with the respective SRC’s and universities to foster a memorandum of understanding.",
                     "Engage sponsor/donors to assist in any way.",
                     "Draft a document detailing all the targeted LRC’S/SRC’s in each region."
@@ -45,7 +45,7 @@ export const servicesData = [
         ]
     },
     {
-        name: "Abraham Iiyambo achievement  awards",
+        name: "Abraham Iyambo achievement  awards",
         logo: Awards,
         background: Iyambo,
         images: [
@@ -87,13 +87,13 @@ export const servicesData = [
                 data: [
                     "Set up the Social Notice.",
                     "Engage sponsors/donors and various food outlets and restaurants for the social night",
-                    "Devise mechanisms to create incentives for people to actively participate in the polls on the organization’s website.",
+                    "Devise mechanisms to create incentives for people to actively participate in the polls on the organisation’s website.",
                 ]
             }
         ]
     },
     {
-        name: "Community Restoration Program",
+        name: "Community Restoration programme",
         logo: Restoration,
         background: Flag,
         images: [
@@ -104,13 +104,13 @@ export const servicesData = [
         info: [
             {
                 type: "paragraph",
-                data: "Increase the youth’s engagement and participation within the local Authorities’ programs by encouraging them to be involved in a series of community restoration programs that further the local authority’s developmental agenda."
+                data: "Increase the youth’s engagement and participation within the Local Authorities’ programmes by encouraging them to be involved in a series of community restoration programmes that further the local authority’s developmental agenda."
             },
             {
                 type: "list",
                 data: [
-                    "Engage sponsors/donors to assist financially in the organization of the national events.",
-                    "Create a budget detailing how much the organization is allocating for organization of each national day’s event.",
+                    "Engage sponsors/donors to assist financially in the organisation of the national events.",
+                    "Create a budget detailing how much the organisation is allocating for organisation of each national day’s event.",
                     "Find alternatives to cover for any financial deficit in the allocated budget.",
                     "Formulate a mechanism of tracking the number of people participating in the national day events and device a mechanism to increase participation and awareness on the significance of  the national days."
                 ]
@@ -147,7 +147,7 @@ export const servicesData = [
 
     
     {
-        name: "LRC Forum",
+        name: "LRC(Learner's representative council)  Forum",
         logo: Forum,
         background: ForumBg,
         images: [

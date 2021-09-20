@@ -28,7 +28,7 @@ const Intro = () => {
                   <Tween to={{ width: "", padding: "0.5rem 1rem" }} delay={-0.5} duration={0.6} from={{ width: "0px", padding: 0}}/>
               </Timeline>
               <div className="columnWhenSmall">
-              <p className="showAbove u-margin-top-small normal-text white-text forBig u-margin-bottom" style={{width: "30%"}}>SEE Namibia is a youth-led organization that provides voter and civic education. SEE Namibia is accredited by the Electoral Commission of Namibia.</p>
+              <p className="showAbove u-margin-top-small normal-text white-text forBig u-margin-bottom" style={{width: "30%"}}>SEE Namibia is a youth-led organisation that provides voter and civic education. SEE Namibia is accredited by the Electoral Commission of Namibia.</p>
               <Link className="button showAbove u-margin-top" to="/aboutus">About Us</Link>  
               </div>
 

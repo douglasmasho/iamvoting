@@ -31,10 +31,10 @@ const IntroAbout = () => {
               </Timeline>
               <div className="columnWhenSmall">
               <p className="showAbove u-margin-top-small normal-text white-text forBig u-margin-bottom" style={{width: "40%"}}>Established in 2019, as I Am Voting Namibia now SEE (Socially Enabled Education), We are the
-        first youth organization to be accredited by the 
+        first youth organisation to be accredited by the 
         Electoral Commission of Namibia (ECN). The 
-        organization is registered under the ministry
-        of youth, sport and culture, and we provide 
+        organisation is registered under the Ministry
+        of sports, youth and national services, and we provide 
         voter and civic education to the general public.</p><br /><br />
                 <Link to="/terms" className="showAbove"><button className="button" style={{borderRadius: "20px"}}><p className="deep-blue-text center-text bigger-text">View Policies and Guidelines</p></button></Link>
               </div>

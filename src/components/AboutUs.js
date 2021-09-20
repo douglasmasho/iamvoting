@@ -44,7 +44,7 @@ const AboutUS = () => {
             pic: Josephine,
             firstName: "Josephine",
             lastName: "Mbangula",
-            position: "Editor Associate",
+            position: "Associate Editor",
             links: [
                 {
                     link: "https://www.instagram.com/josephine_mbangula/",
@@ -190,7 +190,7 @@ const AboutUS = () => {
                                                 leading light is the vision and mission of this network.
                                             </li>
                                             <li className="u-margin-bottom"><strong style={{display: "block"}}>Inclusiveness:</strong>
-                                            We recognize the powerful role played by local authorities in times of crisis and in development. We want to foster an understanding of the important role played by local 
+                                            We recognize the powerful role played by Local Authorities in times of crisis and in development. We want to foster an understanding of the important role played by local 
                                             authorities in times of crisis and in fostering development.
                                             </li>
                                             <li className="u-margin-bottom"><strong style={{display: "block"}}>Commitment:</strong>
@@ -199,7 +199,7 @@ const AboutUS = () => {
                                             </li>
                                             <li className="u-margin-bottom"><strong style={{display: "block"}}>Professionalism and objectivity:</strong>
                                                 The work is based on professional practices that are clear, smooth, and well known to all the pioneers of the
-                                                organization from various social and economic levels.
+                                                organisation from various social and economic levels.
                                             </li>
                                         </ul>
                                     </div>
