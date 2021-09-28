@@ -1,7 +1,6 @@
-import React, {useRef, useState, useEffect} from 'react';
-import {nanoid} from "nanoid";
+import React, { useState} from 'react';
 import firebase from 'firebase/app';
-import { Redirect, Link} from "react-router-dom";
+import { Redirect} from "react-router-dom";
 import {connect} from "react-redux";
 
 

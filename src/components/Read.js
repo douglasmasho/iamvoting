@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import firebase from 'firebase/app';
 import {connect} from "react-redux";
 import Navbar from './Navbar';
 import Footer from './Footer';
@@ -10,7 +9,6 @@ import {Link} from "react-router-dom";
 import moment from "moment";
 import * as actionCreators from "../redux/actions";
 import {bindActionCreators} from "redux";
-import {Timeline, Tween } from 'react-gsap';
 import BG from "../assets/bgs/articles.jpg";
 
 

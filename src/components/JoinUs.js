@@ -4,7 +4,6 @@ import * as actionCreators from "../redux/actions";
 import {bindActionCreators} from "redux";
 import Navbar from './Navbar';
 import Footer from './Footer';
-import {Link} from "react-router-dom";
 import IntroJoin from './IntroJoin';
 
 

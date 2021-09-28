@@ -1,7 +1,6 @@
 import React, { Component, createRef } from 'react'
 import Logo from "../assets/seelogodarkbg.svg"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
 import {connect} from "react-redux";
@@ -99,7 +98,7 @@ export class Footer extends Component {
                     <section id="contactus" className="footer__seconddiv__1">
                        <ul style={{listStyle: "none"}} className="center-vert align-right u-margin-right">
                            {/* <li><FontAwesomeIcon icon={faPhoneAlt} className="footer__icon"/><p className="white-text normal-text" style={{display: "inline-block"}}>+264 81 550 3063</p></li> */}
-                           <li><FontAwesomeIcon icon={faEnvelope} className="footer__icon"/><p className="white-text normal-text" style={{display: "inline-block"}}>seenamibiaorg@gmail.com</p></li>
+                           <li><FontAwesomeIcon icon={faEnvelope} className="footer__icon"/><a href="mailto:hi@seenamibia.org.com" className="white-text normal-text" style={{display: "inline-block"}}>hi@seenamibia.org</a></li>
                            <li><FontAwesomeIcon icon={faMapMarkerAlt} className="footer__icon"/><p className="white-text normal-text" style={{display: "inline-block"}}>Windhoek, Namibia</p></li>
                        </ul>
                        <img src={Logo} alt="" className="footer__logo"/>

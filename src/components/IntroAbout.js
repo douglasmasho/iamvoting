@@ -1,5 +1,5 @@
 import React from 'react';
-import { Controls, PlayState, Timeline, Tween } from 'react-gsap';
+import { Timeline, Tween } from 'react-gsap';
 import BackgroundSlideshow from 'react-background-slideshow';
 import Image1 from "../assets/bgs/ps6.jpg";
 import Image2 from "../assets/bgs/ps7.jpg";
