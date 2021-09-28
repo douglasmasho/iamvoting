@@ -109,7 +109,7 @@ export class Footer extends Component {
                    <p className="normal-text white-text center-text light-text">SEE wishes to acknowledge and thank its partners, who make the accomplishment of our vision a reality.
 All content © SEE Unless otherwise noted images are supplied by SEE Multimedia.
 
-This website was created by <a href="https://douglasmasho.github.io/" className="link">ByteArc</a></p>
+This website was created by <a href="https://douglasmasho.ml/" className="link">ByteArc</a></p>
                    <p  className="normal-text white-text" style={{textAlign: "center"}}> &#169; SEE Namibia</p>
                 </div>
             </div>
