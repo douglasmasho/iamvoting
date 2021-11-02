@@ -10,8 +10,10 @@ import Loading from './components/Loading';
 function App(props) {
   return (
     <div className="App">  
-    {/* goes to next👇 */}
+        {/* goes to next👇 */}
+
         <Home/>
+
         {/*👇 stays in react */}
         <Route path="/write/:action" component={Dashboard}/>
         <Route path="/loading" component={Loading}/>

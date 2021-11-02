@@ -6,7 +6,7 @@ import "firebase/analytics";
 //remember to import whatever functionality you need from firebase
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCKu33RFo02Wiu_6nZdUqcXVgT_wO8pn6o",
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: "iamvoting-628bb.firebaseapp.com",
     projectId: "iamvoting-628bb",
     storageBucket: "iamvoting-628bb.appspot.com",
